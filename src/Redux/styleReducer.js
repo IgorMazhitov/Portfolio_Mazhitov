@@ -5,8 +5,6 @@ import {
   CSS_INFO_SHOW_2,
   C_ANIM_HIDE,
   C_ANIM_SHOW,
-  HTML_ANIM_HIDE,
-  HTML_ANIM_SHOW,
   H_ANIM_HIDE,
   H_ANIM_SHOW,
   JS_ADV_TEXT_ANIMATION_1,
@@ -28,6 +26,8 @@ import {
   LEFT_DOWN,
   LEFT_DOWN_HOVER_ON,
   LEFT_DOWN_HOVER_OUT,
+  LEFT_DOWN_STRIPES_HIDE,
+  LEFT_DOWN_STRIPES_SHOW,
   L_ANIM_HIDE,
   L_ANIM_SHOW,
   MAIN_HOR,
@@ -87,6 +87,16 @@ const initialState = {
     "w-0 text-black overflow-hidden duration-300 bg-yellow-400 transition-all",
   s2Style:
     "w-0 text-black overflow-hidden duration-300 bg-yellow-400 transition-all",
+  stripes1: "h-12 transiliton-all overflow-hidden duration-300 w-0 bg-black",
+  stripes2:
+    " h-14 transiliton-all overflow-hidden duration-300 w-0 bg-yellow-400",
+  stripes3: " h-11 transiliton-all overflow-hidden duration-300 w-0 bg-black",
+  stripes4:
+    " h-[10%] transiliton-all overflow-hidden duration-300 w-0 bg-yellow-400",
+  stripes5:
+    " h-[10%] transiliton-all overflow-hidden duration-300 w-0 bg-black",
+  stripes6:
+    " h-[10%] transiliton-all overflow-hidden duration-300 w-0 bg-yellow-400",
 };
 
 export const styleReducer = (state = initialState, action) => {
@@ -193,6 +203,28 @@ export const styleReducer = (state = initialState, action) => {
             "flag h-0 top-72 z-0 w-1/2 overflow-hidden",
         };
       }
+
+    case LEFT_DOWN_STRIPES_SHOW:
+      return {
+        ...state,
+        stripes1: state.stripes1.replace("w-0", "w-1/3"),
+        stripes2: state.stripes2.replace("w-0", "w-1/4"),
+        stripes3: state.stripes3.replace("w-0", "w-2/3"),
+        stripes4: state.stripes4.replace("w-0", "w-[40%]"),
+        stripes5: state.stripes5.replace("w-0", "w-[55%]"),
+        stripes6: state.stripes6.replace("w-0", "w-[70%]"),
+      };
+
+    case LEFT_DOWN_STRIPES_HIDE:
+      return {
+        ...state,
+        stripes1: state.stripes1.replace("w-1/3", "w-0"),
+        stripes2: state.stripes2.replace("w-1/4", "w-0"),
+        stripes3: state.stripes3.replace("w-2/3", "w-0"),
+        stripes4: state.stripes4.replace("w-[40%]", "w-0"),
+        stripes5: state.stripes5.replace("w-[55%]", "w-0"),
+        stripes6: state.stripes6.replace("w-[70%]", "w-0"),
+      };
 
     case REACT_INFO_SHOW_1:
       return {

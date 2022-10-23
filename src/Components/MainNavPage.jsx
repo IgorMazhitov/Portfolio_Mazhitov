@@ -12,6 +12,8 @@ import {
   LEFT_DOWN,
   LEFT_DOWN_HOVER_ON,
   LEFT_DOWN_HOVER_OUT,
+  LEFT_DOWN_STRIPES_HIDE,
+  LEFT_DOWN_STRIPES_SHOW,
   MAIN_HOR,
   MAIN_HOR_HOVER_ON,
   MAIN_HOR_HOVER_OUT,
@@ -39,6 +41,7 @@ const MainNavPage = (props) => {
   const JSStyle = useSelector((state) => state.style.jsInfoStyle);
   const cssInfo = useSelector((state) => state.style.cssInfo);
   const cssInfoStyle = useSelector((state) => state.style.cssInfoStyle);
+  const {stripes1, stripes2, stripes3, stripes4, stripes5, stripes6} = useSelector(state => state.style)
 
   const show = () => {
     dispatch({ type: MAIN_HOR });
@@ -71,10 +74,36 @@ const MainNavPage = (props) => {
       }
 
       setTimeout(() => {
+        dispatch({type: LEFT_DOWN_STRIPES_HIDE})
+      }, 600)
+
+      setTimeout(() => {
         dispatch({ type: LEFT_DOWN });
-      }, 600);
+      }, 900);
     } else {
-      dispatch({ type: LEFT_DOWN });
+
+        if (leftDown.match('h-0')) {
+
+            dispatch({ type: LEFT_DOWN });
+
+            setTimeout(() => {
+
+                dispatch({type: LEFT_DOWN_STRIPES_SHOW})
+
+            }, 300)
+
+        } else {
+
+            dispatch({type: LEFT_DOWN_STRIPES_HIDE})
+
+            setTimeout(() => {
+
+                dispatch({type: LEFT_DOWN})
+
+            }, 300)  
+
+        }
+
     }
   };
 
@@ -239,15 +268,12 @@ const MainNavPage = (props) => {
 
         <div className="absolute flex flex-col justify-start left-full top-0 w-full h-screen pt-10 -z-[1]">
 
-            <div className="h-12 w-1/3 bg-black"></div>
-
-            <div className=" h-14 w-1/4 bg-yellow-400"> </div>
-
-            <div className=" h-11 w-2/3 bg-black"> </div>
-
-            <div className=" h-11 w-2/3 bg-black"> </div>
-
-
+            <div className={stripes1}></div>
+            <div className={stripes2}></div>
+            <div className={stripes3}></div>
+            <div className={stripes4}></div>
+            <div className={stripes5}></div>
+            <div className={stripes6}></div>
 
         </div>
 

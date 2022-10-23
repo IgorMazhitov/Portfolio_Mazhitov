@@ -70,3 +70,6 @@ export const S_ANIM_SHOW = "SHOW/S_ANIM"
 export const S_ANIM_HIDE = "HIDE/S_ANIM"
 export const S2_ANIM_SHOW = "SHOW/S2_ANIM"
 export const S2_ANIM_HIDE = "HIDE/S2_ANIM"
+
+export const LEFT_DOWN_STRIPES_SHOW = "SHOW/LEFT_DOWN_STRIPES"
+export const LEFT_DOWN_STRIPES_HIDE = "HIDE/LEFT_DOWN_STRIPES"
