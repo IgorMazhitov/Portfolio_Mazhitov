@@ -1,4 +1,6 @@
 import {
+  BIO_BASICS_LEFT,
+  BIO_BASICS_RIGHT,
   JS_ADV_LEFT,
   JS_ADV_RIGHT,
   JS_BASICS_LEFT,
@@ -29,7 +31,7 @@ const initialState = {
     "Asynchronous JS",
     "Working with APIs",
     "Classes",
-    "Javascript Iterators and Generators",
+    "Iter/Generators",
     "Modules",
     "Memory Management",
   ],
@@ -41,6 +43,21 @@ const initialState = {
     "Junior+",
     "Junior+",
     "Junior+",
+  ],
+  bioBasics: [
+    [24, 'ISTANBUL', 'TURKEY', 'FRONT-END', 'SPORT', 'TRAVELLING', 'CHALLENGES']
+  ],
+  elBio: 0,
+  bioPar: [
+    "1",
+    "2",
+    "3.",
+    "4.",
+    "5.",
+    "6.",
+    "7.",
+    "8.",
+    "9.",
   ],
 };
 

@@ -29,7 +29,7 @@ const CssInfo = (props) => {
 
   return (
     <div className={props.elStyle}>
-      <div>
+      <div className="whitespace-nowrap flex flex-col">
         <div className="flex flex-row justify-between">
           <div className="flex flex-row">
             <div className="flex flex-row">
@@ -77,9 +77,9 @@ const CssInfo = (props) => {
 
           <p> :hover </p>
         </div>
-        <div className="text-center">
-          {" "}
-          <p> Basics </p> <p> Forms and Validations </p>{" "}
+        <div className="text-center whitespace-nowrap">
+          <p> Basics </p> 
+          <p> Forms and Validations </p>
         </div>
         <p className="pt-2 border-b-2 pb-2"> MIDDLE </p>
       </div>

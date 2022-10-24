@@ -6,7 +6,7 @@ const ReactInfo = (props) => {
 
   return (
     <div className={elStyle}>
-      <div className="flex flex-row justify-between pb-2 border-b-4 border-slate-100">
+      <div className="flex flex-row justify-between pb-2 border-b-4 border-slate-100 whitespace-nowrap">
         <p>
           {" "}
           React Hooks:

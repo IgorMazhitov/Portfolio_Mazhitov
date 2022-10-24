@@ -10,8 +10,6 @@ import {
   JS_INFO_SHOW_1,
   JS_INFO_SHOW_2,
   LEFT_DOWN,
-  LEFT_DOWN_HOVER_ON,
-  LEFT_DOWN_HOVER_OUT,
   LEFT_DOWN_STRIPES_HIDE,
   LEFT_DOWN_STRIPES_SHOW,
   MAIN_HOR,
@@ -23,28 +21,46 @@ import {
   REACT_INFO_SHOW_1,
   REACT_INFO_SHOW_2,
   REACT_INFO_SHOW_3,
+  SOFT_SKILLS_HIDE,
+  SOFT_SKILLS_SHOW,
 } from "../Redux/types";
-import CssInfo from "./CssInfo";
-import JSInfo from "./JSInfo";
-import ReactInfo from "./ReactInfo";
+import HardSkills from "./HardSkills";
+import SoftSkills from "./SoftSkills";
 
 const MainNavPage = (props) => {
   const dispatch = useDispatch();
   const mainHor = useSelector((state) => state.style.mainHor);
-  const rightPart = useSelector((state) => state.style.rightPart);
-  const leftPart = useSelector((state) => state.style.leftPart);
-  const leftVert = useSelector((state) => state.style.leftVert);
-  const leftDown = useSelector((state) => state.style.leftDownPart);
-  const reactInfo = useSelector((state) => state.style.reactInfo);
-  const jsInfo = useSelector((state) => state.style.jsInfo);
-  const reactInfoStyle = useSelector((state) => state.style.leftDownPartStyle);
-  const JSStyle = useSelector((state) => state.style.jsInfoStyle);
-  const cssInfo = useSelector((state) => state.style.cssInfo);
-  const cssInfoStyle = useSelector((state) => state.style.cssInfoStyle);
-  const {stripes1, stripes2, stripes3, stripes4, stripes5, stripes6} = useSelector(state => state.style)
+
+  const { leftPart, rightPart } = useSelector((state) => state.style);
+
+  const { triggerHS, hardSkills, triggerSS } = useSelector(
+    (state) => state.style
+  );
+  const { reactInfo, cssInfo, jsInfo } = useSelector((state) => state.style);
+  const { softSkills } = useSelector((state) => state.soft);
 
   const show = () => {
-    dispatch({ type: MAIN_HOR });
+    if (jsInfo || reactInfo || cssInfo) {
+      showHidehardSkills();
+
+      setTimeout(() => {
+        dispatch({ type: MAIN_HOR });
+      }, 1500);
+    } else if (!hardSkills.match("h-0")) {
+      showHidehardSkills();
+
+      setTimeout(() => {
+        dispatch({ type: MAIN_HOR });
+      }, 900);
+    } else if (!softSkills.match("h-0")) {
+      dispatch({ type: SOFT_SKILLS_HIDE });
+
+      setTimeout(() => {
+        dispatch({ type: MAIN_HOR });
+      }, 600);
+    } else {
+      dispatch({ type: MAIN_HOR });
+    }
   };
 
   const mainHorHover = (pos) => {
@@ -53,13 +69,7 @@ const MainNavPage = (props) => {
       : dispatch({ type: MAIN_HOR_HOVER_OUT });
   };
 
-  const leftDownHover = (pos) => {
-    pos === "ON"
-      ? dispatch({ type: LEFT_DOWN_HOVER_ON })
-      : dispatch({ type: LEFT_DOWN_HOVER_OUT });
-  };
-
-  const showHideLeftDown = () => {
+  const showHidehardSkills = () => {
     if (reactInfo || jsInfo || cssInfo) {
       if (reactInfo) {
         showHideReact();
@@ -74,36 +84,26 @@ const MainNavPage = (props) => {
       }
 
       setTimeout(() => {
-        dispatch({type: LEFT_DOWN_STRIPES_HIDE})
-      }, 600)
+        dispatch({ type: LEFT_DOWN_STRIPES_HIDE });
+      }, 600);
 
       setTimeout(() => {
         dispatch({ type: LEFT_DOWN });
       }, 900);
     } else {
+      if (hardSkills.match("h-0")) {
+        dispatch({ type: LEFT_DOWN });
 
-        if (leftDown.match('h-0')) {
+        setTimeout(() => {
+          dispatch({ type: LEFT_DOWN_STRIPES_SHOW });
+        }, 300);
+      } else {
+        dispatch({ type: LEFT_DOWN_STRIPES_HIDE });
 
-            dispatch({ type: LEFT_DOWN });
-
-            setTimeout(() => {
-
-                dispatch({type: LEFT_DOWN_STRIPES_SHOW})
-
-            }, 300)
-
-        } else {
-
-            dispatch({type: LEFT_DOWN_STRIPES_HIDE})
-
-            setTimeout(() => {
-
-                dispatch({type: LEFT_DOWN})
-
-            }, 300)  
-
-        }
-
+        setTimeout(() => {
+          dispatch({ type: LEFT_DOWN });
+        }, 300);
+      }
     }
   };
 
@@ -203,12 +203,21 @@ const MainNavPage = (props) => {
     }
   };
 
+  const showHideSoftSkills = () => {
+    if (softSkills.match("h-0")) {
+      dispatch({ type: SOFT_SKILLS_SHOW });
+    } else {
+      dispatch({ type: SOFT_SKILLS_HIDE });
+      document.getElementById('text').innerHTML = ''
+    }
+  };
+
   return (
     <div className=" h-full w-full">
       <div className={leftPart}>
-        <p className="ml-4"> FRONT-END DEVELOPER </p>
+        <p className="ml-4 font-bold text-5xl"> FRONT-END DEVELOPER </p>
 
-        <p className="ml-4"> REACT JS HTML CSS </p>
+        <p className="ml-4 font-bold text-4xl"> REACT JS HTML CSS </p>
       </div>
 
       <div
@@ -222,75 +231,25 @@ const MainNavPage = (props) => {
       </div>
 
       <div className={rightPart}>
-        <p className="mr-4"> IGOR MAZHITOV </p>
+        <p className="mr-4 font-bold text-5xl"> IGOR MAZHITOV </p>
 
-        <p className="mr-4"> ISTANBUL, TURKEY </p>
+        <p className="mr-4 font-bold text-4xl"> ISTANBUL, TURKEY </p>
       </div>
 
-      <div className={leftDown}>
-        <div className="flex flex-row justify-between items-center w-full h-20 font-sans font-bold relative">
-          <div>
-            <div
-              className="w-36 transition-all cursor-pointer hover:border-b-4 border-black"
-              onClick={() => showHideReact()}
-            >
-              {" "}
-              REACT JS{" "}
-            </div>
+      <HardSkills
+        func={{ css: showHideCSS, JS: showHideJS, React: showHideReact }}
+      />
 
-            <ReactInfo elStyle={reactInfoStyle} />
-          </div>
-
-          <div>
-            <div
-              className="transition-all cursor-pointer hover:border-b-4 border-black w-24 text-center"
-              onClick={() => showHideJS()}
-            >
-              {" "}
-              JS{" "}
-            </div>
-
-            <JSInfo elStyle={JSStyle} />
-          </div>
-
-          <div>
-            <div
-              className="transition-all cursor-pointer hover:border-b-4 border-black w-[152px]"
-              onClick={() => showHideCSS()}
-            >
-              {" "}
-              HTML|CSS{" "}
-            </div>
-
-            <CssInfo elStyle={cssInfoStyle} />
-          </div>
-        </div>
-
-        <div className="absolute flex flex-col justify-start left-full top-0 w-full h-screen pt-10 -z-[1]">
-
-            <div className={stripes1}></div>
-            <div className={stripes2}></div>
-            <div className={stripes3}></div>
-            <div className={stripes4}></div>
-            <div className={stripes5}></div>
-            <div className={stripes6}></div>
-
-        </div>
-
-
-
-      </div>
-
-      <div
-        className={leftVert}
-        onMouseEnter={() => leftDownHover("ON")}
-        onMouseLeave={() => leftDownHover("OUT")}
-        onClick={() => showHideLeftDown()}
-      >
+      <div className={triggerHS} onClick={() => showHidehardSkills()}>
         <div className="h-full w-1/2 bg-black"></div>
         <div className="h-full w-1/2 bg-yellow-400"></div>
       </div>
 
+      <div className={triggerSS} onClick={() => showHideSoftSkills()}>
+        <div className="h-full w-1/2 bg-black"></div>
+        <div className="h-full w-1/2 bg-teal-400"></div>
+      </div>
+      <SoftSkills />
     </div>
   );
 };

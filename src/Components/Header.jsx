@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="absolute top-0 w-full flex flex-row justify-between items-center p-4 font-sans text-lg">
+    <div className="absolute top-0 w-full flex flex-row justify-between items-center p-4 text-lg">
       <div className=" font-bold text-4xl "> Portfolio. </div>
 
       <div className=" flex flex-row justify-evenly items-center w-96">

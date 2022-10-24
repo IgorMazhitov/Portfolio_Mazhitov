@@ -116,63 +116,50 @@ const JSInfo = (props) => {
 
   return (
     <div className={props.elStyle}>
-      <div className=" text-slate-100">
-        <p> Basics: </p>
-
-        <div className="flex flex-row items-center justify-between">
-          {" "}
-          <button className="w-10 h-full" onClick={BasicsLeft}>
-            {" "}
-            {leftArrow}{" "}
-          </button>{" "}
-          <p className={jsBasicText}> {jsBasic[el]} </p>{" "}
-          <button className="w-10 h-full" onClick={BasicsRight}>
-            {" "}
-            {rightArrow}{" "}
-          </button>{" "}
-        </div>
-        <div className="flex flex-row w-full items-center justify-center">
-          {" "}
-          <p
-            className={
-              jsBasicText.replace("w-full", "w-36") +
-              " py-2 uppercase border-t-2 border-slate-100"
-            }
-          >
-            {" "}
-            {jsBasicLevel[el]}{" "}
-          </p>{" "}
-        </div>
-      </div>
-
-      <div className=" text-slate-100 pt-1">
-        <p> Advanced: </p>
-
-        <div className="flex flex-row items-center justify-between">
-          {" "}
-          <button className="w-10 h-full" onClick={AdvancedLeft}>
-            {" "}
-            {leftArrow}{" "}
-          </button>{" "}
-          <p className={jsAdvText}> {jsAdvanced[elAdv]} </p>{" "}
-          <button className="w-10 h-full" onClick={AdvancedRight}>
+        <p className="text-slate-100 mb-2"> Basics: </p>
+        <div className="flex flex-row justify-between w-full h-32 text-slate-100">
+            <button
+            className="w-10 h-full flex justify-center items-center"
+            onClick={BasicsLeft}
+            >
+                {" "}
+                {leftArrow}{" "}
+            </button>{" "}
+            <div className="flex flex-col items-center justify-between">
+                <p className={jsBasicText}> {jsBasic[el]} </p>{" "}
+                <p className=" w-72 h-[2px] bg-slate-100"></p>
+                <p className={jsBasicText}> {jsBasicLevel[el]} </p>{" "}
+            </div>
+            <button className="w-10 h-full" onClick={BasicsRight}>
             {" "}
             {rightArrow}{" "}
-          </button>{" "}
+            </button>
         </div>
-        <div className="flex flex-row w-full items-center justify-center">
-          {" "}
-          <p
-            className={
-              jsAdvText.replace("w-full", "w-36") +
-              " py-2 uppercase border-t-2 border-slate-100"
-            }
-          >
-            {" "}
-            {jsAdvancedLevel[elAdv]}{" "}
-          </p>{" "}
+
+        <p className="text-slate-100 mb-2"> Advanced: </p>
+        <div className="flex flex-row justify-between text-slate-100 h-32">
+            <button className="w-10 h-full" onClick={AdvancedLeft}>
+                {leftArrow}{" "}
+            </button>{" "}
+
+            <div className="flex flex-col items-center justify-between">
+                <p className={jsAdvText}> {jsAdvanced[elAdv]} </p>{" "}
+                <p className=" w-72 h-[2px] bg-slate-100"></p>
+                <p
+                    className={
+                    jsAdvText
+                    }
+                >
+                    {" "}
+                    {jsAdvancedLevel[elAdv]}{" "}
+                </p>{" "}
+          
+            </div>
+            <button className="w-10 h-full" onClick={AdvancedRight}>
+                {" "}
+                {rightArrow}{" "}
+            </button>{" "}
         </div>
-      </div>
     </div>
   );
 };

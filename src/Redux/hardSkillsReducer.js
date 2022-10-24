@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import {
   CSS_INFO_HIDE_1,
   CSS_INFO_HIDE_2,
@@ -24,8 +25,6 @@ import {
   JS_INFO_SHOW_1,
   JS_INFO_SHOW_2,
   LEFT_DOWN,
-  LEFT_DOWN_HOVER_ON,
-  LEFT_DOWN_HOVER_OUT,
   LEFT_DOWN_STRIPES_HIDE,
   LEFT_DOWN_STRIPES_SHOW,
   L_ANIM_HIDE,
@@ -43,6 +42,7 @@ import {
   REACT_INFO_SHOW_3,
   S2_ANIM_HIDE,
   S2_ANIM_SHOW,
+  SOFT_SKILLS_SHOW,
   S_ANIM_HIDE,
   S_ANIM_SHOW,
   T_ANIM_HIDE,
@@ -51,28 +51,32 @@ import {
 
 const initialState = {
   mainHor:
-    "absolute h-10 w-10 top-56 left-1/2 -translate-x-1/2 flex flex-row-reverse cursor-pointer z-10 transition-all",
+    "absolute h-10 w-10 top-56 left-1/2 -translate-x-1/2 rotate-0 flex flex-row-reverse cursor-pointer z-10 transition-all duration-300",
   leftPart:
-    "z-10 absolute h-40 w-1/2 top-40 text-4xl text-slate-100 font-sans flex justify-evenly items-start flex-col bg-black transition-all",
+    "duration-300 absolute z-10 h-40 w-1/2 top-40 text-3xl text-slate-100 flex flex-col justify-evenly items-start bg-black transition-all translate-x-0 opacity-1",
   rightPart:
-    "absolute h-40 w-1/2 top-40 right-0 text-4xl text-slate-100 fomt-sans flex flex-col justify-evenly items-end opacity-0 transition-all -translate-x-full",
-  leftVert:
-    "absolute h-10 w-10 top-72 translate-y-3 left-1/4 -translate-x-1/2 flex flex-row-reverse cursor-pointer z-10 transition-all rotate-90",
-  leftDownPart:
-    "absolute bg-yellow-400 p-4 text-3xl transition-all duration-300 flag w-1/2 h-0 top-72 z-0 overflow-hidden",
-  leftDownPartStyle:
+    "duration-300 absolute z-[2] h-40 w-1/2 top-40 right-0 text-3xl text-slate-100 flex flex-col justify-evenly items-end opacity-0 transition-all -translate-x-full",
+  triggerHS:
+    "absolute hover:rotate-0 h-10 w-10 duration-300 top-72 translate-y-3 left-1/4 -translate-x-1/2 flex flex-row-reverse cursor-pointer z-10 transition-all rotate-90",
+  triggerSS:
+    "absolute hidden h-10 w-10 duration-300 top-72 translate-y-3 left-3/4 -translate-x-1/2 flex flex-row-reverse cursor-pointer z-10 transition-all rotate-90 hover:rotate-180",
+  hardSkills:
+    "absolute bg-yellow-400 p-4 text-3xl transition-all duration-300 w-1/2 h-0 top-72 z-0 overflow-hidden opacity-0",
+  softSkills:
+    "absolute bg-teal-400 text-3xl transition-all duration-300 flag w-1/2 h-0 top-72 right-0 z-0 overflow-hidden",
+  reactInfoStyle:
     "p-4 absolute top-12 translate-y-2 bg-black text-slate-100 transition-all duration-300 flag w-36 overflow-auto h-0 opacity-0",
   reactInfo: false,
   jsInfoStyle:
     "absolute p-4 overflow-hidden transition-all duration-300 left-0 bg-black w-24 h-0 opacity-0",
   jsInfo: false,
   jsBasicText:
-    "transition-all duration-75 w-full text-center flex justify-center items-center",
+    "transition-all h-[45%] duration-75 w-full text-center flex justify-center items-center opacity-1 translate-x-0",
   jsAdvText:
-    "transition-all duration-75 w-full text-center h-20 flex justify-center items-center",
+    "transition-all h-[45%] duration-75 w-full text-center flex justify-center items-center opacity-1 translate-x-0",
   cssInfo: false,
   cssInfoStyle:
-    "absolute top-12 text-slate-100 p-4 bg-black transition-all translate-y-2 duration-300 right-0 w-[152px] overflow-hidden h-0 opacity-0",
+    "absolute top-12 text-slate-100 p-4 bg-black transition-all translate-y-2 duration-300 right-0 w-[152px] overflow-hidden h-0 opacity-0 whitespace-nowrap flex-nowrap",
   hStyle:
     "w-0 text-black overflow-hidden duration-300 bg-yellow-400 transition-all",
   tStyle:
@@ -87,52 +91,48 @@ const initialState = {
     "w-0 text-black overflow-hidden duration-300 bg-yellow-400 transition-all",
   s2Style:
     "w-0 text-black overflow-hidden duration-300 bg-yellow-400 transition-all",
-  stripes1: "h-12 transiliton-all overflow-hidden duration-300 w-0 bg-black",
+  stripes1:
+    "text-transparent whitespace-nowrap flex justify-center items-center font-bold h-14 transiliton-all overflow-hidden duration-300 w-0 bg-black hover:w-[40%] hover:text-yellow-400",
   stripes2:
-    " h-14 transiliton-all overflow-hidden duration-300 w-0 bg-yellow-400",
-  stripes3: " h-11 transiliton-all overflow-hidden duration-300 w-0 bg-black",
-  stripes4:
-    " h-[10%] transiliton-all overflow-hidden duration-300 w-0 bg-yellow-400",
-  stripes5:
-    " h-[10%] transiliton-all overflow-hidden duration-300 w-0 bg-black",
-  stripes6:
-    " h-[10%] transiliton-all overflow-hidden duration-300 w-0 bg-yellow-400",
+    "text-transparent whitespace-nowrap flex justify-center items-center font-bold h-14 transiliton-all overflow-hidden duration-300 w-0 bg-yellow-400 hover:w-[55%] hover:text-black",
+  stripeV: "absolute top-0 right-0 bg-black duration-300 h-0 w-[2px] opacity-0",
 };
 
-export const styleReducer = (state = initialState, action) => {
+export const hardSkillsReducer = (state = initialState, action) => {
   switch (action.type) {
     case MAIN_HOR:
       if (state.leftPart.match("opacity-0")) {
         return {
           ...state,
-          leftVert: state.leftVert.replace(" hidden", ""),
-          leftPart: state.leftPart.replace(
-            /( translate-x-full)|(opacity-0)/g,
-            ""
-          ),
-          rightPart:
-            state.rightPart.replace(/(bg-black)/g, "") +
-            "opacity-0 -translate-x-full",
-          mainHor: state.mainHor.replace(/( rotate-180)|( rotate-90)/g, ""),
-          leftDownPart:
-            state.leftDownPart
-              .replace(" hidden", "")
-              .split("flag")
-              .splice(0, 1)
-              .join("") + "flag h-0 top-72 z-0 w-1/2 overflow-hidden",
+          triggerHS: state.triggerHS.replace(" hidden", ""),
+          leftPart: state.leftPart
+            .replace("translate-x-full", "")
+            .replace("opacity-0", "opacity-1"),
+          rightPart: state.rightPart
+            .replace("bg-black", "")
+            .replace("opacity-1", "opacity-0")
+            .replace("translate-x-0", "-translate-x-full"),
+          mainHor: state.mainHor.replace("rotate-180", "rotate-90"),
+          hardSkills: state.hardSkills.replace(" hidden", ""),
+          triggerSS: state.triggerSS + " hidden",
         };
       } else {
         return {
           ...state,
-          leftVert: state.leftVert + " hidden",
-          leftPart: state.leftPart + "translate-x-full opacity-0",
+          triggerHS: state.triggerHS + " hidden",
+          leftPart: state.leftPart
+            .replace("translate-x-0", "translate-x-full")
+            .replace("opacity-1", "opacity-0"),
           rightPart:
-            state.rightPart.replace(/(opacity-0)|(-translate-x-full)/g, "") +
-            "bg-black",
-          mainHor: state.mainHor.replace(/( rotate-90)/g, "") + " rotate-180",
-          leftDownPart:
-            state.leftDownPart.split("flag").splice(0, 1).join("") +
-            "flag h-0 top-72 z-0 w-1/2 overflow-hidden hidden",
+            state.rightPart
+              .replace("opacity-0", "opacity-1")
+              .replace("-translate-x-full", "translate-x-0") + " bg-black",
+          mainHor: state.mainHor.replace("rotate-0", "rotate-180"),
+          hardSkills:
+            state.hardSkills
+              .replace("h-full", "h-0")
+              .replace("top-80", "top-72") + " hidden",
+          triggerSS: state.triggerSS.replace(" hidden", ""),
         };
       }
 
@@ -140,97 +140,77 @@ export const styleReducer = (state = initialState, action) => {
       if (state.rightPart.match("bg-black")) {
         return {
           ...state,
-          mainHor: state.mainHor.replace(/(rotate-180)/g, "rotate-90"),
+          mainHor: state.mainHor.replace("rotate-180", "rotate-90"),
         };
       } else {
-        if (!state.mainHor.match("rotate-90")) {
-          return {
-            ...state,
-            mainHor: state.mainHor + " rotate-90",
-          };
-        } else {
-          return state;
-        }
+        return {
+          ...state,
+          mainHor: state.mainHor.replace("rotate-0", "rotate-90"),
+        };
       }
 
     case MAIN_HOR_HOVER_OUT:
-      if (state.rightPart.match("bg-black")) {
+      if (
+        state.mainHor.match("rotate-90") &&
+        state.rightPart.match("opacity-0")
+      ) {
         return {
           ...state,
-          mainHor: state.mainHor.replace(/(rotate-90)/g, "rotate-180"),
+          mainHor: state.mainHor.replace("rotate-90", "rotate-0"),
         };
       } else {
-        if (state.mainHor.match("rotate-90")) {
-          return {
-            ...state,
-            mainHor: state.mainHor.replace(/( rotate-90)/g, ""),
-          };
-        } else if (state.mainHor.match("rotate-180")) {
-          return {
-            ...state,
-            mainHor: state.mainHor.replace(/(rotate-180)/g, "rotate-90"),
-          };
-        } else {
-          return state;
-        }
+        return {
+          ...state,
+          mainHor: state.mainHor.replace("rotate-90", "rotate-180"),
+        };
       }
 
-    case LEFT_DOWN_HOVER_ON:
-      return {
-        ...state,
-        leftVert: state.leftVert.replace(/( rotate-90)/g, ""),
-      };
-
-    case LEFT_DOWN_HOVER_OUT:
-      return {
-        ...state,
-        leftVert: state.leftVert + " rotate-90",
-      };
-
     case LEFT_DOWN:
-      if (state.leftDownPart.match("h-0")) {
+      if (state.hardSkills.match("h-0")) {
         return {
           ...state,
-          leftDownPart:
-            state.leftDownPart.split("flag").splice(0, 1).join("") +
-            "flag top-80 w-1/2 h-full",
+          hardSkills: state.hardSkills
+            .replace("top-72", "top-80")
+            .replace("h-0", "h-full")
+            .replace(" overflow-hidden", "")
+            .replace("opacity-0", "opacity-1"),
+          stripeV: state.stripeV
+            .replace("h-0", "h-full")
+            .replace("opacity-0", "opacity-1"),
         };
       } else {
         return {
           ...state,
-          leftDownPart:
-            state.leftDownPart.split("flag").splice(0, 1).join("") +
-            "flag h-0 top-72 z-0 w-1/2 overflow-hidden",
+          hardSkills:
+            state.hardSkills
+              .replace("top-80", "top-72")
+              .replace("h-full", "h-0")
+              .replace("opacity-1", "opacity-0") + " overflow-hidden",
+          stripeV: state.stripeV
+            .replace("h-full", "h-0")
+            .replace("opacity-1", "opacity-0"),
         };
       }
 
     case LEFT_DOWN_STRIPES_SHOW:
       return {
         ...state,
-        stripes1: state.stripes1.replace("w-0", "w-1/3"),
-        stripes2: state.stripes2.replace("w-0", "w-1/4"),
-        stripes3: state.stripes3.replace("w-0", "w-2/3"),
-        stripes4: state.stripes4.replace("w-0", "w-[40%]"),
-        stripes5: state.stripes5.replace("w-0", "w-[55%]"),
-        stripes6: state.stripes6.replace("w-0", "w-[70%]"),
+        stripes1: state.stripes1.replace("w-0", "w-[5%]"),
+        stripes2: state.stripes2.replace("w-0", "w-[5%]"),
       };
 
     case LEFT_DOWN_STRIPES_HIDE:
       return {
         ...state,
-        stripes1: state.stripes1.replace("w-1/3", "w-0"),
-        stripes2: state.stripes2.replace("w-1/4", "w-0"),
-        stripes3: state.stripes3.replace("w-2/3", "w-0"),
-        stripes4: state.stripes4.replace("w-[40%]", "w-0"),
-        stripes5: state.stripes5.replace("w-[55%]", "w-0"),
-        stripes6: state.stripes6.replace("w-[70%]", "w-0"),
+        stripes1: state.stripes1.replace("w-[5%]", "w-0"),
+        stripes2: state.stripes2.replace("w-[5%]", "w-0"),
       };
 
     case REACT_INFO_SHOW_1:
       return {
         ...state,
         reactInfo: true,
-        leftDownPartStyle: state.leftDownPartStyle
+        reactInfoStyle: state.reactInfoStyle
           .replace("h-0", "h-1/2")
           .replace("opacity-0", "opacity-50"),
       };
@@ -238,7 +218,7 @@ export const styleReducer = (state = initialState, action) => {
     case REACT_INFO_SHOW_2:
       return {
         ...state,
-        leftDownPartStyle: state.leftDownPartStyle
+        reactInfoStyle: state.reactInfoStyle
           .replace("opacity-50", "opacity-1")
           .replace("h-1/2", "h-screen"),
       };
@@ -246,27 +226,27 @@ export const styleReducer = (state = initialState, action) => {
     case REACT_INFO_SHOW_3:
       return {
         ...state,
-        leftDownPartStyle: state.leftDownPartStyle.replace("w-36", "w-full"),
+        reactInfoStyle: state.reactInfoStyle.replace("w-36", "w-full"),
       };
 
     case REACT_INFO_HIDE_1:
       return {
         ...state,
         reactInfo: false,
-        leftDownPartStyle: state.leftDownPartStyle.replace("w-full", "w-36"),
+        reactInfoStyle: state.reactInfoStyle.replace("w-full", "w-36"),
       };
 
     case REACT_INFO_HIDE_2:
       return {
         ...state,
-        leftDownPartStyle: state.leftDownPartStyle
+        reactInfoStyle: state.reactInfoStyle
           .replace("opacity-1", "opacity-50")
           .replace("h-screen", "h-1/2"),
       };
     case REACT_INFO_HIDE_3:
       return {
         ...state,
-        leftDownPartStyle: state.leftDownPartStyle
+        reactInfoStyle: state.reactInfoStyle
           .replace("opacity-50", "opacity-0")
           .replace("h-1/2", "h-0"),
       };
@@ -310,16 +290,17 @@ export const styleReducer = (state = initialState, action) => {
     case JS_BASIC_TEXT_ANIMATION_1:
       return {
         ...state,
-        jsBasicText: state.jsBasicText + " translate-x-1/2 opacity-0",
+        jsBasicText: state.jsBasicText
+          .replace("translate-x-0", "translate-x-1/2")
+          .replace("opacity-1", "opacity-50"),
       };
 
     case JS_BASIC_TEXT_ANIMATION_2:
       return {
         ...state,
-        jsBasicText: state.jsBasicText.replace(
-          "translate-x-1/2",
-          "-translate-x-1/2"
-        ),
+        jsBasicText: state.jsBasicText
+          .replace("translate-x-1/2", "-translate-x-1/2")
+          .replace("opacity-50", "opacity-0"),
       };
 
     case JS_BASIC_TEXT_ANIMATION_3:
@@ -327,22 +308,23 @@ export const styleReducer = (state = initialState, action) => {
         ...state,
         jsBasicText: state.jsBasicText
           .replace("opacity-0", "opacity-1")
-          .replace(" -translate-x-1/2", ""),
+          .replace("-translate-x-1/2", "translate-x-0"),
       };
 
     case JS_BASIC_TEXT_ANIMATION_1_L:
       return {
         ...state,
-        jsBasicText: state.jsBasicText + " -translate-x-1/2 opacity-0",
+        jsBasicText: state.jsBasicText
+          .replace("translate-x-0", "-translate-x-1/2")
+          .replace("opacity-1", "opacity-50"),
       };
 
     case JS_BASIC_TEXT_ANIMATION_2_L:
       return {
         ...state,
-        jsBasicText: state.jsBasicText.replace(
-          "-translate-x-1/2",
-          "translate-x-1/2"
-        ),
+        jsBasicText: state.jsBasicText
+          .replace("-translate-x-1/2", "translate-x-1/2")
+          .replace("opacity-50", "opacity-0"),
       };
 
     case JS_BASIC_TEXT_ANIMATION_3_L:
@@ -350,22 +332,23 @@ export const styleReducer = (state = initialState, action) => {
         ...state,
         jsBasicText: state.jsBasicText
           .replace("opacity-0", "opacity-1")
-          .replace(" translate-x-1/2", ""),
+          .replace("translate-x-1/2", "translate-x-0"),
       };
 
     case JS_ADV_TEXT_ANIMATION_1:
       return {
         ...state,
-        jsAdvText: state.jsAdvText + " translate-x-1/2 opacity-0",
+        jsAdvText: state.jsAdvText
+          .replace("translate-x-0", "translate-x-1/2")
+          .replace("opacity-1", "opacity-50"),
       };
 
     case JS_ADV_TEXT_ANIMATION_2:
       return {
         ...state,
-        jsAdvText: state.jsAdvText.replace(
-          "translate-x-1/2",
-          "-translate-x-1/2"
-        ),
+        jsAdvText: state.jsAdvText
+          .replace("translate-x-1/2", "-translate-x-1/2")
+          .replace("opacity-50", "opacity-0"),
       };
 
     case JS_ADV_TEXT_ANIMATION_3:
@@ -373,22 +356,23 @@ export const styleReducer = (state = initialState, action) => {
         ...state,
         jsAdvText: state.jsAdvText
           .replace("opacity-0", "opacity-1")
-          .replace(" -translate-x-1/2", ""),
+          .replace("-translate-x-1/2", "translate-x-0"),
       };
 
     case JS_ADV_TEXT_ANIMATION_1_L:
       return {
         ...state,
-        jsAdvText: state.jsAdvText + " translate-x-1/2 opacity-0",
+        jsAdvText: state.jsAdvText
+          .replace("translate-x-0", "translate-x-1/2")
+          .replace("opacity-1", "opacity-50"),
       };
 
     case JS_ADV_TEXT_ANIMATION_2_L:
       return {
         ...state,
-        jsAdvText: state.jsAdvText.replace(
-          "translate-x-1/2",
-          "-translate-x-1/2"
-        ),
+        jsAdvText: state.jsAdvText
+          .replace("translate-x-1/2", "-translate-x-1/2")
+          .replace("opacity-50", "opacity-0"),
       };
 
     case JS_ADV_TEXT_ANIMATION_3_L:
@@ -396,7 +380,7 @@ export const styleReducer = (state = initialState, action) => {
         ...state,
         jsAdvText: state.jsAdvText
           .replace("opacity-0", "opacity-1")
-          .replace(" -translate-x-1/2", ""),
+          .replace("-translate-x-1/2", "translate-x-0"),
       };
 
     case CSS_INFO_SHOW_1:
