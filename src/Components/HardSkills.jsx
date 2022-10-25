@@ -6,14 +6,11 @@ import ReactInfo from "./ReactInfo";
 
 const HardSkills = (props) => {
   const JSStyle = useSelector((state) => state.style.jsInfoStyle);
-  const reactInfoStyle = useSelector((state) => state.style.reactInfoStyle);
-  const hardSkills = useSelector((state) => state.style.hardSkills);
-  const cssInfoStyle = useSelector((state) => state.style.cssInfoStyle);
-  const { stripes1, stripes2, stripeV } =
-    useSelector((state) => state.style);
-  const showHideCSS = props.func.css;
-  const showHideJS = props.func.JS;
-  const showHideReact = props.func.React;
+  const { reactInfoStyle, hardSkills, cssInfoStyle } = useSelector(
+    (state) => state.style
+  );
+  const { stripes1, stripes2, stripeV } = useSelector((state) => state.style);
+  const { showHideCSS, showHideJS, showHideReact } = props.func;
 
   return (
     <div className={hardSkills}>
@@ -55,7 +52,7 @@ const HardSkills = (props) => {
         </div>
       </div>
 
-        <div className={stripeV}></div>
+      <div className={stripeV}></div>
       <div className="absolute flex flex-col justify-start text-2xl left-full top-0 w-full h-screen py-auto -z-[1]">
         <div className={stripes1}> Hard Skills </div>
         <div className={stripes2}> TypeScript </div>

@@ -1,14 +1,12 @@
+import { clear } from "@testing-library/user-event/dist/clear";
 import { tab } from "@testing-library/user-event/dist/tab";
 import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
-import {
-  SOFT_TYPE_BUT_HIDE, SOFT_TYPE_BUT_SHOW,
-} from "../Redux/types";
+import { SOFT_TYPE_BUT_HIDE, SOFT_TYPE_BUT_SHOW } from "../Redux/types";
 
 const SoftSkills = (props) => {
   const dispatch = useDispatch();
-  const { softSkills, button, text } =
-    useSelector((state) => state.soft);
+  const { softSkills, button, text } = useSelector((state) => state.soft);
 
   const arr = [...Array(26)].map((_, i) =>
     String.fromCharCode("A".charCodeAt(0) + i)
@@ -17,9 +15,9 @@ const SoftSkills = (props) => {
     "HELLO MY NAME IS IGOR LIVING IN ISTANBUL TURKEY I AM JUNIOR/MIDDLE FRONT-END DEVELOPER WITH FOLLOWING QUALITIES: ACCOUNTABILITY СREATIVITY COMMUNICABILITY FAST-LEARNING PUNCTUALITY PROBLEM-SOLVER";
 
   const typeWriter = () => {
-    dispatch({type: SOFT_TYPE_BUT_HIDE})
+    dispatch({ type: SOFT_TYPE_BUT_HIDE });
     document.getElementById("text").innerHTML = "";
-    clearTimeout()
+    clearTimeout();
     if (document.getElementById("table")) {
       let time = 150;
 
@@ -57,123 +55,121 @@ const SoftSkills = (props) => {
             .replace("bg-black", "bg-transparent");
         }, time + 300);
 
-        console.log(el, phrase.length)
         if (el == phrase.length - 1) {
-
-            setTimeout(() => {
-
-                dispatch({type: SOFT_TYPE_BUT_SHOW})
-                document.getElementById('text').innerHTML = ''
-
-            }, time + 600)
-
+          setTimeout(() => {
+            dispatch({ type: SOFT_TYPE_BUT_SHOW });
+            document.getElementById("text").innerHTML = "";
+          }, time + 600);
         }
       }
     }
-    console.log('end')
   };
+
+  if (document.getElementById("table")) {
+    let clearAlpha = document.getElementById("table").childNodes[0].childNodes;
+
+    for (let i = 0; i < clearAlpha.length; i++) {
+      for (let j = 0; j < clearAlpha[i].childNodes.length; j++) {
+        if (
+          clearAlpha[i].childNodes[j].className &&
+          clearAlpha[i].childNodes[j].className.match("bg-black")
+        ) {
+          clearAlpha[i].childNodes[j].className = clearAlpha[i].childNodes[
+            j
+          ].className
+            .replace("bg-black", "bg-transparent")
+            .replace("text-teal-400", "text-black");
+        }
+      }
+    }
+  }
 
   return (
     <div className={softSkills}>
-      <div
+      <table
         id="table"
         className=" w-full flex flex-col justify-start items-center pt-2 font-bold text-5xl"
       >
-        <tr className="flex flex-row w-full justify-between">
-          {" "}
-          {arr.map((el, ind) =>
-            ind < 6 ? (
-              <td
-                id={`${el}`}
-                className={`${el} transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
-              >
-                {el}
-              </td>
-            ) : (
-              ""
-            )
-          )}{" "}
-        </tr>
-        <tr className="flex flex-row w-full justify-between">
-          {" "}
-          {arr.map((el, ind) =>
-            ind >= 6 && ind < 12 ? (
-              <td
-                id={`${el}`}
-                className={`${el} transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
-              >
-                {el}
-              </td>
-            ) : (
-              ""
-            )
-          )}{" "}
-        </tr>
-        <tr className="flex flex-row w-full justify-between">
-          {" "}
-          {arr.map((el, ind) =>
-            ind >= 12 && ind < 18 ? (
-              <td
-                id={`${el}`}
-                className={`${el} transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
-              >
-                {el}
-              </td>
-            ) : (
-              ""
-            )
-          )}{" "}
-        </tr>
-        <tr className="flex flex-row w-full justify-between">
-          {" "}
-          {arr.map((el, ind) =>
-            ind >= 18 && ind < 24 ? (
-              <td
-                id={`${el}`}
-                className={`${el} transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
-              >
-                {el}
-              </td>
-            ) : (
-              ""
-            )
-          )}{" "}
-        </tr>
-        <tr className="flex flex-row w-full justify-evenly">
-          {" "}
-          {arr.map((el, ind) =>
-            ind >= 24 ? (
-              <td
-                id={`${el}`}
-                className={`${el} transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
-              >
-                {el}
-              </td>
-            ) : (
-              ""
-            )
-          )}{" "}
-        </tr>
-      </div>
+        <tbody>
+          <tr className="flex flex-row w-full justify-between">
+            {arr.map((el, ind) =>
+              ind < 6 ? (
+                <td
+                  id={`${el}`}
+                  className={`${el} mx-0 md:mx-1 lg:msx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                >
+                  {el}
+                </td>
+              ) : (
+                <td className="hidden"></td>
+              )
+            )}
+          </tr>
+          <tr className="flex flex-row w-full justify-between">
+            {arr.map((el, ind) =>
+              ind >= 6 && ind < 12 ? (
+                <td
+                  id={`${el}`}
+                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                >
+                  {el}
+                </td>
+              ) : (
+                <td className="hidden"></td>
+              )
+            )}
+          </tr>
+          <tr className="flex flex-row w-full justify-between">
+            {arr.map((el, ind) =>
+              ind >= 12 && ind < 18 ? (
+                <td
+                  id={`${el}`}
+                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                >
+                  {el}
+                </td>
+              ) : (
+                <td className="hidden"></td>
+              )
+            )}
+          </tr>
+          <tr className="flex flex-row w-full justify-between">
+            {arr.map((el, ind) =>
+              ind >= 18 && ind < 24 ? (
+                <td
+                  id={`${el}`}
+                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                >
+                  {el}
+                </td>
+              ) : (
+                <td className="hidden"></td>
+              )
+            )}
+          </tr>
+          <tr className="flex flex-row w-full justify-evenly">
+            {arr.map((el, ind) =>
+              ind >= 24 ? (
+                <td
+                  id={`${el}`}
+                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                >
+                  {el}
+                </td>
+              ) : (
+                <td className="hidden"></td>
+              )
+            )}
+          </tr>
+        </tbody>
+      </table>
 
       <div className="flex flex-col h-36 mt-1">
-
-        <button
-            className={button}
-            onClick={() => typeWriter()}
-        >
-            : CLICK ME :
+        <button className={button} onClick={() => typeWriter()}>
+          : CLICK ME :
         </button>
-
-        <div
-            id="text"
-            className={text}
-        >
-            {" "}
-        </div>
-
+        <div id="text" className={text}></div>
       </div>
-
     </div>
   );
 };

@@ -23,6 +23,8 @@ import {
   REACT_INFO_SHOW_3,
   SOFT_SKILLS_HIDE,
   SOFT_SKILLS_SHOW,
+  SOFT_TYPE_BUT_HIDE,
+  SOFT_TYPE_BUT_SHOW,
 } from "../Redux/types";
 import HardSkills from "./HardSkills";
 import SoftSkills from "./SoftSkills";
@@ -53,7 +55,7 @@ const MainNavPage = (props) => {
         dispatch({ type: MAIN_HOR });
       }, 900);
     } else if (!softSkills.match("h-0")) {
-      dispatch({ type: SOFT_SKILLS_HIDE });
+      showHideSoftSkills()
 
       setTimeout(() => {
         dispatch({ type: MAIN_HOR });
@@ -207,8 +209,15 @@ const MainNavPage = (props) => {
     if (softSkills.match("h-0")) {
       dispatch({ type: SOFT_SKILLS_SHOW });
     } else {
+      const highestId = window.setTimeout(() => {
+        for (let i = highestId; i >= 0; i--) {
+          window.clearInterval(i);
+        }
+      }, 0);
+      console.log(document.getElementById('table'))
+      dispatch({ type: SOFT_TYPE_BUT_SHOW });
       dispatch({ type: SOFT_SKILLS_HIDE });
-      document.getElementById('text').innerHTML = ''
+      document.getElementById("text").innerHTML = "";
     }
   };
 
@@ -237,7 +246,7 @@ const MainNavPage = (props) => {
       </div>
 
       <HardSkills
-        func={{ css: showHideCSS, JS: showHideJS, React: showHideReact }}
+        func={{ showHideCSS, showHideJS, showHideReact }}
       />
 
       <div className={triggerHS} onClick={() => showHidehardSkills()}>
