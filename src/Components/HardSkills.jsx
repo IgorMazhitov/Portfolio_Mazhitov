@@ -13,7 +13,7 @@ const HardSkills = (props) => {
   const { showHideCSS, showHideJS, showHideReact } = props.func;
 
   return (
-    <div className={hardSkills}>
+    <div className={hardSkills} style={{height: 0 + 'px'}}>
       <div className="flex flex-row justify-between items-center w-full h-20 font-bold relative">
         <div>
           <div

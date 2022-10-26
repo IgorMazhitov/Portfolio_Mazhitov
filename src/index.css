@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.SOFT_LEFT {
+
+    height: calc(100% - 320px);
+
+}
+
+.BG_BUT {
+
+    top: calc(100% - 144px + (144px / 4));
+
+}

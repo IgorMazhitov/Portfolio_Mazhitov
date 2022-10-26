@@ -61,7 +61,7 @@ const initialState = {
   triggerSS:
     "absolute hidden h-10 w-10 duration-300 top-72 translate-y-3 left-3/4 -translate-x-1/2 flex flex-row-reverse cursor-pointer z-10 transition-all rotate-90 hover:rotate-180",
   hardSkills:
-    "absolute bg-yellow-400 p-4 text-3xl transition-all duration-300 w-1/2 h-0 top-72 z-0 overflow-hidden opacity-0",
+    "HARD_LEFT absolute bg-yellow-400 p-4 text-3xl transition-all duration-300 w-1/2 top-72 z-0 overflow-hidden opacity-0",
   softSkills:
     "absolute bg-teal-400 text-3xl transition-all duration-300 flag w-1/2 h-0 top-72 right-0 z-0 overflow-hidden",
   reactInfoStyle:
@@ -117,6 +117,7 @@ export const hardSkillsReducer = (state = initialState, action) => {
           triggerSS: state.triggerSS + " hidden",
         };
       } else {
+        document.getElementsByClassName('HARD_LEFT')[0].style.height = '0px'
         return {
           ...state,
           triggerHS: state.triggerHS + " hidden",
@@ -130,7 +131,6 @@ export const hardSkillsReducer = (state = initialState, action) => {
           mainHor: state.mainHor.replace("rotate-0", "rotate-180"),
           hardSkills:
             state.hardSkills
-              .replace("h-full", "h-0")
               .replace("top-80", "top-72") + " hidden",
           triggerSS: state.triggerSS.replace(" hidden", ""),
         };
@@ -166,12 +166,12 @@ export const hardSkillsReducer = (state = initialState, action) => {
       }
 
     case LEFT_DOWN:
-      if (state.hardSkills.match("h-0")) {
+      if (document.getElementsByClassName('HARD_LEFT')[0].style.height == '0px') {
+        document.getElementsByClassName('HARD_LEFT')[0].style.height = 'calc(100% - 320px)'
         return {
           ...state,
           hardSkills: state.hardSkills
             .replace("top-72", "top-80")
-            .replace("h-0", "h-full")
             .replace(" overflow-hidden", "")
             .replace("opacity-0", "opacity-1"),
           stripeV: state.stripeV
@@ -179,12 +179,12 @@ export const hardSkillsReducer = (state = initialState, action) => {
             .replace("opacity-0", "opacity-1"),
         };
       } else {
+        document.getElementsByClassName('HARD_LEFT')[0].style.height = '0px'
         return {
           ...state,
           hardSkills:
             state.hardSkills
               .replace("top-80", "top-72")
-              .replace("h-full", "h-0")
               .replace("opacity-1", "opacity-0") + " overflow-hidden",
           stripeV: state.stripeV
             .replace("h-full", "h-0")

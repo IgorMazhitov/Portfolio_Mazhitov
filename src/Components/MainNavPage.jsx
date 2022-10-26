@@ -23,7 +23,6 @@ import {
   REACT_INFO_SHOW_3,
   SOFT_SKILLS_HIDE,
   SOFT_SKILLS_SHOW,
-  SOFT_TYPE_BUT_HIDE,
   SOFT_TYPE_BUT_SHOW,
 } from "../Redux/types";
 import HardSkills from "./HardSkills";
@@ -48,14 +47,16 @@ const MainNavPage = (props) => {
       setTimeout(() => {
         dispatch({ type: MAIN_HOR });
       }, 1500);
-    } else if (!hardSkills.match("h-0")) {
+    } else if (document.getElementsByClassName('HARD_LEFT')[0].style.height !== '0px') {
       showHidehardSkills();
 
       setTimeout(() => {
         dispatch({ type: MAIN_HOR });
       }, 900);
-    } else if (!softSkills.match("h-0")) {
-      showHideSoftSkills()
+    } else if (
+      document.getElementsByClassName("SOFT_RIGHT")[0].style.height !== "0px"
+    ) {
+      showHideSoftSkills();
 
       setTimeout(() => {
         dispatch({ type: MAIN_HOR });
@@ -93,7 +94,7 @@ const MainNavPage = (props) => {
         dispatch({ type: LEFT_DOWN });
       }, 900);
     } else {
-      if (hardSkills.match("h-0")) {
+      if (document.getElementsByClassName('HARD_LEFT')[0].style.height == '0px') {
         dispatch({ type: LEFT_DOWN });
 
         setTimeout(() => {
@@ -206,15 +207,16 @@ const MainNavPage = (props) => {
   };
 
   const showHideSoftSkills = () => {
-    if (softSkills.match("h-0")) {
+    if (
+      document.getElementsByClassName("SOFT_RIGHT")[0].style.height === "0px"
+    ) {
       dispatch({ type: SOFT_SKILLS_SHOW });
     } else {
       const highestId = window.setTimeout(() => {
         for (let i = highestId; i >= 0; i--) {
-          window.clearInterval(i);
+          window.clearTimeout(i);
         }
       }, 0);
-      console.log(document.getElementById('table'))
       dispatch({ type: SOFT_TYPE_BUT_SHOW });
       dispatch({ type: SOFT_SKILLS_HIDE });
       document.getElementById("text").innerHTML = "";
@@ -224,9 +226,9 @@ const MainNavPage = (props) => {
   return (
     <div className=" h-full w-full">
       <div className={leftPart}>
-        <p className="ml-4 font-bold text-5xl"> FRONT-END DEVELOPER </p>
+        <p className="ml-4 font-bold text-xl md:text-3xl xl:text-5xl "> FRONT-END DEVELOPER </p>
 
-        <p className="ml-4 font-bold text-4xl"> REACT JS HTML CSS </p>
+        <p className="ml-4 font-bold text-lg md:text-2xl xl:text-3xl"> REACT JS HTML CSS </p>
       </div>
 
       <div
@@ -245,9 +247,7 @@ const MainNavPage = (props) => {
         <p className="mr-4 font-bold text-4xl"> ISTANBUL, TURKEY </p>
       </div>
 
-      <HardSkills
-        func={{ showHideCSS, showHideJS, showHideReact }}
-      />
+      <HardSkills func={{ showHideCSS, showHideJS, showHideReact }} />
 
       <div className={triggerHS} onClick={() => showHidehardSkills()}>
         <div className="h-full w-1/2 bg-black"></div>
@@ -259,6 +259,7 @@ const MainNavPage = (props) => {
         <div className="h-full w-1/2 bg-teal-400"></div>
       </div>
       <SoftSkills />
+
     </div>
   );
 };

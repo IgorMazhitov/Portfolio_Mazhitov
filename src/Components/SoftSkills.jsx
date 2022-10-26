@@ -2,11 +2,22 @@ import { clear } from "@testing-library/user-event/dist/clear";
 import { tab } from "@testing-library/user-event/dist/tab";
 import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { SOFT_TYPE_BUT_HIDE, SOFT_TYPE_BUT_SHOW } from "../Redux/types";
+import {
+  SOFT_TEXT_ANIM,
+  SOFT_TEXT_ANIM_END,
+  SOFT_TYPE_BUT_HIDE,
+  SOFT_TYPE_BUT_SHOW,
+  SOFT_TYPE_HOVER_ON,
+  SOFT_TYPE_HOVER_ON_2,
+  SOFT_TYPE_HOVER_OUT,
+  SOFT_TYPE_HOVER_OUT_2,
+} from "../Redux/types";
 
 const SoftSkills = (props) => {
   const dispatch = useDispatch();
-  const { softSkills, button, text } = useSelector((state) => state.soft);
+  const { softSkills, button, text, bgButtonL, bgButtonR } = useSelector(
+    (state) => state.soft
+  );
 
   const arr = [...Array(26)].map((_, i) =>
     String.fromCharCode("A".charCodeAt(0) + i)
@@ -15,6 +26,16 @@ const SoftSkills = (props) => {
     "HELLO MY NAME IS IGOR LIVING IN ISTANBUL TURKEY I AM JUNIOR/MIDDLE FRONT-END DEVELOPER WITH FOLLOWING QUALITIES: ACCOUNTABILITY СREATIVITY COMMUNICABILITY FAST-LEARNING PUNCTUALITY PROBLEM-SOLVER";
 
   const typeWriter = () => {
+    let rot = 10
+    dispatch({ type: SOFT_TEXT_ANIM });
+    setInterval(() => {
+
+        rot += 10
+        document.getElementsByClassName('TEXT_BG')[0].style.rotate = `${rot}deg`
+        document.getElementsByClassName('TEXT_BG_2')[0].style.rotate = `${rot}deg`
+        document.getElementsByClassName('TEXT_BG_3')[0].style.rotate = `${rot}deg`
+
+    }, 100);
     dispatch({ type: SOFT_TYPE_BUT_HIDE });
     document.getElementById("text").innerHTML = "";
     clearTimeout();
@@ -59,6 +80,10 @@ const SoftSkills = (props) => {
           setTimeout(() => {
             dispatch({ type: SOFT_TYPE_BUT_SHOW });
             document.getElementById("text").innerHTML = "";
+            document.getElementsByClassName('TEXT_BG')[0].className = document.getElementsByClassName('TEXT_BG')[0].className.replace('opacity-1', 'opacity-0')
+            document.getElementsByClassName('TEXT_BG_2')[0].className = document.getElementsByClassName('TEXT_BG_2')[0].className.replace('opacity-1', 'opacity-0')
+            document.getElementsByClassName('TEXT_BG_3')[0].className = document.getElementsByClassName('TEXT_BG_3')[0].className.replace('opacity-1', 'opacity-0')
+
           }, time + 600);
         }
       }
@@ -84,8 +109,24 @@ const SoftSkills = (props) => {
     }
   }
 
+  const typeHover = (status) => {
+    if (status === "ON") {
+      dispatch({ type: SOFT_TYPE_HOVER_ON });
+
+      setTimeout(() => {
+        dispatch({ type: SOFT_TYPE_HOVER_ON_2 });
+      }, 300);
+    } else {
+      dispatch({ type: SOFT_TYPE_HOVER_OUT });
+
+      setTimeout(() => {
+        dispatch({ type: SOFT_TYPE_HOVER_OUT_2 });
+      }, 300);
+    }
+  };
+
   return (
-    <div className={softSkills}>
+    <div className={softSkills} style={{ height: 0 + "px" }}>
       <table
         id="table"
         className=" w-full flex flex-col justify-start items-center pt-2 font-bold text-5xl"
@@ -96,7 +137,7 @@ const SoftSkills = (props) => {
               ind < 6 ? (
                 <td
                   id={`${el}`}
-                  className={`${el} mx-0 md:mx-1 lg:msx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
                 >
                   {el}
                 </td>
@@ -164,11 +205,22 @@ const SoftSkills = (props) => {
         </tbody>
       </table>
 
-      <div className="flex flex-col h-36 mt-1">
-        <button className={button} onClick={() => typeWriter()}>
+      <div className="TEXT_CONTAINER mt-1 transition-all duration-300 relative flex flex-col justify-center items-center bottom-0 left-1/2 -translate-x-1/2 h-36 overflow-hidden z-0">
+        <div
+          className={button}
+          style={{ width: 100 + "%", height: 25 + "%" }}
+          onClick={() => typeWriter()}
+          onMouseEnter={() => typeHover("ON")}
+          onMouseLeave={() => typeHover("OUT")}
+        >
           : CLICK ME :
-        </button>
+        </div>
+        <div className={bgButtonL}></div>
+        <div className={bgButtonR}></div>
         <div id="text" className={text}></div>
+        <div className="TEXT_BG -z-[10] opacity-0 absolute transition-all duration-[600] h-[140%] w-[140%] bg-teal-400"></div>
+        <div className="TEXT_BG_2 -z-[10] opacity-1 absolute -translate-y-full transition-all duration-[600] h-[140%] w-[140%] bg-yellow-400"></div>
+        <div className="TEXT_BG_3 -z-[10] opacity-1 absolute translate-y-full transition-all duration-[600] h-[140%] w-[140%] bg-yellow-400"></div>
       </div>
     </div>
   );
