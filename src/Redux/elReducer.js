@@ -5,6 +5,7 @@ import {
   JS_ADV_RIGHT,
   JS_BASICS_LEFT,
   JS_BASICS_RIGHT,
+  WORKS_SPREAD_HIDE,
 } from "./types";
 
 const initialState = {
@@ -59,6 +60,7 @@ const initialState = {
     "8.",
     "9.",
   ],
+  spreadHideText: ':SPREAD:'
 };
 
 export const elReducer = (state = initialState, action) => {
@@ -114,6 +116,27 @@ export const elReducer = (state = initialState, action) => {
           elAdv: state.elAdv - 1,
         };
       }
+
+      case WORKS_SPREAD_HIDE:
+        if (state.spreadHideText === ':SPREAD:') {
+
+            return {
+
+                ...state,
+                spreadHideText: ':HIDE:'
+
+            }
+
+        } else {
+
+            return {
+
+                ...state,
+                spreadHideText: ':SPREAD:'
+
+            }
+
+        }
 
     default:
       return state;

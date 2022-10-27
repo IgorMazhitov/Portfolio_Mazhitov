@@ -32,9 +32,9 @@ const initialState = {
     "TYPE_BUT cursor-pointer flex justify-center items-center transition-all bg-yellow-400 text-black font-bold overflow-hidden",
   text: "transition-all text-yellow-400 text-4xl font-bold flex flex-row justify-center items-center w-full h-3/4 bg-black z-[1]",
   bgButtonL:
-    "BG_BUT opacity-0 absolute transition-all duration-300 bg-black w-[3px] translate-y-0 h-11 left-0 -z-10",
+    "BG_BUT opacity-0 absolute transition-all duration-300 bg-black w-[3px] bottom-0 translate-y-0 h-1/2 left-0 -z-10",
   bgButtonR:
-    "BG_BUT opacity-0 absolute transition-all duration-300 bg-black w-[3px] translate-y-0 h-11 right-0 -z-10",
+    "BG_BUT opacity-0 absolute transition-all duration-300 bg-black w-[3px] bottom-0 translate-y-0 h-1/2 right-0 -z-10",
 };
 
 export const softSkillsReducer = (state = initialState, action) => {
@@ -75,7 +75,7 @@ export const softSkillsReducer = (state = initialState, action) => {
       };
 
     case SOFT_TYPE_BUT_SHOW:
-      document.getElementsByClassName("TYPE_BUT")[0].style.height = "25%";
+      document.getElementsByClassName("TYPE_BUT")[0].style.height = "35%";
       document.getElementsByClassName("TEXT_CONTAINER")[0].style.padding =
         "0px";
       const highestId = window.setTimeout(() => {
@@ -97,14 +97,16 @@ export const softSkillsReducer = (state = initialState, action) => {
       document.getElementsByClassName("TYPE_BUT")[0].style.width =
         "calc(100% - 6px)";
       document.getElementsByClassName("TYPE_BUT")[0].style.height =
-        "calc(25% - 6px)";
+        "calc(35% - 6px)";
+        document.getElementsByClassName("TYPE_BUT")[0].style.transform =
+        "translate(0, 3px)";
       return {
         ...state,
         bgButtonL: state.bgButtonL
-          .replace("translate-y-0", "-translate-y-[94%]")
+          .replace("translate-y-0", "-translate-y-full")
           .replace("opacity-0", "opacity-1"),
         bgButtonR: state.bgButtonR
-          .replace("translate-y-0", "-translate-y-[94%]")
+          .replace("translate-y-0", "-translate-y-full")
           .replace("opacity-0", "opacity-1"),
       };
 
@@ -118,9 +120,14 @@ export const softSkillsReducer = (state = initialState, action) => {
     case SOFT_TYPE_HOVER_OUT:
       if (
         document.getElementsByClassName("TYPE_BUT")[0].style.height === "0px"
+        
       ) {
+        document.getElementsByClassName("TYPE_BUT")[0].style.transform =
+        "";
         return state;
       } else {
+        document.getElementsByClassName("TYPE_BUT")[0].style.transform =
+        "";
         return {
           ...state,
           bgButtonL: state.bgButtonL.replace("w-[50%]", "w-[3px]"),
@@ -140,16 +147,16 @@ export const softSkillsReducer = (state = initialState, action) => {
         };
       } else {
         document.getElementsByClassName("TYPE_BUT")[0].style.height =
-          "calc(25%)";
+          "calc(35%)";
         return {
           ...state,
           bgButtonL: state.bgButtonL
-            .replace("-translate-y-[94%]", "translate-y-0")
-            .replace("opacity-0", "opacity-1"),
+            .replace("-translate-y-full", "translate-y-0")
+            .replace("opacity-1", "opacity-0"),
 
           bgButtonR: state.bgButtonR
-            .replace("-translate-y-[94%]", "translate-y-0")
-            .replace("opacity-0", "opacity-1"),
+            .replace("-translate-y-full", "translate-y-0")
+            .replace("opacity-1", "opacity-0"),
         };
       }
 

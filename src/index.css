@@ -8,8 +8,14 @@
 
 }
 
-.BG_BUT {
+.BG_LEFT {
 
-    top: calc(100% - 144px + (144px / 4));
+    background-size: 100% 100%;
+
+}
+
+.WORK_CONT {
+
+    height: calc(100% - 80px);
 
 }

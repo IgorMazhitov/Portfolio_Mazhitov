@@ -26,15 +26,17 @@ const SoftSkills = (props) => {
     "HELLO MY NAME IS IGOR LIVING IN ISTANBUL TURKEY I AM JUNIOR/MIDDLE FRONT-END DEVELOPER WITH FOLLOWING QUALITIES: ACCOUNTABILITY СREATIVITY COMMUNICABILITY FAST-LEARNING PUNCTUALITY PROBLEM-SOLVER";
 
   const typeWriter = () => {
-    let rot = 10
+    let rot = 10;
     dispatch({ type: SOFT_TEXT_ANIM });
     setInterval(() => {
-
-        rot += 10
-        document.getElementsByClassName('TEXT_BG')[0].style.rotate = `${rot}deg`
-        document.getElementsByClassName('TEXT_BG_2')[0].style.rotate = `${rot}deg`
-        document.getElementsByClassName('TEXT_BG_3')[0].style.rotate = `${rot}deg`
-
+      rot += 10;
+      document.getElementsByClassName("TEXT_BG")[0].style.rotate = `${rot}deg`;
+      document.getElementsByClassName(
+        "TEXT_BG_2"
+      )[0].style.rotate = `${rot}deg`;
+      document.getElementsByClassName(
+        "TEXT_BG_3"
+      )[0].style.rotate = `${rot}deg`;
     }, 100);
     dispatch({ type: SOFT_TYPE_BUT_HIDE });
     document.getElementById("text").innerHTML = "";
@@ -58,33 +60,40 @@ const SoftSkills = (props) => {
           }, time + 300);
 
           time += 300;
-        }
-
-        let alph = document.getElementById(inter[el]);
-        setTimeout(() => {
-          document.getElementById("text").innerHTML += inter[el];
-          alph.className = alph.className
-            .replace("bg-transparent", "bg-black")
-            .replace("text-black", "text-teal-400");
-        }, time);
-
-        time += 150;
-
-        setTimeout(() => {
-          alph.className = alph.className
-            .replace("text-teal-400", "text-black")
-            .replace("bg-black", "bg-transparent");
-        }, time + 300);
-
-        if (el == phrase.length - 1) {
+        } else {
+          let alph = document.getElementById(inter[el]);
           setTimeout(() => {
-            dispatch({ type: SOFT_TYPE_BUT_SHOW });
-            document.getElementById("text").innerHTML = "";
-            document.getElementsByClassName('TEXT_BG')[0].className = document.getElementsByClassName('TEXT_BG')[0].className.replace('opacity-1', 'opacity-0')
-            document.getElementsByClassName('TEXT_BG_2')[0].className = document.getElementsByClassName('TEXT_BG_2')[0].className.replace('opacity-1', 'opacity-0')
-            document.getElementsByClassName('TEXT_BG_3')[0].className = document.getElementsByClassName('TEXT_BG_3')[0].className.replace('opacity-1', 'opacity-0')
+            document.getElementById("text").innerHTML += inter[el];
+            alph.className = alph.className
+              .replace("bg-transparent", "bg-black")
+              .replace("text-black", "text-teal-400");
+          }, time);
 
-          }, time + 600);
+          time += 150;
+
+          setTimeout(() => {
+            alph.className = alph.className
+              .replace("text-teal-400", "text-black")
+              .replace("bg-black", "bg-transparent");
+          }, time + 300);
+
+          if (el == phrase.length - 1) {
+            setTimeout(() => {
+              dispatch({ type: SOFT_TYPE_BUT_SHOW });
+              document.getElementById("text").innerHTML = "";
+              document.getElementsByClassName("TEXT_BG")[0].className = document
+                .getElementsByClassName("TEXT_BG")[0]
+                .className.replace("opacity-1", "opacity-0");
+              document.getElementsByClassName("TEXT_BG_2")[0].className =
+                document
+                  .getElementsByClassName("TEXT_BG_2")[0]
+                  .className.replace("opacity-1", "opacity-0");
+              document.getElementsByClassName("TEXT_BG_3")[0].className =
+                document
+                  .getElementsByClassName("TEXT_BG_3")[0]
+                  .className.replace("opacity-1", "opacity-0");
+            }, time + 600);
+          }
         }
       }
     }
@@ -125,6 +134,7 @@ const SoftSkills = (props) => {
     }
   };
 
+
   return (
     <div className={softSkills} style={{ height: 0 + "px" }}>
       <table
@@ -132,12 +142,12 @@ const SoftSkills = (props) => {
         className=" w-full flex flex-col justify-start items-center pt-2 font-bold text-5xl"
       >
         <tbody>
-          <tr className="flex flex-row w-full justify-between">
+          <tr className="flex flex-row w-full justify-between mb-1">
             {arr.map((el, ind) =>
               ind < 6 ? (
                 <td
                   id={`${el}`}
-                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-14 h-14`}
                 >
                   {el}
                 </td>
@@ -146,12 +156,12 @@ const SoftSkills = (props) => {
               )
             )}
           </tr>
-          <tr className="flex flex-row w-full justify-between">
+          <tr className="flex flex-row w-full justify-between mb-1">
             {arr.map((el, ind) =>
               ind >= 6 && ind < 12 ? (
                 <td
                   id={`${el}`}
-                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-14 h-14`}
                 >
                   {el}
                 </td>
@@ -160,12 +170,12 @@ const SoftSkills = (props) => {
               )
             )}
           </tr>
-          <tr className="flex flex-row w-full justify-between">
+          <tr className="flex flex-row w-full justify-between mb-1">
             {arr.map((el, ind) =>
               ind >= 12 && ind < 18 ? (
                 <td
                   id={`${el}`}
-                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-14 h-14`}
                 >
                   {el}
                 </td>
@@ -174,12 +184,12 @@ const SoftSkills = (props) => {
               )
             )}
           </tr>
-          <tr className="flex flex-row w-full justify-between">
+          <tr className="flex flex-row w-full justify-between mb-1">
             {arr.map((el, ind) =>
               ind >= 18 && ind < 24 ? (
                 <td
                   id={`${el}`}
-                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-14 h-14`}
                 >
                   {el}
                 </td>
@@ -188,12 +198,12 @@ const SoftSkills = (props) => {
               )
             )}
           </tr>
-          <tr className="flex flex-row w-full justify-evenly">
+          <tr className="flex flex-row w-full justify-evenly mb-1">
             {arr.map((el, ind) =>
               ind >= 24 ? (
                 <td
                   id={`${el}`}
-                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-16 h-16`}
+                  className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-14 h-14`}
                 >
                   {el}
                 </td>
@@ -205,10 +215,10 @@ const SoftSkills = (props) => {
         </tbody>
       </table>
 
-      <div className="TEXT_CONTAINER mt-1 transition-all duration-300 relative flex flex-col justify-center items-center bottom-0 left-1/2 -translate-x-1/2 h-36 overflow-hidden z-0">
+      <div className="TEXT_CONTAINER box-border transition-all duration-300 relative flex flex-col justify-center items-center bottom-0 left-1/2 -translate-x-1/2 h-36 overflow-hidden z-0">
         <div
           className={button}
-          style={{ width: 100 + "%", height: 25 + "%" }}
+          style={{ width: 100 + "%", height: 35 + "%" }}
           onClick={() => typeWriter()}
           onMouseEnter={() => typeHover("ON")}
           onMouseLeave={() => typeHover("OUT")}
