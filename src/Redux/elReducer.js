@@ -1,11 +1,8 @@
 import {
-  BIO_BASICS_LEFT,
-  BIO_BASICS_RIGHT,
   JS_ADV_LEFT,
   JS_ADV_RIGHT,
   JS_BASICS_LEFT,
   JS_BASICS_RIGHT,
-  WORKS_SPREAD_HIDE,
 } from "./types";
 
 const initialState = {
@@ -116,27 +113,6 @@ export const elReducer = (state = initialState, action) => {
           elAdv: state.elAdv - 1,
         };
       }
-
-      case WORKS_SPREAD_HIDE:
-        if (state.spreadHideText === ':SPREAD:') {
-
-            return {
-
-                ...state,
-                spreadHideText: ':HIDE:'
-
-            }
-
-        } else {
-
-            return {
-
-                ...state,
-                spreadHideText: ':SPREAD:'
-
-            }
-
-        }
 
     default:
       return state;

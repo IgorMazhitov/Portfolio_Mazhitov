@@ -175,6 +175,7 @@ const SoftSkills = (props) => {
               ind >= 12 && ind < 18 ? (
                 <td
                   id={`${el}`}
+                  key = {`${el}`}
                   className={`${el} mx-0 md:mx-1 lg:mx-4 transition-all bg-transparent duration-300 text-black flex flex-row justify-center items-center w-14 h-14`}
                 >
                   {el}

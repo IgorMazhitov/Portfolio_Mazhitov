@@ -34,11 +34,10 @@ const MainNavPage = (props) => {
 
   const { leftPart, rightPart } = useSelector((state) => state.style);
 
-  const { triggerHS, hardSkills, triggerSS } = useSelector(
+  const { triggerHS, triggerSS } = useSelector(
     (state) => state.style
   );
   const { reactInfo, cssInfo, jsInfo } = useSelector((state) => state.style);
-  const { softSkills } = useSelector((state) => state.soft);
 
   const show = () => {
     if (jsInfo || reactInfo || cssInfo) {
@@ -47,7 +46,9 @@ const MainNavPage = (props) => {
       setTimeout(() => {
         dispatch({ type: MAIN_HOR });
       }, 1500);
-    } else if (document.getElementsByClassName('HARD_LEFT')[0].style.height !== '0px') {
+    } else if (
+      document.getElementsByClassName("HARD_LEFT")[0].style.height !== "0px"
+    ) {
       showHidehardSkills();
 
       setTimeout(() => {
@@ -94,7 +95,9 @@ const MainNavPage = (props) => {
         dispatch({ type: LEFT_DOWN });
       }, 900);
     } else {
-      if (document.getElementsByClassName('HARD_LEFT')[0].style.height == '0px') {
+      if (
+        document.getElementsByClassName("HARD_LEFT")[0].style.height === "0px"
+      ) {
         dispatch({ type: LEFT_DOWN });
 
         setTimeout(() => {
@@ -226,9 +229,15 @@ const MainNavPage = (props) => {
   return (
     <div className=" h-full w-full">
       <div className={leftPart}>
-        <p className="ml-4 font-bold text-xl md:text-3xl xl:text-5xl "> FRONT-END DEVELOPER </p>
+        <p className="ml-4 font-bold text-xl md:text-3xl xl:text-5xl ">
+          {" "}
+          FRONT-END DEVELOPER{" "}
+        </p>
 
-        <p className="ml-4 font-bold text-lg md:text-2xl xl:text-3xl"> REACT JS HTML CSS </p>
+        <p className="ml-4 font-bold text-lg md:text-2xl xl:text-3xl">
+          {" "}
+          REACT JS HTML CSS{" "}
+        </p>
       </div>
 
       <div
@@ -259,7 +268,6 @@ const MainNavPage = (props) => {
         <div className="h-full w-1/2 bg-teal-400"></div>
       </div>
       <SoftSkills />
-
     </div>
   );
 };
