@@ -1,25 +1,46 @@
 import React from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { mainIcon, worksIcon } from "../icons";
-import {
-  MAIN_PAGE_ACTIVE,
-  WORKS_PAGE_ACTIVE,
-} from "../Redux/types";
+import { MAIN_PAGE_ACTIVE, WORKS_PAGE_ACTIVE } from "../Redux/types";
 
 const Header = (props) => {
   const dispatch = useDispatch();
+  const { reactInfo, cssInfo, jsInfo } = useSelector((state) => state.style);
+  const { showHidehardSkills, showHideSoftSkills } = props;
 
   const pagesClickHandler = (page) => {
     if (page === "MAIN") {
       dispatch({ type: MAIN_PAGE_ACTIVE });
     }
     if (page === "WORKS") {
-      dispatch({ type: WORKS_PAGE_ACTIVE });
+      if (
+        reactInfo ||
+        cssInfo ||
+        jsInfo ||
+        document.getElementsByClassName("HARD_LEFT")[0].style.height !== "0px"
+      ) {
+        showHidehardSkills();
+        setTimeout(() => {
+          dispatch({ type: WORKS_PAGE_ACTIVE });
+        }, 900);
+      }
+      if (
+        document.getElementsByClassName("SOFT_RIGHT")[0].style.height !== "0px"
+      ) {
+        showHideSoftSkills();
+        setTimeout(() => {
+          dispatch({ type: WORKS_PAGE_ACTIVE });
+        }, 900);
+      }
     }
   };
 
   return (
-    <div className={`absolute top-0 h-20 w-full flex flex-row ${props.pages.works ? 'justify-end' : 'justify-between'} items-center p-4 text-lg`}>
+    <div
+      className={`absolute top-0 h-20 w-full flex flex-row ${
+        props.pages.works ? "justify-end" : "justify-between"
+      } items-center p-4 text-lg`}
+    >
       <div className=" font-bold text-4xl "> Portfolio. </div>
 
       <div className=" flex flex-row justify-evenly items-center w-96">
