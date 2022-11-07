@@ -14,7 +14,9 @@ import {
   JS_INFO_SHOW_2,
   LEFT_DOWN,
   LEFT_DOWN_STRIPES_HIDE,
+  LEFT_DOWN_STRIPES_HIDE_2,
   LEFT_DOWN_STRIPES_SHOW,
+  LEFT_DOWN_STRIPES_SHOW_2,
   MAIN_HOR,
   REACT_INFO_HIDE_1,
   REACT_INFO_HIDE_2,
@@ -29,7 +31,9 @@ import {
 
 function App(props) {
   const dispatch = useDispatch();
-  const { reactInfo, cssInfo, jsInfo } = useSelector((state) => state.style);
+  const { reactInfo, cssInfo, jsInfo, MainPage } = useSelector((state) => state.style);
+
+  console.log(MainPage)
 
   const show = () => {
     if (jsInfo || reactInfo || cssInfo) {
@@ -199,21 +203,22 @@ function App(props) {
       ) {
         dispatch({ type: LEFT_DOWN });
 
+        setTimeout(() => {dispatch({type: LEFT_DOWN_STRIPES_SHOW_2})}, 300)
         setTimeout(() => {
           dispatch({ type: LEFT_DOWN_STRIPES_SHOW });
-        }, 300);
+        }, 350);
       } else {
         dispatch({ type: LEFT_DOWN_STRIPES_HIDE });
 
-        setTimeout(() => {
-          dispatch({ type: LEFT_DOWN });
-        }, 300);
+        setTimeout(() => {dispatch({type: LEFT_DOWN_STRIPES_HIDE_2})}, 300)
+
+        setTimeout(() => {dispatch({ type: LEFT_DOWN })}, 350);
       }
     }
   };
 
   return (
-    <div className="w-screen h-screen bg-slate-300 relative overflow-hidden z-0 font-['Montserrat']">
+    <div className={MainPage}>
       {props.pages.main && (
         <Header
           showHideSoftSkills={showHideSoftSkills}

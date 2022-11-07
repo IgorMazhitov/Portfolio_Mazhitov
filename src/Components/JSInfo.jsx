@@ -98,7 +98,7 @@ const JSInfo = (props) => {
   };
 
   return (
-    <div className={props.elStyle}>
+    <div className={props.elStyle} style={{height: '0px'}}>
         <p className="text-slate-100 mb-2"> Basics: </p>
         <div className="flex flex-row justify-between w-full h-32 text-slate-100">
             <button

@@ -28,7 +28,7 @@ const CssInfo = (props) => {
   const s2Style = useSelector((state) => state.style.s2Style);
 
   return (
-    <div className={props.elStyle}>
+    <div className={props.elStyle} style={{height: '0px'}}>
       <div className="whitespace-nowrap flex flex-col">
         <div className="flex flex-row justify-between">
           <div className="flex flex-row">

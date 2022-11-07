@@ -6,18 +6,19 @@ import ReactInfo from "./ReactInfo";
 
 const HardSkills = (props) => {
   const JSStyle = useSelector((state) => state.style.jsInfoStyle);
-  const { reactInfoStyle, hardSkills, cssInfoStyle } = useSelector(
+  const { reactInfoStyle, hardSkills, cssInfoStyle, stripesCont } = useSelector(
     (state) => state.style
   );
   const { stripes1, stripes2, stripeV } = useSelector((state) => state.style);
   const { showHideCSS, showHideJS, showHideReact } = props.func;
 
   return (
+    <>
     <div className={hardSkills} style={{height: 0 + 'px'}}>
       <div className="flex flex-row justify-between items-center w-full h-20 font-bold relative">
         <div>
           <div
-            className="w-36 transition-all cursor-pointer hover:border-b-4 border-black"
+            className="w-36 transition-all cursor-pointer hover:border-b-4 border-black h-9"
             onClick={() => showHideReact()}
           >
             {" "}
@@ -29,7 +30,7 @@ const HardSkills = (props) => {
 
         <div>
           <div
-            className="transition-all cursor-pointer hover:border-b-4 border-black w-24 text-center"
+            className="transition-all cursor-pointer hover:border-b-4 border-black w-24 text-center h-9"
             onClick={() => showHideJS()}
           >
             {" "}
@@ -41,7 +42,7 @@ const HardSkills = (props) => {
 
         <div>
           <div
-            className="transition-all cursor-pointer hover:border-b-4 border-black w-[152px]"
+            className="transition-all cursor-pointer hover:border-b-4 border-black w-[152px] h-9"
             onClick={() => showHideCSS()}
           >
             {" "}
@@ -52,8 +53,9 @@ const HardSkills = (props) => {
         </div>
       </div>
 
-      <div className={stripeV}></div>
-      <div className="absolute flex flex-col justify-start text-2xl left-full top-0 w-full h-screen py-auto -z-[1]">
+    </div>
+      <div className={stripesCont} style={{height: 'calc(100% - 320px)'}}>
+        <div className={stripeV}></div>
         <div className={stripes1}> Hard Skills </div>
         <div className={stripes2}> TypeScript </div>
         <div className={stripes1}> JavaScript </div>
@@ -64,7 +66,7 @@ const HardSkills = (props) => {
         <div className={stripes2}> Tailwind </div>
         <div className={stripes1}> Bootstrap </div>
       </div>
-    </div>
+    </>
   );
 };
 

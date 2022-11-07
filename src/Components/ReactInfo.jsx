@@ -5,7 +5,7 @@ const ReactInfo = (props) => {
   const { elStyle } = props;
 
   return (
-    <div className={elStyle}>
+    <div className={elStyle} style={{height: '0px'}}>
       <div className="flex flex-row justify-between pb-2 border-b-4 border-slate-100 whitespace-nowrap">
         <p>
           {" "}

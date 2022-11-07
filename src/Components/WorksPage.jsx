@@ -1,41 +1,46 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
-import { CONTACTS_PAGE_ACTIVE, MAIN_PAGE_ACTIVE } from "../Redux/types";
-import { mainIcon, contactsIcon } from "../icons";
+import { MAIN_PAGE_ACTIVE, MAIN_PAGE_ENTER, MAIN_PAGE_ENTER_2 } from "../Redux/types";
+import { mainIcon } from "../icons";
 
 
-    const WorksPage = (props) => {
+    const WorksPage = () => {
 
         const dispatch = useDispatch()
         
-        const mouseHandler = (e) => {
-            const gallery = document.getElementsByClassName('WORK_CONT')[0]
+        const clickHandler = () => {
 
-            const mouseX = e.clientX
-            const mouseY = e.clientY
+            dispatch({type: MAIN_PAGE_ENTER})
 
-            const xDecimal = mouseX / window.innerWidth
-            const yDecimal = mouseY / (window.innerWidth - 80)
+            setTimeout(() => {
 
-            const maxX = gallery.offsetWidth - window.innerWidth
-            const maxY = gallery.offsetHeight - window.innerHeight
+                dispatch({type: MAIN_PAGE_ENTER_2})
 
-            const panX = maxX * xDecimal * -1
-            const panY = maxY * yDecimal
+            }, 300)
+
+            setTimeout(() => {
 
 
-            gallery.style.transform = `translate(${panX}px, ${panY}px)`
+                dispatch({type: MAIN_PAGE_ACTIVE});
+
+            }, 300)
 
         }
 
         return (
 
             <div 
-            onMouseOver={(e) => mouseHandler(e)}
             className="WORK_CONT absolute duration-[4000ms] top-20 w-[150%] overflow-hidden z-[2]">
 
-                <p className="absolute top-1/3 left-1/3 translate-x-1/2 text-[100px] font-bold z-0" style={{transform: 'translate(-50%, -50%)'}}> Portfolio </p>
-                <p className="absolute top-1/2 right-0 translate-x-1/2 text-[100px] font-bold z-0" style={{transform: 'translate(-50%, -50%)'}}> Contacts </p>
+                <div className="absolute top-1/3 left-1/3 translate-x-1/2 text-[100px] font-bold z-0 w-fit h-fit" style={{transform: 'translate(0%, -50%)'}}>
+                    <div className="w-1/2 h-full bg-yellow-200 hover:bg-yellow-400 duration-500 text-black/0 hover:text-black/100 absolute left-0 top-0 text-right"> Port</div>
+                    <p className=""> Portfolio </p>
+                </div>
+
+                <div className="absolute top-1/2 right-1/3 translate-x-1/2 text-[100px] font-bold z-0" style={{transform: 'translate(40%, -50%)'}}>
+                    <div className="w-[47.5%] h-full bg-yellow-200 hover:bg-yellow-400 duration-500 text-black/0 hover:text-black/100 absolute right-0 top-0 text-right"> acts </div>
+                    <p> Contacts </p>
+                </div>
 
                 <div className="absolute top-5 left-5 w-60 h-32 bg-yellow-400 opacity-70 hover:opacity-100">
                     <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black text-3xl font-bold"> :SeaApp: </p> 
@@ -83,7 +88,7 @@ import { mainIcon, contactsIcon } from "../icons";
                     </div>
                 </div>
                 <div
-                onClick={() => dispatch({type: MAIN_PAGE_ACTIVE})}
+                onClick={() => clickHandler()}
                 className="cursor-pointer duration-500 absolute top-1 right-1/2 w-14 h-14 bg-black opacity-70 flex justify-center items-center fill-white hover:scale-105 hover:fill-yellow-400 hover:opacity-100"> {mainIcon} </div>
                 <div className="absolute top-1 right-72 w-72 h-10 bg-yellow-400 opacity-70 text-black flex justify-center items-center text-3xl"> :soon: </div>
                 <div className="absolute top-16 right-72 w-72 h-10 bg-black opacity-70 text-yellow-400 flex justify-center items-center text-3xl"> :soon: </div>

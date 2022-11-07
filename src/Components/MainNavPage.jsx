@@ -9,7 +9,7 @@ import SoftSkills from "./SoftSkills";
 
 const MainNavPage = (props) => {
   const dispatch = useDispatch()
-  const mainHor = useSelector((state) => state.style.mainHor);
+  const { mainHor } = useSelector((state) => state.style);
   const {showHideSoftSkills, showHidehardSkills, show, showHideCSS, showHideJS, showHideReact} = props
 
   const { leftPart, rightPart } = useSelector((state) => state.style);
@@ -26,14 +26,14 @@ const MainNavPage = (props) => {
 
 
   return (
-    <div className=" h-full w-full">
+    <div className="h-full w-full">
       <div className={leftPart}>
-        <p className="ml-4 font-bold text-xl md:text-3xl xl:text-5xl ">
+        <p className="ml-1 md:ml-2 xl:ml-3 font-bold text-xl md:text-3xl xl:text-5xl ">
           {" "}
           FRONT-END DEVELOPER{" "}
         </p>
 
-        <p className="ml-4 font-bold text-lg md:text-2xl xl:text-3xl">
+        <p className="ml-1 md:ml-2 xl:ml-3 font-bold text-lg md:text-2xl xl:text-3xl">
           {" "}
           REACT JS HTML CSS{" "}
         </p>
@@ -50,9 +50,9 @@ const MainNavPage = (props) => {
       </div>
 
       <div className={rightPart}>
-        <p className="mr-4 font-bold text-5xl"> IGOR MAZHITOV </p>
+        <p className="mr-1 md:mr-2 xl:mr-3 font-bold text-xl md:text-3xl xl:text-5xl text-right "> IGOR MAZHITOV </p>
 
-        <p className="mr-4 font-bold text-4xl"> ISTANBUL, TURKEY </p>
+        <p className="mr-1 md:mr-2 xl:mr-3 font-bold text-xl md:text-3xl xl:text-5xl text-right"> ISTANBUL, TURKEY </p>
       </div>
 
       <HardSkills func={{ showHideCSS, showHideJS, showHideReact }} />

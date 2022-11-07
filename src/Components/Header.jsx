@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { mainIcon, worksIcon } from "../icons";
-import { MAIN_PAGE_ACTIVE, WORKS_PAGE_ACTIVE } from "../Redux/types";
+import { MAIN_PAGE_EXIT, MAIN_PAGE_EXIT_2, WORKS_PAGE_ACTIVE } from "../Redux/types";
 
 const Header = (props) => {
   const dispatch = useDispatch();
@@ -9,9 +9,6 @@ const Header = (props) => {
   const { showHidehardSkills, showHideSoftSkills } = props;
 
   const pagesClickHandler = (page) => {
-    if (page === "MAIN") {
-      dispatch({ type: MAIN_PAGE_ACTIVE });
-    }
     if (page === "WORKS") {
       if (
         reactInfo ||
@@ -21,16 +18,56 @@ const Header = (props) => {
       ) {
         showHidehardSkills();
         setTimeout(() => {
-          dispatch({ type: WORKS_PAGE_ACTIVE });
+          dispatch({type: MAIN_PAGE_EXIT})
+
+        
+          setTimeout(() => {
+            
+            dispatch({type: MAIN_PAGE_EXIT_2})
+            
+          }, 300)
+          
+          setTimeout(() => {
+
+            dispatch({ type: WORKS_PAGE_ACTIVE });
+
+          }, 300)
         }, 900);
-      }
-      if (
+      } else if (
         document.getElementsByClassName("SOFT_RIGHT")[0].style.height !== "0px"
       ) {
         showHideSoftSkills();
         setTimeout(() => {
+          dispatch({type: MAIN_PAGE_EXIT})
+
+        
+          setTimeout(() => {
+            
+            dispatch({type: MAIN_PAGE_EXIT_2})
+            
+          }, 300)
+        
+          setTimeout(() => {
+
+            dispatch({ type: WORKS_PAGE_ACTIVE });
+
+          }, 300)
+        }, 600);
+      } else {
+        dispatch({type: MAIN_PAGE_EXIT})
+
+        
+        setTimeout(() => {
+          
+          dispatch({type: MAIN_PAGE_EXIT_2})
+          
+        }, 300)
+        
+        setTimeout(() => {
+
           dispatch({ type: WORKS_PAGE_ACTIVE });
-        }, 900);
+
+        }, 300)
       }
     }
   };
