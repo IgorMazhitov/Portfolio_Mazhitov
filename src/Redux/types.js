@@ -99,5 +99,7 @@ export const MAIN_PAGE_EXIT_2 = "HIDE/MAIN_PAGE_EXIT_2"
 export const MAIN_PAGE_ENTER = "HIDE/MAIN_PAGE_ENTER"
 export const MAIN_PAGE_ENTER_2 = "HIDE/MAIN_PAGE_ENTER_2"
 
-export const TREE_TEST = "TEXT/TREE_TEST"
-export const TREE_TEST_2 = "TEXT/TREE_TEST_2"
+export const TREE_ANIM_1 = "TEXT/TREE_ANIM_1"
+export const TREE_ANIM_2 = "TEXT/TREE_ANIM_2"
+export const TREE_ANIM_3 = "TEXT/TREE_ANIM_3"
+

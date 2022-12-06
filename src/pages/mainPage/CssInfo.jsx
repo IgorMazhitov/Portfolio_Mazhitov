@@ -19,13 +19,7 @@ import {
 
 const CssInfo = (props) => {
   const dispatch = useDispatch();
-  const hStyle = useSelector((state) => state.style.hStyle);
-  const tStyle = useSelector((state) => state.style.tStyle);
-  const mStyle = useSelector((state) => state.style.mStyle);
-  const lStyle = useSelector((state) => state.style.lStyle);
-  const cStyle = useSelector((state) => state.style.cStyle);
-  const s1Style = useSelector((state) => state.style.s1Style);
-  const s2Style = useSelector((state) => state.style.s2Style);
+  const {hStyle, tStyle, mStyle, lStyle, cStyle, s1Style, s2Style} = useSelector((state) => state.style);
 
   return (
     <div className={props.elStyle} style={{height: '0px'}}>

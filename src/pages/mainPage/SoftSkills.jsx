@@ -4,7 +4,6 @@ import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import {
   SOFT_TEXT_ANIM,
-  SOFT_TEXT_ANIM_END,
   SOFT_TYPE_BUT_HIDE,
   SOFT_TYPE_BUT_SHOW,
   SOFT_TYPE_HOVER_ON,

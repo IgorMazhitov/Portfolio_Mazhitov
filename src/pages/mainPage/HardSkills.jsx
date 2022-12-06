@@ -5,11 +5,7 @@ import JSInfo from "./JSInfo";
 import ReactInfo from "./ReactInfo";
 
 const HardSkills = (props) => {
-  const JSStyle = useSelector((state) => state.style.jsInfoStyle);
-  const { reactInfoStyle, hardSkills, cssInfoStyle, stripesCont } = useSelector(
-    (state) => state.style
-  );
-  const { stripes1, stripes2, stripeV } = useSelector((state) => state.style);
+  const { reactInfoStyle, hardSkills, cssInfoStyle, stripesCont, stripes1, stripes2, stripeV, jsInfoStyle } = useSelector(state => state.style);
   const { showHideCSS, showHideJS, showHideReact } = props.func;
 
   return (
@@ -37,7 +33,7 @@ const HardSkills = (props) => {
             JS{" "}
           </div>
 
-          <JSInfo elStyle={JSStyle} />
+          <JSInfo elStyle={jsInfoStyle} />
         </div>
 
         <div>

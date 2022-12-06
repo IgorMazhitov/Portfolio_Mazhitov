@@ -22,16 +22,8 @@ import {rightArrow, leftArrow} from "../../icons"
 
 const JSInfo = (props) => {
   const dispatch = useDispatch();
-  const jsBasic = useSelector((state) => state.elements.jsBasics);
-  const el = useSelector((state) => state.elements.el);
-  const jsBasicLevel = useSelector((state) => state.elements.jsBasicsLevel);
-  const jsBasicText = useSelector((state) => state.style.jsBasicText);
-  const jsAdvanced = useSelector((state) => state.elements.jsAdvanced);
-  const elAdv = useSelector((state) => state.elements.elAdv);
-  const jsAdvancedLevel = useSelector(
-    (state) => state.elements.jsAdvancedLevel
-  );
-  const jsAdvText = useSelector((state) => state.style.jsAdvText);
+  const {jsBasics, el, jsBasicsLevel, jsAdvanced, elAdv, jsAdvancedLevel} = useSelector((state) => state.elements);
+  const {jsBasicText, jsAdvText} = useSelector((state) => state.style);
 
   const BasicsRight = () => {
     dispatch({ type: JS_BASIC_TEXT_ANIMATION_1 });
@@ -109,9 +101,9 @@ const JSInfo = (props) => {
                 {leftArrow}{" "}
             </button>{" "}
             <div className="flex flex-col items-center justify-between">
-                <p className={jsBasicText}> {jsBasic[el]} </p>{" "}
+                <p className={jsBasicText}> {jsBasics[el]} </p>{" "}
                 <p className=" w-72 h-[2px] bg-slate-100"></p>
-                <p className={jsBasicText}> {jsBasicLevel[el]} </p>{" "}
+                <p className={jsBasicText}> {jsBasicsLevel[el]} </p>{" "}
             </div>
             <button className="w-10 h-full" onClick={BasicsRight}>
             {" "}

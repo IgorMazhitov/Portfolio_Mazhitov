@@ -9,17 +9,12 @@ import SoftSkills from "./SoftSkills";
 
 const MainNavPage = (props) => {
   const dispatch = useDispatch()
-  const { mainHor } = useSelector((state) => state.style);
   const {showHideSoftSkills, showHidehardSkills, show, showHideCSS, showHideJS, showHideReact} = props
 
-  const { leftPart, rightPart } = useSelector((state) => state.style);
+  const { leftPart, rightPart, mainHor, triggerHS, triggerSS } = useSelector((state) => state.style);
 
   const leftSideTextStyle = "ml-1 md:ml-2 xl:ml-3 font-bold text-xl md:text-3xl xl:text-5xl"
   const rightSideTextStyle = "mr-1 md:mr-2 xl:mr-3 font-bold text-xl md:text-3xl xl:text-5xl text-right"
-
-  const { triggerHS, triggerSS } = useSelector(
-    (state) => state.style
-  );
 
   const mainHorHover = (pos) => {
     pos === "ON"
