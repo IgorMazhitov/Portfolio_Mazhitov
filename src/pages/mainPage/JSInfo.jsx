@@ -17,8 +17,8 @@ import {
   JS_BASIC_TEXT_ANIMATION_2_L,
   JS_BASIC_TEXT_ANIMATION_3,
   JS_BASIC_TEXT_ANIMATION_3_L,
-} from "../Redux/types";
-import {rightArrow, leftArrow} from "../icons"
+} from "../../Redux/types";
+import {rightArrow, leftArrow} from "../../icons"
 
 const JSInfo = (props) => {
   const dispatch = useDispatch();

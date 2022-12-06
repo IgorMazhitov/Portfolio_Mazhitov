@@ -15,7 +15,7 @@ import {
   S_ANIM_SHOW,
   T_ANIM_HIDE,
   T_ANIM_SHOW,
-} from "../Redux/types";
+} from "../../Redux/types";
 
 const CssInfo = (props) => {
   const dispatch = useDispatch();

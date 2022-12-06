@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useDispatch } from "react-redux";
-import { MAIN_PAGE_ACTIVE, MAIN_PAGE_ENTER, MAIN_PAGE_ENTER_2 } from "../Redux/types";
-import { mainIcon } from "../icons";
+import { MAIN_PAGE_ACTIVE, MAIN_PAGE_ENTER, MAIN_PAGE_ENTER_2 } from "../../Redux/types";
+import { mainIcon } from "../../icons";
 
 
     const WorksPage = () => {
@@ -19,7 +19,6 @@ import { mainIcon } from "../icons";
             }, 300)
 
             setTimeout(() => {
-
 
                 dispatch({type: MAIN_PAGE_ACTIVE});
 
@@ -60,14 +59,24 @@ import { mainIcon } from "../icons";
                         <a className="duration-500 w-full h-full flex justify-center items-center opacity-0 hover:opacity-100 hover:bg-yellow-400 hover:scale-105 text-black text-5xl" href="http://github.com/IgorMazhitov/TO_DO_REACT"> :LINK: </a>
                     </div>
                 </div>
-                <div className="absolute bottom-24 left-16 w-72 h-16 bg-yellow-400 opacity-70 text-black flex justify-center items-center text-3xl font-bold"> :soon: </div>
+                <div className="absolute bottom-24 left-16 w-72 h-16 bg-yellow-400 opacity-70 text-black flex justify-center items-center text-3xl font-bold">
+                    <p className="absolute w-full h-full text-black flex flex-col justify-center items-center font-bold text-3xl"> <p>:Angular/Finance:</p>  </p> 
+                    <div className="w-full h-full">
+                        <a className="duration-500 w-full h-full flex justify-center items-center opacity-0 hover:opacity-100 hover:bg-yellow-400 hover:scale-105 text-black text-5xl" href="https://github.com/IgorMazhitov/AngularTask-Finished-"> :LINK: </a>
+                    </div>
+                </div>
                 <div className="absolute top-80 left-72 w-80 h-44 bg-black opacity-70 hover:opacity-100"> 
                     <p className="absolute w-full h-full text-yellow-400 text-3xl font-bold flex flex-col justify-center items-center"> <p>:TO-DO:</p> <p>:JS:</p>  </p> 
                     <div className="w-full h-full">
                         <a className="duration-500 bg-black w-full h-full flex justify-center items-center opacity-0 hover:opacity-100 hover:scale-105 text-yellow-400 text-5xl" href="http://github.com/IgorMazhitov/TO-DO"> :LINK: </a>
                     </div>
                 </div>
-                <div className="absolute top-0 left-72 w-64 h-24 bg-black opacity-70 text-yellow-400 flex justify-center items-center text-3xl font-bold"> :soon:</div>
+                <div className="absolute top-0 left-72 w-64 h-24 bg-black opacity-70 text-yellow-400 flex justify-center items-center text-3xl font-bold">
+                    <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-yellow-400 text-3xl font-bold flex justify-center items-center flex-col"> <p>:React/TS:</p> <p>:AviaSale:</p> </p> 
+                    <div className="w-full h-full">
+                        <a className="duration-500 bg-black w-full h-full flex justify-center items-center opacity-0 hover:opacity-100 hover:scale-105 text-yellow-400 text-4xl" href="https://github.com/IgorMazhitov/TestTaskAvia"> :LINK: </a>
+                    </div>
+                </div>
                 <div className="absolute bottom-10 left-96 h-24 w-80 bg-black opacity-70 hover:opacity-100">
                     <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-yellow-400 text-3xl font-bold flex justify-center items-center flex-col"> <p>:CodeWars:</p> <p>:GitHub:</p> </p> 
                     <div className="w-full h-full">

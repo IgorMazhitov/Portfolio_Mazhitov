@@ -1,7 +1,7 @@
 import { connect, useDispatch, useSelector } from "react-redux";
 import Header from "./Components/Header";
-import MainNavPage from "./Components/MainNavPage";
-import WorksPage from "./Components/WorksPage";
+import MainNavPage from "../src/pages/mainPage/MainNavPage";
+import WorksPage from "./pages/worksPage/WorksPage";
 import "./index.css";
 import {
   CSS_INFO_HIDE_1,
@@ -28,12 +28,11 @@ import {
   SOFT_SKILLS_SHOW,
   SOFT_TYPE_BUT_SHOW,
 } from "./Redux/types";
+import TreePage from "./pages/treePage/TreePage";
 
 function App(props) {
   const dispatch = useDispatch();
   const { reactInfo, cssInfo, jsInfo, MainPage } = useSelector((state) => state.style);
-
-  console.log(MainPage)
 
   const show = () => {
     if (jsInfo || reactInfo || cssInfo) {
@@ -237,6 +236,8 @@ function App(props) {
         />
       )}
       {props.pages.works && <WorksPage />}
+
+      {props.pages.tree && <TreePage />}
     </div>
   );
 }

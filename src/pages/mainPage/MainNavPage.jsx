@@ -3,7 +3,7 @@ import { connect, useDispatch, useSelector } from "react-redux";
 import {
   MAIN_HOR_HOVER_ON,
   MAIN_HOR_HOVER_OUT,
-} from "../Redux/types";
+} from "../../Redux/types";
 import HardSkills from "./HardSkills";
 import SoftSkills from "./SoftSkills";
 
@@ -13,6 +13,9 @@ const MainNavPage = (props) => {
   const {showHideSoftSkills, showHidehardSkills, show, showHideCSS, showHideJS, showHideReact} = props
 
   const { leftPart, rightPart } = useSelector((state) => state.style);
+
+  const leftSideTextStyle = "ml-1 md:ml-2 xl:ml-3 font-bold text-xl md:text-3xl xl:text-5xl"
+  const rightSideTextStyle = "mr-1 md:mr-2 xl:mr-3 font-bold text-xl md:text-3xl xl:text-5xl text-right"
 
   const { triggerHS, triggerSS } = useSelector(
     (state) => state.style
@@ -28,18 +31,19 @@ const MainNavPage = (props) => {
   return (
     <div className="h-full w-full">
       <div className={leftPart}>
-        <p className="ml-1 md:ml-2 xl:ml-3 font-bold text-xl md:text-3xl xl:text-5xl ">
+        <p className={leftSideTextStyle}>
           {" "}
           FRONT-END DEVELOPER{" "}
         </p>
 
-        <p className="ml-1 md:ml-2 xl:ml-3 font-bold text-lg md:text-2xl xl:text-3xl">
+        <p className={leftSideTextStyle}>
           {" "}
           REACT JS HTML CSS{" "}
         </p>
       </div>
 
       <div
+        /* trigger for horizontal swap */
         className={mainHor}
         onMouseEnter={() => mainHorHover("ON")}
         onMouseLeave={() => mainHorHover("OUT")}
@@ -50,23 +54,33 @@ const MainNavPage = (props) => {
       </div>
 
       <div className={rightPart}>
-        <p className="mr-1 md:mr-2 xl:mr-3 font-bold text-xl md:text-3xl xl:text-5xl text-right "> IGOR MAZHITOV </p>
+        <p className={rightSideTextStyle}> IGOR MAZHITOV </p>
 
-        <p className="mr-1 md:mr-2 xl:mr-3 font-bold text-xl md:text-3xl xl:text-5xl text-right"> ISTANBUL, TURKEY </p>
+        <p className={rightSideTextStyle}> ISTANBUL, TURKEY </p>
       </div>
+
+      <div className="absolute bottom-1/3 left-0 text-5xl font-bold uppercase w-1/2 flex justify-center items-center"> Hard skills </div>
 
       <HardSkills func={{ showHideCSS, showHideJS, showHideReact }} />
 
-      <div className={triggerHS} onClick={() => showHidehardSkills()}>
+      <div 
+      /* trigger for Hard Skills */
+      className={triggerHS} onClick={() => showHidehardSkills()}>
         <div className="h-full w-1/2 bg-black"></div>
         <div className="h-full w-1/2 bg-yellow-400"></div>
       </div>
 
-      <div className={triggerSS} onClick={() => showHideSoftSkills()}>
+      <div 
+      /* trigger for Soft Skills */
+      className={triggerSS} onClick={() => showHideSoftSkills()}>
         <div className="h-full w-1/2 bg-black"></div>
         <div className="h-full w-1/2 bg-teal-400"></div>
       </div>
+
+      <div className="absolute bottom-1/3 right-0 text-5xl font-bold uppercase w-1/2 flex justify-center items-center"> Soft skills </div>
+
       <SoftSkills />
+
     </div>
   );
 };

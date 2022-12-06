@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { mainIcon, worksIcon } from "../icons";
-import { MAIN_PAGE_EXIT, MAIN_PAGE_EXIT_2, WORKS_PAGE_ACTIVE } from "../Redux/types";
+import { MAIN_PAGE_EXIT, MAIN_PAGE_EXIT_2, TREE_PAGE_ACTIVE, WORKS_PAGE_ACTIVE } from "../Redux/types";
 
 const Header = (props) => {
   const dispatch = useDispatch();
@@ -69,6 +69,12 @@ const Header = (props) => {
 
         }, 300)
       }
+    } else if (page === "TREE") {
+
+        console.log('damn')
+
+        dispatch({type: TREE_PAGE_ACTIVE})
+
     }
   };
 
@@ -87,6 +93,13 @@ const Header = (props) => {
         >
           {mainIcon}
           <p className="ml-1 font-bold"> Main </p>
+        </div>
+
+        <div
+          onClick={() => pagesClickHandler("TREE")}
+          className=" ml-1 flex flex-row items-center justify-center w-20 cursor-pointer bg-transparent transition-all hover:-translate-y-1 hover:border-b-2 hover:border-black"
+        >
+          <p className="ml-1 font-bold"> RoadMap </p>
         </div>
 
         <div

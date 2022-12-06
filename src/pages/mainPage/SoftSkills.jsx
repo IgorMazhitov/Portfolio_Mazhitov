@@ -11,7 +11,7 @@ import {
   SOFT_TYPE_HOVER_ON_2,
   SOFT_TYPE_HOVER_OUT,
   SOFT_TYPE_HOVER_OUT_2,
-} from "../Redux/types";
+} from "../../Redux/types";
 
 const SoftSkills = (props) => {
   const dispatch = useDispatch();
