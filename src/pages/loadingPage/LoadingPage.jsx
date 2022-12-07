@@ -9,7 +9,7 @@
 
             return (
 
-                <div className="box w-full h-full">
+                <div className="box w-full h-full ">
 
                     <Background />
                     <Name />
