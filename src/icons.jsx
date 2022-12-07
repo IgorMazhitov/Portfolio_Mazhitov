@@ -42,3 +42,4 @@ export const leftArrow = (
     ></path>
   </svg>
 );
+

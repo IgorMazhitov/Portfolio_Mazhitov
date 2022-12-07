@@ -17,6 +17,8 @@ import {
   LEFT_DOWN_STRIPES_HIDE_2,
   LEFT_DOWN_STRIPES_SHOW,
   LEFT_DOWN_STRIPES_SHOW_2,
+  LOADING_PAGE_DIS,
+  LOADING_PAGE_HIDE,
   MAIN_HOR,
   REACT_INFO_HIDE_1,
   REACT_INFO_HIDE_2,
@@ -29,10 +31,13 @@ import {
   SOFT_TYPE_BUT_SHOW,
 } from "./Redux/types";
 import TreePage from "./pages/treePage/TreePage";
+import { useEffect } from "react";
+import LoadingPage from "./pages/loadingPage/LoadingPage";
 
 function App(props) {
   const dispatch = useDispatch();
   const { reactInfo, cssInfo, jsInfo, MainPage } = useSelector((state) => state.style);
+  const { loading, loadingStyle } = useSelector(state => state.pages)
 
   const show = () => {
     if (jsInfo || reactInfo || cssInfo) {
@@ -216,30 +221,64 @@ function App(props) {
     }
   };
 
-  return (
-    <div className={MainPage}>
-      {props.pages.main && (
-        <Header
-          showHideSoftSkills={showHideSoftSkills}
-          showHidehardSkills={showHidehardSkills}
-        />
-      )}
+  useEffect(() => {
 
-      {props.pages.main && (
-        <MainNavPage
-          showHideSoftSkills={showHideSoftSkills}
-          showHidehardSkills={showHidehardSkills}
-          show={show}
-          showHideCSS={showHideCSS}
-          showHideJS={showHideJS}
-          showHideReact={showHideReact}
-        />
-      )}
-      {props.pages.works && <WorksPage />}
+    setTimeout(() => {
 
-      {props.pages.tree && <TreePage />}
-    </div>
-  );
+      dispatch({type: LOADING_PAGE_HIDE})
+
+    }, 3900)
+
+    setTimeout(() => {
+
+      dispatch({type: LOADING_PAGE_DIS})
+
+    }, 4300)
+
+  }, [])
+
+  if (loading) {
+
+    return (
+
+      <div className={loadingStyle}>
+
+          <LoadingPage />
+
+      </div>
+
+
+    )
+
+  } else {
+
+    return (
+      <div className={MainPage}>
+        {props.pages.main && (
+          <Header
+            showHideSoftSkills={showHideSoftSkills}
+            showHidehardSkills={showHidehardSkills}
+          />
+        )}
+  
+        {props.pages.main && (
+          <MainNavPage
+            showHideSoftSkills={showHideSoftSkills}
+            showHidehardSkills={showHidehardSkills}
+            show={show}
+            showHideCSS={showHideCSS}
+            showHideJS={showHideJS}
+            showHideReact={showHideReact}
+          />
+        )}
+        {props.pages.works && <WorksPage />}
+  
+        {props.pages.tree && <TreePage />}
+      </div>
+    );
+
+  }
+
 }
 
 const mapStateToProps = (state) => {
