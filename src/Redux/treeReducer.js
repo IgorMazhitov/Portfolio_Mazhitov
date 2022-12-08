@@ -86,7 +86,7 @@ import { CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, TREE_ANIM_1, TREE_ANIM_
 
                 return {
                     ...state,
-                    fourthCSSLine: state.fourthCSSLine.replace('w-0', 'w-[200px]')
+                    fourthCSSLine: state.fourthCSSLine.replace('w-0', 'w-[200px]').replace('-translate-y-1/2', '-translate-y-full') + ' rotate-0'
                 }
         
             default:

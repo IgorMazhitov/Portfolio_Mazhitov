@@ -54,7 +54,7 @@ import {
 } from "./types";
 
 const initialState = {
-  MainPage: "h-screen w-screen transition-all duration-700",
+  MainPage: "h-screen w-screen overflow-hidden transition-all duration-700",
   mainHor:
     "absolute h-10 w-10 top-56 left-1/2 -translate-x-1/2 rotate-0 flex flex-row-reverse cursor-pointer z-10 transition-all duration-300",
   leftPart:

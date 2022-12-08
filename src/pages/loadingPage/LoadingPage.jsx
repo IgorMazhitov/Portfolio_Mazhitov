@@ -1,37 +1,48 @@
     
     import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+    import { useEffect } from "react";
+    import { useState } from "react";
     import { ReactComponent as Background } from "../../assets/anim_bg.svg"
+    import { ReactComponent as Background2 } from "../../assets/anim_bg_2.svg"
+    import { ReactComponent as BackgroundDots } from "../../assets/anim_bg_dots.svg"
 
         const LoadingPage = (props) => {
 
-            const [slideAnim, setSlideAnim] = useState('duration-1000 absolute w-full h-fit flex justify-start pl-10 items-center translate-x-1/2 opacity-0 top-[23%] left-0 mix-blend-difference')
+            const [slideAnim, setSlideAnim] = useState('duration-700 absolute top-0 translate-x-1/2 w-full h-1/2 flex justify-start pl-10 items-center opacity-0 z-0')
+            const [slideNameAnim, setSlideNameAnim] = useState("duration-300 w-full h-1/2 absolute top-1/2 left-1/2 -translate-x-[300%] text-[150px] font-bold -translate-y-[45%] flex justify-center items-center z-0")
 
             useEffect(() => {
-
                 setSlideAnim(prev => prev.replace('opacity-0', 'opacity-100'))
                 setTimeout(() => {
-                    setSlideAnim(prev => prev.replace(' translate-x-1/2', ' -translate-x-1/2'))
+                    setSlideNameAnim(prev => prev.replace(' -translate-x-[300%]', ' -translate-x-1/2'))
+                    setSlideAnim(prev => prev.replace(' translate-x-1/2', ' -translate-x-1/3'))
                 }, 1500)
             }, [])
 
             return (
 
-                <div className="box w-full h-full ">
+                <div className="w-screen h-screen overflow-hidden">
 
-                    <Background />
-                    <svg className="absolute w-full h-full flex justify-center items-center">
-                        <symbol id="text-copy">
-                            <text text-anchor="middle" x="50%" y="50%" class="text--line text-[150px] font-bold">IGOR MAZHITOV</text>
-                        </symbol>
-                        <g class="g-ants">
-                            <use xlinkHref="#text-copy"
-                            class="text-copy" id="outline"></use>
-                            <use xlinkHref="#text-copy"
-                            class="text-copy" id="fill"></use> 
-                        </g>
-                    </svg>
+                    
+                    <div 
+                    /* container for circle */
+                    className="absolute w-full h-full duration-[2500ms] overflow-hidden flex justify-center items-center z-10">
+                        <div className="w-full h-full scale-150">
+                            <Background />
+                        </div>
+                    </div>
+                    <div 
+                    /* container for circle */
+                    className="absolute w-full h-full overflow-hidden flex justify-center items-center -z-10">
+                        <div className="w-full h-full scale-150">
+                            <Background2 />
+                        </div>
+                    </div>
+                    <div 
+                    /* container for dots */
+                    className="absolute w-full h-full overflow-hidden -z-10">
+                        <BackgroundDots />
+                    </div>
 
                     <svg id="svg_front_slide" className={slideAnim}>
                         <symbol id="text-copy2" >
@@ -42,6 +53,18 @@ import { useState } from "react";
                             class="text-copy2" id="outline2"></use>
                             <use xlinkHref="#text-copy2"
                             class="text-copy2" id="fill2"></use> 
+                        </g>
+                    </svg>
+
+                    <svg className={slideNameAnim}>
+                        <symbol id="text-copy" className="w-full h-full">
+                            <text text-anchor="middle" x="50%" y="50%" class="text--line">IGOR MAZHITOV</text>
+                        </symbol>
+                        <g class="g-ants absolute top-0 w-full h-full">
+                            <use xlinkHref="#text-copy"
+                            class="text-copy w-full h-full" id="outline"></use>
+                            <use xlinkHref="#text-copy"
+                            class="text-copy w-full h-full" id="fill"></use> 
                         </g>
                     </svg>
 

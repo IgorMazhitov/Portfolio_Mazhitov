@@ -24,7 +24,9 @@ const MainNavPage = (props) => {
 
 
   return (
+    
     <div className="h-full w-full">
+      <div className="absolute w-full h-full -z-10"> <img className="scale-[200%]" src={require("../../assets/anim_bg_dots.svg").default} alt='mySvgImage' /></div>
       <div className={leftPart}>
         <p className={leftSideTextStyle}>
           {" "}

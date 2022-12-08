@@ -58,6 +58,8 @@ import { CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, TREE_ANIM_1, TREE_ANIM_
 
                     <div className="tree_container w-full absolute bottom-0 yel">
 
+                        <div className="absolute w-full h-full -z-10"> <img className="scale-[200%]" src={require("../../assets/anim_bg_dots.svg").default} alt='mySvgImage' /></div>
+
                         <div className={startHTMLDot}>
 
                             <div className={firstMiddleLine}>

@@ -69,7 +69,7 @@ export const pagesReducer = (state = initialState, action) => {
       return {
 
         ...state,
-        loadingStyle: state.loadingStyle.replace('opacity-100', 'opacity-0') + ' absolute scale-[10%] -translate-y-full'
+        loadingStyle: state.loadingStyle.replace('opacity-100', 'opacity-0') + ' rounded-full absolute scale-[10%] -translate-y-full'
 
       }
 
