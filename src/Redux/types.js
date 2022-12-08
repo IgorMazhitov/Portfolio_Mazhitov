@@ -100,9 +100,16 @@ export const MAIN_PAGE_EXIT_2 = "HIDE/MAIN_PAGE_EXIT_2"
 export const MAIN_PAGE_ENTER = "HIDE/MAIN_PAGE_ENTER"
 export const MAIN_PAGE_ENTER_2 = "HIDE/MAIN_PAGE_ENTER_2"
 
-export const TREE_ANIM_1 = "TEXT/TREE_ANIM_1"
-export const TREE_ANIM_2 = "TEXT/TREE_ANIM_2"
-export const TREE_ANIM_3 = "TEXT/TREE_ANIM_3"
+export const TREE_ANIM_1 = "TREE/TREE_ANIM_1"
+export const TREE_ANIM_2 = "TREE/TREE_ANIM_2"
+export const TREE_ANIM_3 = "TREE/TREE_ANIM_3"
+export const TREE_ANIM_4 = "TREE/TREE_ANIM_4"
+export const CSS_ANIM_5 = "TREE/TREE_CSS_ANIM_5"
+export const CSS_ANIM_6 = "TREE/TREE_CSS_ANIM_6"
+export const CSS_ANIM_7 = "TREE/TREE_CSS_ANIM_7"
+export const CSS_ANIM_8 = "TREE/TREE_CSS_ANIM_8"
+
+
 
 
 export const LOADING_PAGE_HIDE = "HIDE/LOADING_PAGE"
