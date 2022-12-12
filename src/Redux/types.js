@@ -129,7 +129,15 @@ export const JS_ANIM_13 = "TREE/TREE_JS_ANIM_13"
 export const JS_ANIM_14 = "TREE/TREE_JS_ANIM_14"
 export const JS_ANIM_15 = "TREE/TREE_JS_ANIM_15"
 
+export const JS_CLOSE = "TREE/TREE_JS_CLOSE"
+export const HTML_CLOSE = "TREE/TREE_HTML_CLOSE"
+export const CSS_CLOSE = "TREE/TREE_CSS_CLOSE"
+export const TREE_START_CLOSE = "TREE/TREE_START_CLOSE"
 
+
+
+export const BTN_START = "TREE/BTN_START"
+export const BTN_END = "TREE/BTN_END"
 
 
 export const LOADING_PAGE_HIDE = "HIDE/LOADING_PAGE"

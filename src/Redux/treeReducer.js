@@ -1,44 +1,47 @@
-import { CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9, HTML_ANIM_5, HTML_ANIM_6, HTML_ANIM_7, JS_ANIM_10, JS_ANIM_11, JS_ANIM_12, JS_ANIM_13, JS_ANIM_14, JS_ANIM_15, JS_ANIM_5, JS_ANIM_6, JS_ANIM_7, JS_ANIM_8, JS_ANIM_9, TREE_ANIM_1, TREE_ANIM_2, TREE_ANIM_3, TREE_ANIM_4 } from "./types";
+import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9, CSS_CLOSE, HTML_ANIM_5, HTML_ANIM_6, HTML_ANIM_7, HTML_CLOSE, JS_ANIM_10, JS_ANIM_11, JS_ANIM_12, JS_ANIM_13, JS_ANIM_14, JS_ANIM_15, JS_ANIM_5, JS_ANIM_6, JS_ANIM_7, JS_ANIM_8, JS_ANIM_9, JS_CLOSE, TREE_ANIM_1, TREE_ANIM_2, TREE_ANIM_3, TREE_ANIM_4, TREE_START_CLOSE } from "./types";
 
 
 
     const initialState = {
-
-        startJSDot: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-teal-400 duration-300",
-        startHTMLDot: "check_one absolute top-1/2 left-40 -translate-y-[350%] w-0 h-0 rounded-full bg-yellow-400 duration-300",
-        startCSSDot: "absolute top-1/2 left-56 translate-y-[300%] w-0 h-0 rounded-full bg-red-500 duration-300",
+        // button style //
+        buttonText: "open",
+        buttonStyle: "uppercase text-2xl duration-300 absolute top-2/3 left-1/2 -translate-x-1/2 -translate-y-full py-4 px-8 bg-black text-slate-200 font-bold",
+        // starting points and lines //
+        startJSDot: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-teal-400 duration-300",
+        startHTMLDot: "check_one absolute top-1/2 left-40 -translate-y-[350%] w-0 h-0 bg-yellow-400 duration-300",
+        startCSSDot: "absolute top-1/2 left-56 translate-y-[300%] w-0 h-0 bg-red-500 duration-300",
         firstMiddleLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700 ",
-        secondDot: "absolute top-1/2 right-0 -translate-y-1/2 h-0 w-0 bg-inherit rounded-full duration-300",
+        secondDot: "absolute top-1/2 right-0 -translate-y-1/2 h-0 w-0 bg-inherit duration-300",
         secondLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700 ",
         // HTML PART START //
-        thirdHTMLDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300",
+        thirdHTMLDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         thirdHTMLLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
-        fourthHTMLDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300",
+        fourthHTMLDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         // HTML PART END //
         // CSS PART START // 
-        thirdCSSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300",
+        thirdCSSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         thirdCSSHorizontalLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
         thirdCSSDiagonalLine: "absolute top-1/2 left-1/2 translate-y-[750%] -translate-x-[15%] h-2 rotate-45 bg-inherit w-0 rounded-full duration-700",
-        fourthCSSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300",
-        fourthCSSDiagDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300 -rotate-45",
+        fourthCSSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
+        fourthCSSDiagDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300 -rotate-45",
         fourthCSSLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
         fourthCSSDiagLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
-        fifthCSSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300",
+        fifthCSSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0 bg-inherit duration-300",
         // CSS PART END // 
-        thirdJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300",
+        thirdJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         thirdJSHorizontalLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
         thirdJSDiagonalLine: "absolute top-1/2 left-1/2 translate-y-[750%] -translate-x-[15%] h-2 rotate-45 bg-inherit w-0 rounded-full duration-700",
-        fourthJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300",
+        fourthJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         fourthJSLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
-        fifthJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300",
+        fifthJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         fifthJSLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
-        sixthJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300",
-        sixthJSUpperLine: "absolute top-1/2 left-1/2 -translate-y-[770%] -translate-x-[15%] h-2 -rotate-45 bg-inherit w-0 rounded-full duration-700",
+        sixthJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
+        sixthJSUpperLine: "absolute top-1/2 left-1/2 -translate-y-[850%] -translate-x-[15%] h-2 -rotate-45 bg-inherit w-0 rounded-full duration-700",
         sixthJSLowerLine: "absolute top-1/2 left-1/2 translate-y-[750%] -translate-x-[15%] h-2 rotate-45 bg-inherit w-0 rounded-full duration-700",
-        seventhJSUpperDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0 rotate-45 bg-inherit rounded-full duration-300",
-        seventhJSLowerDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0 -rotate-45 bg-inherit rounded-full duration-300",
+        seventhJSUpperDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0 rotate-45 bg-inherit duration-300",
+        seventhJSLowerDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0 -rotate-45 bg-inherit duration-300",
         seventhJSLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
-        eightJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit rounded-full duration-300"
+        eightJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300"
 
 
     }
@@ -46,6 +49,22 @@ import { CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9, HTML_ANIM_5
     export const treeReducer = (state = initialState, action) => {
 
         switch (action.type) {
+
+            case BTN_START:
+
+                return {
+                    ...state,
+                    buttonStyle: state.buttonStyle.replace('top-2/3', 'top-20').replace('-translate-y-full', '-translate-y-1/2'),
+                    buttonText: "close"
+                }
+
+            case BTN_END: 
+
+                return {
+                    ...state,
+                    buttonStyle: state.buttonStyle.replace('top-20', 'top-2/3').replace('-translate-y-1/2', '-translate-y-full'),
+                    buttonText: "open"
+                }
 
             case TREE_ANIM_1:
                 
@@ -222,6 +241,64 @@ import { CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9, HTML_ANIM_5
                 return {
                     ...state,
                     eightJSDot: state.eightJSDot.replace('w-0', 'w-10').replace('h-0', 'h-10')
+                }
+
+            case HTML_CLOSE:
+
+                return {
+                    ...state,
+                    thirdHTMLDot: state.thirdHTMLDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    thirdHTMLLine: state.thirdHTMLLine.replace('w-[200px]', 'w-0'),
+                    fourthHTMLDot: state.fourthHTMLDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                }
+
+            case CSS_CLOSE: 
+
+                return {
+                    ...state,
+                    thirdCSSDot: state.thirdCSSDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    thirdCSSHorizontalLine: state.thirdCSSHorizontalLine.replace('w-[200px]', 'w-0'),
+                    thirdCSSDiagonalLine: state.thirdCSSDiagonalLine.replace('w-[200px]', 'w-0'),
+                    fourthCSSDot: state.fourthCSSDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    fourthCSSDiagDot: state.fourthCSSDiagDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    fourthCSSLine: state.fourthCSSLine.replace('w-[200px]', 'w-0'),
+                    fourthCSSDiagLine: state.fourthCSSDiagLine.replace('w-[200px]', 'w-0'),
+                    fifthCSSDot: state.fifthCSSDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+
+                }
+
+            case JS_CLOSE:
+
+                return {
+                    ...state,
+                    thirdJSDot: state.thirdJSDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    thirdJSHorizontalLine: state.thirdJSHorizontalLine.replace('w-[200px]', 'w-0'),
+                    thirdJSDiagonalLine: state.thirdJSDiagonalLine.replace('w-[200px]', 'w-0'),
+                    fourthJSDot: state.fourthJSDot.replace('w-0', 'w-10').replace('h-10', 'h-0'),
+                    fourthJSLine: state.fourthJSLine.replace('w-[200px]', 'w-0'),
+                    fifthJSDot: state.fifthJSDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    fifthJSLine: state.fifthJSLine.replace('w-[200px]', 'w-0'),
+                    sixthJSDot: state.sixthJSDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    sixthJSLowerLine: state.sixthJSLowerLine.replace('w-[200px]', 'w-0'),
+                    sixthJSUpperLine: state.sixthJSUpperLine.replace('w-[200px]', 'w-0'),
+                    seventhJSUpperDot: state.seventhJSUpperDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    seventhJSLowerDot: state.seventhJSLowerDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    seventhJSLine: state.seventhJSLine.replace('w-[200px]', 'w-0'),
+                    eightJSDot: state.eightJSDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+
+                }
+
+            case TREE_START_CLOSE:
+
+                return {
+                    ...state,
+                    startJSDot: state.startJSDot.replace('left-20', 'left-1/2').replace('-translate-x', '-translate-x-1/2'),
+                    startHTMLDot: state.startHTMLDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    startCSSDot: state.startCSSDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
+                    firstMiddleLine: state.firstMiddleLine.replace('w-[200px]', 'w-0'),
+                    secondDot: state.secondDot.replace('h-10', 'h-0').replace('w-10', 'w-0'),
+                    secondLine: state.secondLine.replace('w-[200px]', 'w-0'),
+
                 }
 
             default:
