@@ -100,14 +100,34 @@ export const MAIN_PAGE_EXIT_2 = "HIDE/MAIN_PAGE_EXIT_2"
 export const MAIN_PAGE_ENTER = "HIDE/MAIN_PAGE_ENTER"
 export const MAIN_PAGE_ENTER_2 = "HIDE/MAIN_PAGE_ENTER_2"
 
+
+// common tree animations //
 export const TREE_ANIM_1 = "TREE/TREE_ANIM_1"
 export const TREE_ANIM_2 = "TREE/TREE_ANIM_2"
 export const TREE_ANIM_3 = "TREE/TREE_ANIM_3"
 export const TREE_ANIM_4 = "TREE/TREE_ANIM_4"
+// html tree part //
+export const HTML_ANIM_5 = "TREE/TREE_HTML_ANIM_5"
+export const HTML_ANIM_6 = "TREE/TREE_HTML_ANIM_6"
+export const HTML_ANIM_7 = "TREE/TREE_HTML_ANIM_7"
+// css tree part //
 export const CSS_ANIM_5 = "TREE/TREE_CSS_ANIM_5"
 export const CSS_ANIM_6 = "TREE/TREE_CSS_ANIM_6"
 export const CSS_ANIM_7 = "TREE/TREE_CSS_ANIM_7"
 export const CSS_ANIM_8 = "TREE/TREE_CSS_ANIM_8"
+export const CSS_ANIM_9 = "TREE/TREE_CSS_ANIM_9"
+// js tree part //
+export const JS_ANIM_5 = "TREE/TREE_JS_ANIM_5"
+export const JS_ANIM_6 = "TREE/TREE_JS_ANIM_6"
+export const JS_ANIM_7 = "TREE/TREE_JS_ANIM_7"
+export const JS_ANIM_8 = "TREE/TREE_JS_ANIM_8"
+export const JS_ANIM_9 = "TREE/TREE_JS_ANIM_9"
+export const JS_ANIM_10 = "TREE/TREE_JS_ANIM_10"
+export const JS_ANIM_11 = "TREE/TREE_JS_ANIM_11"
+export const JS_ANIM_12 = "TREE/TREE_JS_ANIM_12"
+export const JS_ANIM_13 = "TREE/TREE_JS_ANIM_13"
+export const JS_ANIM_14 = "TREE/TREE_JS_ANIM_14"
+export const JS_ANIM_15 = "TREE/TREE_JS_ANIM_15"
 
 
 

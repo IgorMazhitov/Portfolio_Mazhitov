@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   loading: true,
-  loadingStyle: "w-full h-full transition-all duration-700 opacity-100",
+  loadingStyle: "w-full h-full transition-all duration-700 opacity-100 overflow-hidden",
   main: true,
   works: false,
   contacts: false,

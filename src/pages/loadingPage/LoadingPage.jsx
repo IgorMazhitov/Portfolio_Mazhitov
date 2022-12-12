@@ -3,44 +3,35 @@
     import { useEffect } from "react";
     import { useState } from "react";
     import { ReactComponent as Background } from "../../assets/anim_bg.svg"
-    import { ReactComponent as Background2 } from "../../assets/anim_bg_2.svg"
     import { ReactComponent as BackgroundDots } from "../../assets/anim_bg_dots.svg"
 
         const LoadingPage = (props) => {
 
-            const [slideAnim, setSlideAnim] = useState('duration-700 absolute top-0 translate-x-1/2 w-full h-1/2 flex justify-start pl-10 items-center opacity-0 z-0')
-            const [slideNameAnim, setSlideNameAnim] = useState("duration-300 w-full h-1/2 absolute top-1/2 left-1/2 -translate-x-[300%] text-[150px] font-bold -translate-y-[45%] flex justify-center items-center z-0")
+            const [slideAnim, setSlideAnim] = useState('duration-700 absolute top-0 translate-x-1/2 w-full h-1/2 flex justify-start pl-10 items-center opacity-0 z-0 ')
+            const [slideNameAnim, setSlideNameAnim] = useState("duration-700 w-full h-1/2 absolute top-1/2 left-1/2 -translate-x-[300%] text-[150px] font-bold -translate-y-[45%] flex justify-center items-center z-10")
 
             useEffect(() => {
                 setSlideAnim(prev => prev.replace('opacity-0', 'opacity-100'))
                 setTimeout(() => {
                     setSlideNameAnim(prev => prev.replace(' -translate-x-[300%]', ' -translate-x-1/2'))
-                    setSlideAnim(prev => prev.replace(' translate-x-1/2', ' -translate-x-1/3'))
+                    setSlideAnim(prev => prev.replace(' translate-x-1/2', ' -translate-x-[40%]'))
                 }, 1500)
             }, [])
 
             return (
 
-                <div className="w-screen h-screen overflow-hidden">
+                <div className="w-screen h-screen overflow-hidden ">
 
                     
                     <div 
                     /* container for circle */
                     className="absolute w-full h-full duration-[2500ms] overflow-hidden flex justify-center items-center z-10">
-                        <div className="w-full h-full scale-150">
                             <Background />
-                        </div>
-                    </div>
-                    <div 
-                    /* container for circle */
-                    className="absolute w-full h-full overflow-hidden flex justify-center items-center -z-10">
-                        <div className="w-full h-full scale-150">
-                            <Background2 />
-                        </div>
                     </div>
                     <div 
                     /* container for dots */
-                    className="absolute w-full h-full overflow-hidden -z-10">
+                    className="absolute w-full h-full overflow-hidden -z-[1] bg-gray-900 flex">
+                        <BackgroundDots />
                         <BackgroundDots />
                     </div>
 

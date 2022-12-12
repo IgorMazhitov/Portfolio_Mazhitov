@@ -34,25 +34,24 @@
 
 #diagonalFourthCSS {
 
-    transform: initial;
     transform: rotate(-45deg);
 }
   
   #outline {
     fill: none;
-    stroke:#353839;
+    stroke:#fae8ff;
     stroke-dasharray:100%;
     stroke-dashoffset:0;
     animation-name: outline;
     animation-duration: 2s;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
-    animation-delay: 1.5s;
+    animation-delay: 1s;
   }
   
   #fill {
     fill-opacity: 0;
-    fill: black;
+    fill: #fae8ff;
     animation-name: fill;
     animation-duration: 1s;
     animation-timing-function: ease-in;
@@ -85,19 +84,19 @@
 
   #outline2 {
     fill: none;
-    stroke:#353839;
+    stroke:#fae8ff;
     stroke-dasharray:100%;
     stroke-dashoffset:0;
     animation-name: outline;
     animation-duration: 3s;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
-    animation-delay: 1.5s;
+    animation-delay: 1s;
   }
   
   #fill2 {
     fill-opacity: 0;
-    fill:#353839;
+    fill:#fae8ff;
     animation-name: fill;
     animation-duration: 1s;
     animation-timing-function: ease-in;
@@ -125,4 +124,5 @@
       fill-opacity: 1;
     }
   }
+
 

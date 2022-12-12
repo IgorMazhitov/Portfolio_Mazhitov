@@ -221,7 +221,21 @@ function App(props) {
     }
   };
 
-  
+  useEffect(() => {
+
+    setTimeout(() => {
+
+      dispatch({type: LOADING_PAGE_HIDE})
+
+    }, 3900)
+
+    setTimeout(() => {
+
+      dispatch({type: LOADING_PAGE_DIS})
+
+    }, 4300)
+
+  }, [])
 
   if (loading) {
 

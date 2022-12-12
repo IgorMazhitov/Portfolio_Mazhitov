@@ -28,7 +28,7 @@ import { mainIcon } from "../../icons";
 
         return (
             <>
-                <div className="absolute w-full h-full -z-10"> <img className="scale-[200%]" src={require("../../assets/anim_bg_dots.svg").default} alt='mySvgImage' /></div>
+                <div className="absolute w-full h-full -z-10 overflow-hidden"> <img className="scale-[200%]" src={require("../../assets/anim_bg_dots.svg").default} alt='mySvgImage' /></div>
                 <div 
                 className="WORK_CONT absolute duration-[4000ms] top-20 w-[150%] overflow-hidden z-[2]">
 
