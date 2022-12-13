@@ -71,8 +71,6 @@ const Header = (props) => {
       }
     } else if (page === "TREE") {
 
-        console.log('damn')
-
         dispatch({type: TREE_PAGE_ACTIVE})
 
     }
@@ -80,7 +78,7 @@ const Header = (props) => {
 
   return (
     <div
-      className={`absolute top-0 h-20 w-full flex flex-row ${
+      className={`z-10 absolute top-0 h-20 w-full flex flex-row ${
         props.pages.works ? "justify-end" : "justify-between"
       } items-center p-4 text-lg`}
     >

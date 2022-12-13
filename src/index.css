@@ -26,12 +26,6 @@
 
 }
 
-.tree_container {
-
-    height: calc(100% - 80px);
-
-}
-
 #diagonalFourthCSS {
 
     transform: rotate(-45deg);
