@@ -7,14 +7,12 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../Components/Header";
 import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9, CSS_CLOSE, HTML_ANIM_5, HTML_ANIM_6, HTML_ANIM_7, HTML_CLOSE, JS_ANIM_10, JS_ANIM_11, JS_ANIM_12, JS_ANIM_13, JS_ANIM_14, JS_ANIM_15, JS_ANIM_5, JS_ANIM_6, JS_ANIM_7, JS_ANIM_8, JS_ANIM_9, JS_CLOSE, TREE_ANIM_1, TREE_ANIM_2, TREE_ANIM_3, TREE_ANIM_4, TREE_START_CLOSE } from "../../Redux/types";
+import HtmlLine from "./HtmlLine";
 
 
         const TreePage = (props) => {
 
             const dispatch = useDispatch()
-            const [firstHTML, setFirstHTML] = useState('duration-300 absolute -top-2 -translate-y-full text-md bg-black text-slate-200 overflow-hidden h-0')
-            const [secondHTML, setSecondHTML] = useState('duration-300 absolute -top-2 -translate-y-full overflow-hidden h-0 flex flex-col justify-start items-start font-bold gap-1')
-            const [thirdHTML, setThirdHTML] = useState('duration-300 absolute -top-2 -translate-y-full overflow-hidden h-0 flex flex-col justify-start items-start font-bold gap-1')
             const [buttonState, setButtonState] = useState(false)
             const { 
                 startJSDot, startHTMLDot, startCSSDot, firstMiddleLine, 
@@ -125,24 +123,6 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
 
             }
 
-            const firstHTMLClick = () => {
-                if (firstHTML.match('h-0')) {
-                    setFirstHTML(prev => prev.replace('h-0', 'h-auto') + ' py-2 px-4')
-                    setSecondHTML(prev => prev.replace('h-56', 'h-0'))
-                } else {
-                    setFirstHTML(prev => prev.replace('h-auto', 'h-0').replace(' py-2 px-4', ''))
-                }
-            }
-
-            const secondHTMLClick = () => {
-                if (secondHTML.match('h-0')) {
-                    setSecondHTML(prev => prev.replace('h-0', 'h-56'))
-                    setFirstHTML(prev => prev.replace('h-auto', 'h-0').replace(' py-2 px-4', ''))
-                } else {
-                    setSecondHTML(prev => prev.replace('h-56', 'h-0'))
-                }
-            }
-
             return (
 
                 <>
@@ -153,48 +133,7 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
 
                         <div className="absolute w-full h-full -z-10"> <img className="scale-[200%]" src={require("../../assets/anim_bg_dots.svg").default} alt='mySvgImage' /></div>
 
-                        <div 
-                        id="start_point" 
-                        className={startHTMLDot + ' hover:scale-125 z-10 cursor-pointer'} 
-                        onClick={() => firstHTMLClick()}></div>
-
-                        <div className={startHTMLDot}>
-                            <p className={firstHTML}>HTML</p>
-
-                            <div className={firstMiddleLine}>
-
-                                <div 
-                                className={secondDot + ' hover:scale-125 z-10 cursor-pointer'}
-                                onClick={() => secondHTMLClick()}></div>
-                                <div className={secondDot}>
-                                    <div className={secondHTML}>
-                                        <p className='duration-300 uppercase py-2 px-4 text-md text-black border-2'>basics</p>
-                                        <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>media</p>
-                                        <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>forms</p>
-                                        <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>API</p>
-                                        <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>graphics</p>
-                                    </div>
-
-                                    <div className={secondLine}>
-
-                                        <div className={thirdHTMLDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
-                                        <div className={thirdHTMLDot}>
-
-                                            <div className={thirdHTMLLine}>
-
-                                                <div className={fourthHTMLDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
+                        <HtmlLine />
 
                         <div className={startJSDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
                         <div className={startJSDot}>
