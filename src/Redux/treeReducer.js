@@ -8,7 +8,7 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
         buttonStyle: "disabled:opacity-50 uppercase text-2xl duration-300 absolute top-2/3 left-1/2 -translate-x-1/2 -translate-y-1/3 py-4 px-8 bg-black text-slate-200 font-bold",
         // starting points and lines //
         startJSDot: "absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-full w-10 h-10 bg-teal-400 duration-300",
-        startHTMLDot: "check_one absolute top-1/2 left-40 -translate-y-[300%] w-0 h-0 bg-yellow-400 duration-300",
+        startHTMLDot: "check_one absolute top-1/2 left-16 -translate-y-[300%] w-0 h-0 bg-yellow-400 duration-300",
         startCSSDot: "absolute top-1/2 left-56 translate-y-[450%] w-0 h-0 bg-red-500 duration-300",
         firstMiddleLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700 ",
         secondDot: "absolute top-1/2 right-0 -translate-y-1/2 h-0 w-0 bg-inherit duration-300",
@@ -30,7 +30,7 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
         // CSS PART END // 
         thirdJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         thirdJSHorizontalLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
-        thirdJSDiagonalUpperLine: "absolute top-1/2 left-1/2 -translate-y-[950%] -translate-x-[10%] h-2 -rotate-[30deg] bg-inherit w-0 rounded-full duration-700 z-0",
+        thirdJSDiagonalUpperLine: "absolute top-1/2 left-1/2 -translate-y-[1000%] -translate-x-[15%] h-2 -rotate-45 bg-inherit w-0 rounded-full duration-700",
         thirdJSDiagonalLine: "absolute top-1/2 left-1/2 translate-y-[750%] -translate-x-[15%] h-2 rotate-45 bg-inherit w-0 rounded-full duration-700",
         fourthJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         fourthJSLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
@@ -175,7 +175,7 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
 
                 return {
                     ...state,
-                    thirdJSDiagonalUpperLine: state.thirdJSDiagonalUpperLine.replace('w-0', 'w-[320px]'),
+                    thirdJSDiagonalUpperLine: state.thirdJSDiagonalUpperLine.replace('w-0', 'w-[230px]'),
                     thirdJSHorizontalLine: state.thirdJSHorizontalLine.replace('w-0', 'w-[200px]'),
                     thirdJSDiagonalLine: state.thirdJSDiagonalLine.replace('w-0', 'w-[200px]')
                 }
@@ -276,6 +276,7 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
                     thirdJSDot: state.thirdJSDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),
                     thirdJSHorizontalLine: state.thirdJSHorizontalLine.replace('w-[200px]', 'w-0'),
                     thirdJSDiagonalLine: state.thirdJSDiagonalLine.replace('w-[200px]', 'w-0'),
+                    thirdJSDiagonalUpperLine: state.thirdJSDiagonalUpperLine.replace('w-[230px]', 'w-0'),
                     fourthJSDot: state.fourthJSDot.replace('w-0', 'w-10').replace('h-10', 'h-0'),
                     fourthJSLine: state.fourthJSLine.replace('w-[200px]', 'w-0'),
                     fifthJSDot: state.fifthJSDot.replace('w-10', 'w-0').replace('h-10', 'h-0'),

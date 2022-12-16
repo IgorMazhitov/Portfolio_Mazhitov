@@ -25,6 +25,8 @@ import { useState } from "react";
             const [sixthJS, setSixthJS] = useState('duration-300 absolute -right-6 w-0 translate-x-full text-md font-bold text-slate-200 overflow-hidden h-20 flex flex-row justify-start items-start gap-1 z-20')
             const [seventhUpperJS, setSeventhUpperJS] = useState('duration-300 absolute -bottom-8 w-96 translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
             const [eightUpperJS, setEightUpperJS] = useState('duration-300 absolute -bottom-14 -left-8 w-96 translate-y-full -translate-x-1/3 text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
+            const [seventhLowerJS, setSeventhLowerJS] = useState('duration-300 absolute -top-8 w-60 -translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
+            const [eightLowerJS, setEightLowerJS] = useState('duration-300 absolute -top-14 -left-8 w-96 -translate-y-full -translate-x-1/3 text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
             const firstJSClick = () => {
                 if (firstJS.match('h-0')) {
                     setTimeout(() => {
@@ -36,7 +38,9 @@ import { useState } from "react";
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
-                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
+                    setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
                 } else {
                     setFirstJS(prev => prev.replace('h-24', 'h-0'))
                 }
@@ -53,7 +57,9 @@ import { useState } from "react";
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
-                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
+                    setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
                 } else {
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                 }
@@ -70,7 +76,9 @@ import { useState } from "react";
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
-                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
+                    setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
                 } else {
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                 }
@@ -87,7 +95,9 @@ import { useState } from "react";
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
-                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
+                    setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
                 } else {
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
                 }
@@ -104,7 +114,9 @@ import { useState } from "react";
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
-                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
+                    setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
                 } else {
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
                 }
@@ -121,7 +133,9 @@ import { useState } from "react";
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
-                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
+                    setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
                 } else {
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                 }
@@ -138,7 +152,9 @@ import { useState } from "react";
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
-                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
+                    setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
                 } else {
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
                 }
@@ -147,7 +163,7 @@ import { useState } from "react";
             const eightUpperJSClick = () => {
                 if (eightUpperJS.match('h-0')) {
                     setTimeout(() => {
-                        setEightUpperJS(prev => prev.replace('h-0', 'h-24'))
+                        setEightUpperJS(prev => prev.replace('h-0', 'h-20'))
                     }, 300)
                     setFirstJS(prev => prev.replace('h-24', 'h-0'))
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
@@ -156,8 +172,48 @@ import { useState } from "react";
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                    setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
                 } else {
-                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
+                }
+            }
+
+            const seventhLowerJSClick = () => {
+                if (seventhLowerJS.match('h-0')) {
+                    setTimeout(() => {
+                        setSeventhLowerJS(prev => prev.replace('h-0', 'h-32'))
+                    }, 300)
+                    setFirstJS(prev => prev.replace('h-24', 'h-0'))
+                    setSecondJS(prev => prev.replace('h-24', 'h-0'))
+                    setThirdJS(prev => prev.replace('h-20', 'h-0'))
+                    setFourthJS(prev => prev.replace('h-20', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setSixthJS(prev => prev.replace('w-44', 'w-0'))
+                    setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
+                    setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
+                } else {
+                    setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
+                }
+            }
+
+            const eightLowerJSClick = () => {
+                if (eightLowerJS.match('h-0')) {
+                    setTimeout(() => {
+                        setEightLowerJS(prev => prev.replace('h-0', 'h-20'))
+                    }, 300)
+                    setFirstJS(prev => prev.replace('h-24', 'h-0'))
+                    setSecondJS(prev => prev.replace('h-24', 'h-0'))
+                    setThirdJS(prev => prev.replace('h-20', 'h-0'))
+                    setFourthJS(prev => prev.replace('h-20', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setSixthJS(prev => prev.replace('w-44', 'w-0'))
+                    setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
+                    setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                    setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
+                } else {
+                    setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
                 }
             }
 
@@ -200,7 +256,7 @@ import { useState } from "react";
                                     <div className={thirdJSDot}>
 
                                         <div className={thirdJS}>
-                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>DOM MANIPULATION</p>
+                                            <p className=' w duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>DOM MANIPULATION</p>
                                             <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>HTML</p>
                                         </div>
 
@@ -293,13 +349,35 @@ import { useState } from "react";
 
                                                                 <div className={sixthJSLowerLine}>
 
-                                                                    <div className={seventhJSLowerDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
+                                                                    <div 
+                                                                    className={seventhJSLowerDot + ' hover:scale-125 z-10 cursor-pointer'}
+                                                                    onClick={() => seventhLowerJSClick()}></div>
 
                                                                     <div className={seventhJSLowerDot}>
 
+                                                                        <div className={seventhLowerJS}>
+                                                                                <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>REACT-ROUTER</p>
+                                                                                <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>SSR/NEXTJS</p>
+                                                                                <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>AXIOS</p>
+                                                                                <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>HOOK FORM</p>
+                                                                        </div>
+
                                                                         <div className={seventhJSLine}>
 
-                                                                            <div id="end_point" className={eightJSDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
+                                                                            <div 
+                                                                            id="end_point" 
+                                                                            className={eightJSDot + ' hover:scale-125 z-10 cursor-pointer'}
+                                                                            onClick={() => eightLowerJSClick()}></div>
+
+                                                                            <div id="end_point" className={eightJSDot}>
+
+                                                                                <div className={eightLowerJS}>
+                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>MOBX</p>
+                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Styled Component</p>
+                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Material UI</p>
+                                                                                </div>
+
+                                                                            </div>
 
                                                                         </div>
 

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../Components/Header";
 import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9, CSS_CLOSE, HTML_ANIM_5, HTML_ANIM_6, HTML_ANIM_7, HTML_CLOSE, JS_ANIM_10, JS_ANIM_11, JS_ANIM_12, JS_ANIM_13, JS_ANIM_14, JS_ANIM_15, JS_ANIM_5, JS_ANIM_6, JS_ANIM_7, JS_ANIM_8, JS_ANIM_9, JS_CLOSE, TREE_ANIM_1, TREE_ANIM_2, TREE_ANIM_3, TREE_ANIM_4, TREE_START_CLOSE } from "../../Redux/types";
+import CssLine from "./CssLine";
 import HtmlLine from "./HtmlLine";
 import JsLine from "./JsLine";
 
@@ -14,12 +15,7 @@ import JsLine from "./JsLine";
 
             const dispatch = useDispatch()
             const [buttonState, setButtonState] = useState(false)
-            const { 
-                startCSSDot, firstMiddleLine, 
-                secondDot, secondLine, thirdCSSDot, thirdCSSHorizontalLine, 
-                thirdCSSDiagonalLine, fourthCSSDot, fourthCSSDiagDot, 
-                fourthCSSLine, fourthCSSDiagLine, fifthCSSDot, buttonStyle, buttonText
-            } = useSelector(state => state.tree)
+            const { buttonStyle, buttonText } = useSelector(state => state.tree)
 
             const clickHandler = () => {
 
@@ -132,57 +128,7 @@ import JsLine from "./JsLine";
 
                         <JsLine />
 
-                        <div className={startCSSDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
-                        <div className={startCSSDot}>
-
-                            <div className={firstMiddleLine}>
-
-                                <div className={secondDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
-                                <div className={secondDot}>
-
-                                    <div className={secondLine}>
-
-                                        <div className={thirdCSSDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
-                                        <div className={thirdCSSDot}>
-
-                                            <div className={thirdCSSHorizontalLine}>
-
-                                                <div className={fourthCSSDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
-                                                <div className={fourthCSSDot}>
-
-                                                    <div className={fourthCSSLine}>
-
-                                                        <div className={fifthCSSDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                            <div className={thirdCSSDiagonalLine}>
-
-                                                <div className={fourthCSSDiagDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
-                                                <div className={fourthCSSDiagDot}>
-
-                                                    <div className={fourthCSSDiagLine}>
-
-                                                        <div className={fifthCSSDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
+                        <CssLine />
 
                         <button
                         disabled={buttonState}

@@ -24,8 +24,6 @@
                     setSecondHTML(prev => prev.replace('h-56', 'h-0'))
                     setThirdHTML(prev => prev.replace('h-11', 'h-0'))
                     setFourthHTML(prev => prev.replace('w-80', 'w-0'))
-
-
                 } else {
                     setFirstHTML(prev => prev.replace('h-auto', 'h-0').replace(' py-2 px-4', ''))
                 }
