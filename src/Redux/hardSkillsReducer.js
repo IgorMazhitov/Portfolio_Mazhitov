@@ -97,9 +97,9 @@ const initialState = {
   s2Style:
     "w-0 text-black overflow-hidden duration-300 bg-yellow-400 transition-all",
   stripes1:
-    "text-transparent whitespace-nowrap flex justify-center items-center font-bold h-14 transiliton-all overflow-hidden duration-300 w-0 bg-black hover:scale-2 hover:w-[40%] hover:text-yellow-400",
+    "stripe1 text-transparent whitespace-nowrap flex justify-center items-center font-bold transiliton-all overflow-hidden duration-300 w-0 bg-black hover:scale-2 hover:w-[40%] hover:text-yellow-400",
   stripes2:
-    "text-transparent whitespace-nowrap flex justify-center items-center font-bold h-14 transiliton-all overflow-hidden duration-300 w-0 bg-yellow-400 hover:w-[55%] hover:text-black",
+    "stripe2 text-transparent whitespace-nowrap flex justify-center items-center font-bold transiliton-all overflow-hidden duration-300 w-0 bg-yellow-400 hover:w-[55%] hover:text-black",
   stripeV: "absolute top-0 left-0 bg-black duration-300 h-0 w-[2px] opacity-0",
   stripesCont: "STRIPE_COL absolute flex flex-col justify-start text-2xl w-0 bottom-0 left-1/2 py-auto",
 };

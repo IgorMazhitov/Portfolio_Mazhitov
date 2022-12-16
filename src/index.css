@@ -26,6 +26,10 @@
 
 }
 
+.stripe1, .stripe2 {
+  height: calc(100% / 9);
+}
+
 #diagonalFourthCSS {
 
     transform: rotate(-45deg);

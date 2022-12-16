@@ -138,10 +138,10 @@ const SoftSkills = (props) => {
     <div className={softSkills} style={{ height: 0 + "px" }}>
       <table
         id="table"
-        className=" w-full flex flex-col justify-start items-center pt-2 font-bold text-5xl"
+        className=" w-full h-2/3 flex flex-col justify-start items-center mt-5 pt-2 font-bold text-5xl"
       >
-        <tbody>
-          <tr className="flex flex-row w-full justify-between mb-1">
+        <tbody className="w-full h-full flex flex-col justify-evenly items-center">
+          <tr className="flex flex-row w-full justify-evenly mb-1">
             {arr.map((el, ind) =>
               ind < 6 ? (
                 <td
@@ -155,7 +155,7 @@ const SoftSkills = (props) => {
               )
             )}
           </tr>
-          <tr className="flex flex-row w-full justify-between mb-1">
+          <tr className="flex flex-row w-full justify-evenly mb-1">
             {arr.map((el, ind) =>
               ind >= 6 && ind < 12 ? (
                 <td
@@ -169,7 +169,7 @@ const SoftSkills = (props) => {
               )
             )}
           </tr>
-          <tr className="flex flex-row w-full justify-between mb-1">
+          <tr className="flex flex-row w-full justify-evenly mb-1">
             {arr.map((el, ind) =>
               ind >= 12 && ind < 18 ? (
                 <td
@@ -184,7 +184,7 @@ const SoftSkills = (props) => {
               )
             )}
           </tr>
-          <tr className="flex flex-row w-full justify-between mb-1">
+          <tr className="flex flex-row w-full justify-evenly mb-1">
             {arr.map((el, ind) =>
               ind >= 18 && ind < 24 ? (
                 <td

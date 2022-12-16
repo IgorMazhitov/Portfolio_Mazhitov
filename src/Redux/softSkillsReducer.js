@@ -13,7 +13,7 @@ const {
 
 const initialState = {
   softSkills:
-    "SOFT_RIGHT flex flex-col justify-center items-between absolute bg-teal-400 text-3xl transition-all duration-300 w-1/2 opacity-0 top-72 right-0 z-0 overflow-hidden",
+    "SOFT_RIGHT flex flex-col justify-between items-between absolute bg-teal-400 text-3xl transition-all duration-300 w-1/2 opacity-0 top-72 right-0 z-0 overflow-hidden",
   soft1:
     "duration-300 delay-300 text-center ml-[1px] relative right-0 bg-black overflow-hidden h-10 w-0 text-yellow-400",
   soft2:
