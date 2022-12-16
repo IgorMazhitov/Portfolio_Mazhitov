@@ -2,10 +2,14 @@
 
 
     import React from "react";
-import { useState } from "react";
-    import { useSelector } from "react-redux";
+    import { useDispatch, useSelector } from "react-redux";
+    import { CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9 } from "../../Redux/types";
 
-        const CssLine = () => {
+        const CssLine = (props) => {
+
+            const dispatch = useDispatch()
+
+            const textStyle = 'duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-yellow-400 text-black text-center w-fit'
 
             const { 
                 startCSSDot, firstMiddleLine, 
@@ -13,16 +17,12 @@ import { useState } from "react";
                 thirdCSSDiagonalLine, fourthCSSDot, fourthCSSDiagDot, 
                 fourthCSSLine, fourthCSSDiagLine, fifthCSSDot
             } = useSelector(state => state.tree)
-            const [firstCSS, setFirstCSS] = useState('duration-300 absolute -top-2 -translate-y-full text-xl font-bold bg-black text-slate-200 overflow-hidden h-0')
-            const [secondCSS, setSecondCSS] = useState('duration-300 absolute -bottom-4 -left-8 -translate-x-[20%] w-60 translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1')
-            const [thirdCSS, setThirdCSS] = useState('z-20 duration-300 absolute -bottom-4 -left-16 -translate-x-[20%] w-60 translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1')
-            const [fourthCSS, setFourthCSS] = useState('z-20 duration-300 absolute -bottom-4 w-max translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1')
-            const [fifthCSS, setFifthCSS] = useState('z-20 duration-300 absolute -bottom-4 w-max translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1')
-            const [fourthLowerCSS, setFourthLowerCSS] = useState('duration-300 absolute -left-4 -translate-x-full w-60 top-1/2 -translate-y-1/2 text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1')
-            const [fifthLowerCSS, setFifthLowerCSS] = useState('duration-300 absolute -right-4 top-1/2 translate-x-full w-96 -translate-y-1/2 text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1')
 
-
-
+            const {
+                firstCSS, secondCSS, thirdCSS, fourthCSS, fifthCSS, fourthLowerCSS, fifthLowerCSS,
+                setFirstCSS, setSecondCSS, setThirdCSS, setFourthCSS, setFifthCSS, setFourthLowerCSS, setFifthLowerCSS
+            } = props.value
+            
             const firstCSSClick = () => {
                 if (firstCSS.match('h-0')) {
                     setTimeout(() => {
@@ -69,6 +69,10 @@ import { useState } from "react";
                 } else {
                     setThirdCSS(prev => prev.replace('h-24', 'h-0'))
                 }
+                dispatch({type: CSS_ANIM_6})
+                setTimeout(() => {
+                    dispatch({type: CSS_ANIM_7})
+                }, 300)
             }
 
             const fourthLowerCSSClick = () => {
@@ -85,6 +89,10 @@ import { useState } from "react";
                 } else {
                     setFourthLowerCSS(prev => prev.replace('h-24', 'h-0'))
                 }
+                dispatch({type: CSS_ANIM_8})
+                setTimeout(() => {
+                    dispatch({type: CSS_ANIM_9})
+                }, 300)
             }
 
             const fifthLowerCSSClick = () => {
@@ -117,6 +125,10 @@ import { useState } from "react";
                 } else {
                     setFourthCSS(prev => prev.replace('h-14', 'h-0'))
                 }
+                dispatch({type: CSS_ANIM_8})
+                setTimeout(() => {
+                    dispatch({type: CSS_ANIM_9})
+                }, 300)
             }
 
             const fifthCSSClick = () => {
@@ -154,10 +166,10 @@ import { useState } from "react";
                             <div className={secondDot}>
 
                                 <div className={secondCSS}>
-                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>syntax</p>
-                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>box model</p>
-                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>tables</p>
-                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>position</p>
+                                    <p className={textStyle}>syntax</p>
+                                    <p className={textStyle}>box model</p>
+                                    <p className={textStyle}>tables</p>
+                                    <p className={textStyle}>position</p>
                                 </div>
 
                                 <div className={secondLine}>
@@ -168,8 +180,8 @@ import { useState } from "react";
                                     <div className={thirdCSSDot}>
 
                                         <div className={thirdCSS}>
-                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Preprocessors</p>
-                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Frameworks</p>
+                                            <p className={textStyle}>Preprocessors</p>
+                                            <p className={textStyle}>Frameworks</p>
                                         </div>
 
                                         <div className={thirdCSSHorizontalLine}>
@@ -180,9 +192,9 @@ import { useState } from "react";
                                             <div className={fourthCSSDot}>
                                         
                                                 <div className={fourthCSS}>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>transitions</p>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>animations</p>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>pagination</p>
+                                                    <p className={textStyle}>transitions</p>
+                                                    <p className={textStyle}>animations</p>
+                                                    <p className={textStyle}>pagination</p>
                                                 </div>
 
                                                 <div className={fourthCSSLine}>
@@ -194,9 +206,9 @@ import { useState } from "react";
                                                     <div className={fifthCSSDot}>
 
                                                         <div className={fifthCSS}>
-                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>grid</p>
-                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>flexbox</p>
-                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>responsive design</p>
+                                                            <p className={textStyle}>grid</p>
+                                                            <p className={textStyle}>flexbox</p>
+                                                            <p className={textStyle}>responsive design</p>
                                                         </div>
 
                                                     </div>
@@ -214,10 +226,10 @@ import { useState } from "react";
                                             <div className={fourthCSSDiagDot}>
 
                                                 <div className={fourthLowerCSS}>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>SASS</p>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>LESS</p>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>STYLUS</p>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>POST CSS</p>
+                                                    <p className={textStyle}>SASS</p>
+                                                    <p className={textStyle}>LESS</p>
+                                                    <p className={textStyle}>STYLUS</p>
+                                                    <p className={textStyle}>POST CSS</p>
                                                 </div>
 
                                                 <div className={fourthCSSDiagLine}>
@@ -228,10 +240,10 @@ import { useState } from "react";
                                                     <div className={fifthCSSDot}>
 
                                                         <div className={fifthLowerCSS}>
-                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>bootstrap</p>
-                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>tailwind css</p>
-                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>foundation</p>
-                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>bulma</p>
+                                                            <p className={textStyle}>bootstrap</p>
+                                                            <p className={textStyle}>tailwind css</p>
+                                                            <p className={textStyle}>foundation</p>
+                                                            <p className={textStyle}>bulma</p>
                                                         </div>
 
                                                     </div>

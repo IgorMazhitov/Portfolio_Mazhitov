@@ -1,20 +1,25 @@
 
-    import { useSelector } from "react-redux";
-    import { useState } from "react";
+    import { useDispatch, useSelector } from "react-redux";
+    import { HTML_ANIM_6, HTML_ANIM_7 } from "../../Redux/types";
+
 
     import React from "react"
 
         const HtmlLine = (props) => {
 
-            const [firstHTML, setFirstHTML] = useState('duration-300 absolute -top-2 -translate-y-full text-xl font-bold bg-black text-slate-200 overflow-hidden h-0')
-            const [secondHTML, setSecondHTML] = useState('duration-300 absolute -top-2 -translate-y-full overflow-hidden h-0 flex flex-col justify-start items-start font-bold gap-1')
-            const [thirdHTML, setThirdHTML] = useState('duration-300 absolute -top-2 -translate-y-full overflow-hidden h-0 flex flex-row justify-center items-center font-bold gap-1')
-            const [fourthHTML, setFourthHTML] = useState('duration-300 absolute -right-2 translate-x-full -translate-y-1/3 overflow-hidden h-[88px] w-0 flex flex-row flex-wrap justify-center items-center font-bold gap-1')
+            const dispatch = useDispatch()
+
+            const textStyle = 'duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-yellow-400'
 
             const { 
                 startHTMLDot, firstMiddleLine, 
                 secondDot, secondLine, thirdHTMLDot, thirdHTMLLine, fourthHTMLDot, 
             } = useSelector(state => state.tree)
+
+            const {
+                firstHTML, secondHTML, thirdHTML, fourthHTML,
+                setFirstHTML, setSecondHTML, setThirdHTML, setFourthHTML
+            } = props.value
 
             const firstHTMLClick = () => {
                 if (firstHTML.match('h-0')) {
@@ -56,6 +61,10 @@
                 } else {
                     setThirdHTML(prev => prev.replace('h-11', 'h-0'))
                 }
+                dispatch({type: HTML_ANIM_6})
+                setTimeout(() => {
+                    dispatch({type: HTML_ANIM_7})
+                }, 300)
             }
 
             const fourthHTMLClick = () => {
@@ -90,11 +99,11 @@
                             onClick={() => secondHTMLClick()}></div>
                             <div className={secondDot}>
                                 <div className={secondHTML}>
-                                    <p className='duration-300 uppercase py-2 px-4 text-md text-black border-2'>Basics</p>
-                                    <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>MEDIA</p>
-                                    <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>FORMS</p>
-                                    <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>API</p>
-                                    <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>GRAPHICS</p>
+                                    <p className={textStyle}>BASICS</p>
+                                    <p className={textStyle}>MEDIA</p>
+                                    <p className={textStyle}>FORMS</p>
+                                    <p className={textStyle}>API</p>
+                                    <p className={textStyle}>GRAPHICS</p>
                                 </div>
 
                                 <div className={secondLine}>
@@ -105,9 +114,9 @@
                                     <div className={thirdHTMLDot}>
 
                                         <div className={thirdHTML}>
-                                            <p className='duration-300 uppercase py-2 px-4 text-md text-black border-2 box-border'> SEO </p>
-                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200'> SEO basics </p>
-                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200'> SEO tags </p>
+                                            <p className={textStyle}>SEO</p>
+                                            <p className={textStyle}> SEO basics </p>
+                                            <p className={textStyle}> SEO tags </p>
                                         </div>
 
                                         <div className={thirdHTMLLine}>
@@ -119,10 +128,10 @@
 
                                                 <div className={fourthHTML + ' z-[11'}>
 
-                                                    <p className='duration-300 uppercase py-2 px-4 text-md text-black border-2 box-border'> Basics </p>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200'> ELEMENTS </p>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200'> ATTRIBUTES </p>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200'> LAYOUT </p>
+                                                    <p className={textStyle}>BASICS</p>
+                                                    <p className={textStyle}> ELEMENTS </p>
+                                                    <p className={textStyle}> ATTRIBUTES </p>
+                                                    <p className={textStyle}> LAYOUT </p>
 
                                                 </div>
 

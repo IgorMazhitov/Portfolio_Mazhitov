@@ -9,7 +9,7 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
         // starting points and lines //
         startJSDot: "absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-full w-10 h-10 bg-teal-400 duration-300",
         startHTMLDot: "check_one absolute top-1/2 left-16 -translate-y-[300%] w-0 h-0 bg-yellow-400 duration-300",
-        startCSSDot: "absolute top-1/2 left-56 translate-y-[450%] w-0 h-0 bg-red-500 duration-300",
+        startCSSDot: "absolute top-1/2 left-56 translate-y-[450%] w-0 h-0 bg-black duration-300",
         firstMiddleLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700 ",
         secondDot: "absolute top-1/2 right-0 -translate-y-1/2 h-0 w-0 bg-inherit duration-300",
         secondLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700 ",
@@ -42,7 +42,9 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
         seventhJSUpperDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0 rotate-45 bg-inherit duration-300",
         seventhJSLowerDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0 -rotate-45 bg-inherit duration-300",
         seventhJSLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
-        eightJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300"
+        eightJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
+        // GIT DOT // 
+        gitDot: "duration-300 absolute top-1/3 right-96 -translate-x-1/2 -translate-y-[300%] w-0 h-0 bg-black"
 
 
     }
@@ -74,7 +76,8 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
                     ...state,
                     startJSDot: state.startJSDot.replace('left-1/2', 'left-20').replace('-translate-x-1/2', '-translate-x'),
                     startHTMLDot: state.startHTMLDot.replace('w-0', 'w-10').replace('h-0', 'h-10'),
-                    startCSSDot: state.startCSSDot.replace('w-0', 'w-10').replace('h-0', 'h-10')
+                    startCSSDot: state.startCSSDot.replace('w-0', 'w-10').replace('h-0', 'h-10'),
+                    gitDot: state.gitDot.replace('h-0', 'h-10').replace('w-0', 'w-10')
 
                 }
 
@@ -301,6 +304,7 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
                     firstMiddleLine: state.firstMiddleLine.replace('w-[200px]', 'w-0'),
                     secondDot: state.secondDot.replace('h-10', 'h-0').replace('w-10', 'w-0'),
                     secondLine: state.secondLine.replace('w-[200px]', 'w-0'),
+                    gitDot: state.gitDot.replace('h-10', 'h-0').replace('w-10', 'w-0')
 
                 }
 

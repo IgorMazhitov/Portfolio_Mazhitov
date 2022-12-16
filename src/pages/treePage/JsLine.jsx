@@ -1,11 +1,15 @@
 
-    import { useSelector } from "react-redux";
+    import { useDispatch, useSelector } from "react-redux";
 
 
     import React from "react";
-import { useState } from "react";
+    import { JS_ANIM_10, JS_ANIM_11, JS_ANIM_12, JS_ANIM_13, JS_ANIM_14, JS_ANIM_15, JS_ANIM_6, JS_ANIM_7, JS_ANIM_8, JS_ANIM_9, HTML_ANIM_6, HTML_ANIM_7 } from "../../Redux/types";
 
         const JsLine = (props) => {
+
+            const dispatch = useDispatch()
+
+            const textStyle = 'duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-teal-400 text-center w-fit'
 
             const { 
                 startJSDot, firstMiddleLine, 
@@ -17,16 +21,11 @@ import { useState } from "react";
                 seventhJSLine, eightJSDot
             } = useSelector(state => state.tree)
 
-            const [firstJS, setFirstJS] = useState('text-xl duration-300 absolute -top-2 -translate-y-full font-bold text-slate-200 overflow-hidden h-0 flex flex-col gap-1')
-            const [secondJS, setSecondJS] = useState('duration-300 absolute -top-2 w-60 -translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1')
-            const [thirdJS, setThirdJS] = useState('duration-300 absolute -top-2 w-60 -translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
-            const [fourthJS, setFourthJS] = useState('duration-300 absolute -top-2 w-96 -translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
-            const [fifthJS, setFifthJS] = useState('duration-300 absolute -top-2 w-60 -translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
-            const [sixthJS, setSixthJS] = useState('duration-300 absolute -right-6 w-0 translate-x-full text-md font-bold text-slate-200 overflow-hidden h-20 flex flex-row justify-start items-start gap-1 z-20')
-            const [seventhUpperJS, setSeventhUpperJS] = useState('duration-300 absolute -bottom-8 w-96 translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
-            const [eightUpperJS, setEightUpperJS] = useState('duration-300 absolute -bottom-14 -left-8 w-96 translate-y-full -translate-x-1/3 text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
-            const [seventhLowerJS, setSeventhLowerJS] = useState('duration-300 absolute -top-8 w-60 -translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
-            const [eightLowerJS, setEightLowerJS] = useState('duration-300 absolute -top-14 -left-8 w-96 -translate-y-full -translate-x-1/3 text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
+            const {
+                firstJS, secondJS, thirdJS, fourthJS, fifthJS, sixthJS, seventhUpperJS, eightUpperJS, seventhLowerJS, eightLowerJS,
+                setFirstJS, setSecondJS, setThirdJS, setFourthJS, setFifthJS, setSixthJS, setSeventhUpperJS, setEightUpperJS, setSeventhLowerJS, setEightLowerJS
+            } = props.value
+
             const firstJSClick = () => {
                 if (firstJS.match('h-0')) {
                     setTimeout(() => {
@@ -35,7 +34,7 @@ import { useState } from "react";
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
-                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-20', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
                     setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
@@ -54,7 +53,7 @@ import { useState } from "react";
                     setFirstJS(prev => prev.replace('h-24', 'h-0'))
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
-                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-20', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
                     setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
@@ -73,7 +72,7 @@ import { useState } from "react";
                     setFirstJS(prev => prev.replace('h-24', 'h-0'))
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
-                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-20', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
                     setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
@@ -82,6 +81,14 @@ import { useState } from "react";
                 } else {
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                 }
+
+                dispatch({type: JS_ANIM_6})
+                dispatch({type: HTML_ANIM_6})
+                setTimeout(() => {
+                    dispatch({type: HTML_ANIM_7})
+                    dispatch({type: JS_ANIM_7})
+                }, 300)
+
             }
 
             const fourthJSClick = () => {
@@ -92,7 +99,7 @@ import { useState } from "react";
                     setFirstJS(prev => prev.replace('h-24', 'h-0'))
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
-                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-20', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
                     setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
@@ -101,12 +108,16 @@ import { useState } from "react";
                 } else {
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
                 }
+                dispatch({type: JS_ANIM_8})
+                setTimeout(() => {
+                    dispatch({type: JS_ANIM_9})
+                }, 300)
             }
 
             const fifthJSClick = () => {
                 if (fifthJS.match('h-0')) {
                     setTimeout(() => {
-                        setFifthJS(prev => prev.replace('h-0', 'h-24'))
+                        setFifthJS(prev => prev.replace('h-0', 'h-20'))
                     }, 300)
                     setFirstJS(prev => prev.replace('h-24', 'h-0'))
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
@@ -118,8 +129,13 @@ import { useState } from "react";
                     setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
                     setEightLowerJS(prev => prev.replace('h-20', 'h-0'))
                 } else {
-                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-20', 'h-0'))
                 }
+                dispatch({type: JS_ANIM_10})
+                setTimeout(() => {
+                    dispatch({type: JS_ANIM_11})
+                }, 300)
+
             }
 
             const sixthJSClick = () => {
@@ -131,7 +147,7 @@ import { useState } from "react";
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
-                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-20', 'h-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
                     setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
                     setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
@@ -139,6 +155,10 @@ import { useState } from "react";
                 } else {
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                 }
+                dispatch({type: JS_ANIM_12})
+                setTimeout(() => {
+                    dispatch({type: JS_ANIM_13})
+                }, 300)
             }
 
             const seventhUpperJSClick = () => {
@@ -150,7 +170,7 @@ import { useState } from "react";
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
-                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-20', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
                     setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
@@ -158,6 +178,10 @@ import { useState } from "react";
                 } else {
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
                 }
+                dispatch({type: JS_ANIM_14})
+                setTimeout(() => {
+                    dispatch({type: JS_ANIM_15})
+                }, 300)
             }
 
             const eightUpperJSClick = () => {
@@ -169,7 +193,7 @@ import { useState } from "react";
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
-                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-20', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
                     setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
@@ -188,7 +212,7 @@ import { useState } from "react";
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
-                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-20', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
@@ -196,6 +220,10 @@ import { useState } from "react";
                 } else {
                     setSeventhLowerJS(prev => prev.replace('h-32', 'h-0'))
                 }
+                dispatch({type: JS_ANIM_14})
+                setTimeout(() => {
+                    dispatch({type: JS_ANIM_15})
+                }, 300)
             }
 
             const eightLowerJSClick = () => {
@@ -207,7 +235,7 @@ import { useState } from "react";
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
-                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-20', 'h-0'))
                     setSixthJS(prev => prev.replace('w-44', 'w-0'))
                     setEightUpperJS(prev => prev.replace('h-20', 'h-0'))
                     setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
@@ -227,8 +255,8 @@ import { useState } from "react";
                     <div className={startJSDot}>
 
                         <div className={firstJS}>
-                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center'>JavaScript</p>
-                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>ES6</p>
+                            <p className={textStyle}>JavaScript</p>
+                            <p className={textStyle}>ES6</p>
                         </div>
 
                         <div className={firstMiddleLine}>
@@ -240,10 +268,10 @@ import { useState } from "react";
                             <div className={secondDot}>
 
                                 <div className={secondJS}>
-                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>SYNTAX</p>
-                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>DATA TYPES</p>
-                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>FUNCTIONS</p>
-                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>OBJECTS</p>
+                                    <p className={textStyle}>SYNTAX</p>
+                                    <p className={textStyle}>DATA TYPES</p>
+                                    <p className={textStyle}>FUNCTIONS</p>
+                                    <p className={textStyle}>OBJECTS</p>
                                 </div>
 
                                 <div className={secondLine}>
@@ -256,12 +284,12 @@ import { useState } from "react";
                                     <div className={thirdJSDot}>
 
                                         <div className={thirdJS}>
-                                            <p className=' w duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>DOM MANIPULATION</p>
-                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>HTML</p>
+                                            <p className={textStyle}>DOM MANIPULATION</p>
+                                            <p className={textStyle}>HTML</p>
                                         </div>
 
                                         <div className={thirdJS.replace('-top-2', '-bottom-2').replace('-translate-y-full', 'translate-y-full')}>
-                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>CSS</p>
+                                            <p className={textStyle}>CSS</p>
                                         </div>
 
                                         <div className={thirdJSDiagonalUpperLine}></div>
@@ -277,9 +305,9 @@ import { useState } from "react";
                                             <div className={fourthJSDot}>
 
                                                 <div className={fourthJS}>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>ASYNC/AWAIT</p>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>CALLBACKS</p>
-                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>PROMISES</p>
+                                                    <p className={textStyle}>ASYNC/AWAIT</p>
+                                                    <p className={textStyle}>CALLBACKS</p>
+                                                    <p className={textStyle}>PROMISES</p>
                                                 </div>
 
                                                 <div className={fourthJSLine}>
@@ -291,9 +319,9 @@ import { useState } from "react";
                                                     <div className={fifthJSDot}>
 
                                                         <div className={fifthJS}>
-                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>API</p>
-                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>FETCH</p>
-                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>XMLHTTPRequest</p>
+                                                            <p className={textStyle}>API</p>
+                                                            <p className={textStyle}>FETCH</p>
+                                                            <p className={textStyle}>XMLHTTPRequest</p>
                                                         </div>
 
                                                         <div className={fifthJSLine}>
@@ -305,8 +333,8 @@ import { useState } from "react";
                                                             <div className={sixthJSDot}>
 
                                                                 <div className={sixthJS}>
-                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>REACT</p>
-                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>REDUX</p>
+                                                                    <p className={textStyle}>REACT</p>
+                                                                    <p className={textStyle}>REDUX</p>
                                                                 </div>
 
                                                                 <div className={sixthJSUpperLine}>
@@ -318,10 +346,10 @@ import { useState } from "react";
                                                                     <div className={seventhJSUpperDot}>
 
                                                                         <div className={seventhUpperJS}>
-                                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>CLI</p>
-                                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Life Cycle</p>
-                                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Functional/Class Components</p>
-                                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Props</p>
+                                                                            <p className={textStyle}>CLI</p>
+                                                                            <p className={textStyle}>Life Cycle</p>
+                                                                            <p className={textStyle}>Functional/Class Components</p>
+                                                                            <p className={textStyle}>Props</p>
                                                                         </div>
 
                                                                         <div className={seventhJSLine}>
@@ -333,10 +361,10 @@ import { useState } from "react";
                                                                             <div className={eightJSDot}>
 
                                                                                 <div className={eightUpperJS}>
-                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>HOOKS</p>
-                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>REFS</p>
-                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>CONTEXT</p>
-                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>High Order Components</p>
+                                                                                    <p className={textStyle}>HOOKS</p>
+                                                                                    <p className={textStyle}>REFS</p>
+                                                                                    <p className={textStyle}>CONTEXT</p>
+                                                                                    <p className={textStyle}>High Order Components</p>
                                                                                 </div>
 
                                                                             </div>
@@ -356,10 +384,10 @@ import { useState } from "react";
                                                                     <div className={seventhJSLowerDot}>
 
                                                                         <div className={seventhLowerJS}>
-                                                                                <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>REACT-ROUTER</p>
-                                                                                <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>SSR/NEXTJS</p>
-                                                                                <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>AXIOS</p>
-                                                                                <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>HOOK FORM</p>
+                                                                                <p className={textStyle}>REACT-ROUTER</p>
+                                                                                <p className={textStyle}>SSR/NEXTJS</p>
+                                                                                <p className={textStyle}>AXIOS</p>
+                                                                                <p className={textStyle}>HOOK FORM</p>
                                                                         </div>
 
                                                                         <div className={seventhJSLine}>
@@ -372,9 +400,9 @@ import { useState } from "react";
                                                                             <div id="end_point" className={eightJSDot}>
 
                                                                                 <div className={eightLowerJS}>
-                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>MOBX</p>
-                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Styled Component</p>
-                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Material UI</p>
+                                                                                    <p className={textStyle}>MOBX</p>
+                                                                                    <p className={textStyle}>Styled Component</p>
+                                                                                    <p className={textStyle}>Material UI</p>
                                                                                 </div>
 
                                                                             </div>
