@@ -5,7 +5,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../Components/Header";
-import { BTN_END, BTN_START, CSS_ANIM_5, CSS_CLOSE, HTML_ANIM_5, HTML_CLOSE, JS_ANIM_5, JS_CLOSE, TREE_ANIM_1, TREE_ANIM_2, TREE_ANIM_3, TREE_ANIM_4, TREE_START_CLOSE } from "../../Redux/types";
+import { BTN_END, BTN_START, CSS_ANIM_5, CSS_CLOSE, HTML_ANIM_5, HTML_CLOSE, JS_ANIM_5, JS_CLOSE, TREE_ANIM_1, TREE_ANIM_2, TREE_ANIM_3, TREE_ANIM_4, TREE_HIDE_GIT, TREE_SHOW_GIT, TREE_START_CLOSE } from "../../Redux/types";
 import CssLine from "./CssLine";
 import HtmlLine from "./HtmlLine";
 import JsLine from "./JsLine";
@@ -15,9 +15,7 @@ import JsLine from "./JsLine";
 
             const dispatch = useDispatch()
             const [buttonState, setButtonState] = useState(false)
-            const { buttonStyle, buttonText, gitDot } = useSelector(state => state.tree)
-
-            const [gitStyle, setGitStyle] = useState('overflow-hidden duration-300 absolute top-1/2 -translate-y-1/2 translate-x-full text-xl font-bold bg-yellow-400 text-black -right-4 w-0 h-10 flex justify-center items-center')
+            const { buttonStyle, buttonText, gitDot, gitStyle } = useSelector(state => state.tree)
 
             const [firstCSS, setFirstCSS] = useState('duration-300 absolute -top-2 -translate-y-full text-xl font-bold bg-black text-slate-200 overflow-hidden h-0')
             const [secondCSS, setSecondCSS] = useState('duration-300 absolute -bottom-4 -left-8 -translate-x-[20%] w-60 translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1')
@@ -125,9 +123,9 @@ import JsLine from "./JsLine";
 
             const gitClick = () => {
                 if (gitStyle.match('w-0')) {
-                    setGitStyle(prev => prev.replace('w-0', 'w-16') + ' py-2 px-4')
+                    dispatch({type: TREE_SHOW_GIT})
                 } else {
-                    setGitStyle(prev => prev.replace('w-16', 'w-0').replace(' py-2 px-4', ''))
+                    dispatch({type: TREE_HIDE_GIT})
                 }
             }
 
@@ -152,7 +150,7 @@ import JsLine from "./JsLine";
                         onClick={() => gitClick()}></div>
 
                         <div className={gitDot}>
-                            <p className={gitStyle}>GIT</p>
+                            <div className={gitStyle}>GIT</div>
                         </div>
 
                         <button

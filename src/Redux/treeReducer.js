@@ -1,4 +1,4 @@
-import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9, CSS_CLOSE, HTML_ANIM_5, HTML_ANIM_6, HTML_ANIM_7, HTML_CLOSE, JS_ANIM_10, JS_ANIM_11, JS_ANIM_12, JS_ANIM_13, JS_ANIM_14, JS_ANIM_15, JS_ANIM_5, JS_ANIM_6, JS_ANIM_7, JS_ANIM_8, JS_ANIM_9, JS_CLOSE, TREE_ANIM_1, TREE_ANIM_2, TREE_ANIM_3, TREE_ANIM_4, TREE_START_CLOSE } from "./types";
+import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9, CSS_CLOSE, HTML_ANIM_5, HTML_ANIM_6, HTML_ANIM_7, HTML_CLOSE, JS_ANIM_10, JS_ANIM_11, JS_ANIM_12, JS_ANIM_13, JS_ANIM_14, JS_ANIM_15, JS_ANIM_5, JS_ANIM_6, JS_ANIM_7, JS_ANIM_8, JS_ANIM_9, JS_CLOSE, TREE_ANIM_1, TREE_ANIM_2, TREE_ANIM_3, TREE_ANIM_4, TREE_HIDE_GIT, TREE_SHOW_GIT, TREE_START_CLOSE } from "./types";
 
 
 
@@ -44,7 +44,8 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
         seventhJSLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
         eightJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         // GIT DOT // 
-        gitDot: "duration-300 absolute top-1/3 right-96 -translate-x-1/2 -translate-y-[300%] w-0 h-0 bg-black"
+        gitDot: "duration-300 absolute top-1/3 right-96 -translate-x-1/2 -translate-y-[300%] w-0 h-0 bg-black",
+        gitStyle: 'overflow-hidden duration-300 absolute top-1/2 -translate-y-1/2 translate-x-full text-xl font-bold bg-yellow-400 text-black -right-4 w-0 h-10 flex justify-center items-center',
 
 
     }
@@ -304,8 +305,23 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
                     firstMiddleLine: state.firstMiddleLine.replace('w-[200px]', 'w-0'),
                     secondDot: state.secondDot.replace('h-10', 'h-0').replace('w-10', 'w-0'),
                     secondLine: state.secondLine.replace('w-[200px]', 'w-0'),
-                    gitDot: state.gitDot.replace('h-10', 'h-0').replace('w-10', 'w-0')
+                    gitDot: state.gitDot.replace('h-10', 'h-0').replace('w-10', 'w-0'),
+                    gitStyle: state.gitStyle.replace('w-16', 'w-0').replace(' px-4 py-2', '')
 
+                }
+
+            case TREE_SHOW_GIT:
+
+                return {
+                    ...state,
+                    gitStyle: state.gitStyle.replace('w-0', 'w-16') + ' px-4 py-2'
+                }
+
+            case TREE_HIDE_GIT:
+
+                return {
+                    ...state,
+                    gitStyle: state.gitStyle.replace('w-16', 'w-0').replace(' px-4 py-2', '')
                 }
 
             default:

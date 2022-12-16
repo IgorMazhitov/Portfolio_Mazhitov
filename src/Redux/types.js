@@ -134,6 +134,9 @@ export const HTML_CLOSE = "TREE/TREE_HTML_CLOSE"
 export const CSS_CLOSE = "TREE/TREE_CSS_CLOSE"
 export const TREE_START_CLOSE = "TREE/TREE_START_CLOSE"
 
+export const TREE_SHOW_GIT = "TREE/TREE_SHOW_GIT"
+export const TREE_HIDE_GIT = "TREE/TREE_HIDE_GIT"
+
 
 
 export const BTN_START = "TREE/BTN_START"
