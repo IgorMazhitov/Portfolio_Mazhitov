@@ -30,6 +30,7 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
         // CSS PART END // 
         thirdJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         thirdJSHorizontalLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
+        thirdJSDiagonalUpperLine: "absolute top-1/2 left-1/2 -translate-y-[950%] -translate-x-[10%] h-2 -rotate-[30deg] bg-inherit w-0 rounded-full duration-700 z-0",
         thirdJSDiagonalLine: "absolute top-1/2 left-1/2 translate-y-[750%] -translate-x-[15%] h-2 rotate-45 bg-inherit w-0 rounded-full duration-700",
         fourthJSDot: "absolute top-1/2 right-0 -translate-y-1/2 w-0 h-0  bg-inherit duration-300",
         fourthJSLine: "absolute top-1/2 left-1/2 -translate-y-1/2 h-2 bg-inherit w-0 rounded-full duration-700",
@@ -174,6 +175,7 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
 
                 return {
                     ...state,
+                    thirdJSDiagonalUpperLine: state.thirdJSDiagonalUpperLine.replace('w-0', 'w-[320px]'),
                     thirdJSHorizontalLine: state.thirdJSHorizontalLine.replace('w-0', 'w-[200px]'),
                     thirdJSDiagonalLine: state.thirdJSDiagonalLine.replace('w-0', 'w-[200px]')
                 }

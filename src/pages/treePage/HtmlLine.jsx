@@ -1,13 +1,12 @@
 
-    import { useDispatch, useSelector } from "react-redux";
+    import { useSelector } from "react-redux";
     import { useState } from "react";
 
     import React from "react"
 
         const HtmlLine = (props) => {
 
-            const dispatch = useDispatch()
-            const [firstHTML, setFirstHTML] = useState('duration-300 absolute -top-2 -translate-y-full text-md bg-black text-slate-200 overflow-hidden h-0')
+            const [firstHTML, setFirstHTML] = useState('duration-300 absolute -top-2 -translate-y-full text-xl font-bold bg-black text-slate-200 overflow-hidden h-0')
             const [secondHTML, setSecondHTML] = useState('duration-300 absolute -top-2 -translate-y-full overflow-hidden h-0 flex flex-col justify-start items-start font-bold gap-1')
             const [thirdHTML, setThirdHTML] = useState('duration-300 absolute -top-2 -translate-y-full overflow-hidden h-0 flex flex-row justify-center items-center font-bold gap-1')
             const [fourthHTML, setFourthHTML] = useState('duration-300 absolute -right-2 translate-x-full -translate-y-1/3 overflow-hidden h-[88px] w-0 flex flex-row flex-wrap justify-center items-center font-bold gap-1')
@@ -80,35 +79,35 @@
 
                     <div 
                     id="start_point"
-                    className={startHTMLDot + ' hover:scale-125 z-10 cursor-pointer'} 
+                    className={startHTMLDot + ' hover:scale-125 z-[11] cursor-pointer'} 
                     onClick={() => firstHTMLClick()}></div>
 
-                    <div className={startHTMLDot}>
+                    <div className={startHTMLDot + ' z-10'}>
                         <p className={firstHTML}>HTML</p>
 
                         <div className={firstMiddleLine}>
 
                             <div 
-                            className={secondDot + ' hover:scale-125 z-10 cursor-pointer'}
+                            className={secondDot + ' hover:scale-125 z-[11] cursor-pointer'}
                             onClick={() => secondHTMLClick()}></div>
                             <div className={secondDot}>
                                 <div className={secondHTML}>
-                                    <p className='duration-300 uppercase py-2 px-4 text-md text-black border-2'>basics</p>
-                                    <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>media</p>
-                                    <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>forms</p>
+                                    <p className='duration-300 uppercase py-2 px-4 text-md text-black border-2'>Basics</p>
+                                    <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>MEDIA</p>
+                                    <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>FORMS</p>
                                     <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>API</p>
-                                    <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>graphics</p>
+                                    <p className='duration-300 uppercase py-2 px-4 text-md bg-black text-slate-200'>GRAPHICS</p>
                                 </div>
 
                                 <div className={secondLine}>
 
                                     <div 
-                                    className={thirdHTMLDot + ' hover:scale-125 z-10 cursor-pointer'}
+                                    className={thirdHTMLDot + ' hover:scale-125 z-[11] cursor-pointer'}
                                     onClick={() => thirdHTMLClick()}></div>
                                     <div className={thirdHTMLDot}>
 
                                         <div className={thirdHTML}>
-                                            <p className='duration-300 uppercase py-2 px-4 text-md text-black border-2 box-border'> Basics </p>
+                                            <p className='duration-300 uppercase py-2 px-4 text-md text-black border-2 box-border'> SEO </p>
                                             <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200'> SEO basics </p>
                                             <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200'> SEO tags </p>
                                         </div>
@@ -116,11 +115,11 @@
                                         <div className={thirdHTMLLine}>
 
                                             <div 
-                                            className={fourthHTMLDot + ' hover:scale-125 z-10 cursor-pointer'}
+                                            className={fourthHTMLDot + ' hover:scale-125 z-[11] cursor-pointer'}
                                             onClick={() => fourthHTMLClick()}></div>
                                             <div className={fourthHTMLDot}>
 
-                                                <div className={fourthHTML}>
+                                                <div className={fourthHTML + ' z-[11'}>
 
                                                     <p className='duration-300 uppercase py-2 px-4 text-md text-black border-2 box-border'> Basics </p>
                                                     <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200'> ELEMENTS </p>
