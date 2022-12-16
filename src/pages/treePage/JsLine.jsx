@@ -22,6 +22,9 @@ import { useState } from "react";
             const [thirdJS, setThirdJS] = useState('duration-300 absolute -top-2 w-60 -translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
             const [fourthJS, setFourthJS] = useState('duration-300 absolute -top-2 w-96 -translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
             const [fifthJS, setFifthJS] = useState('duration-300 absolute -top-2 w-60 -translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
+            const [sixthJS, setSixthJS] = useState('duration-300 absolute -right-6 w-0 translate-x-full text-md font-bold text-slate-200 overflow-hidden h-20 flex flex-row justify-start items-start gap-1 z-20')
+            const [seventhUpperJS, setSeventhUpperJS] = useState('duration-300 absolute -bottom-8 w-96 translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
+            const [eightUpperJS, setEightUpperJS] = useState('duration-300 absolute -bottom-14 -left-8 w-96 translate-y-full -translate-x-1/3 text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1 z-20')
             const firstJSClick = () => {
                 if (firstJS.match('h-0')) {
                     setTimeout(() => {
@@ -31,6 +34,9 @@ import { useState } from "react";
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setSixthJS(prev => prev.replace('w-44', 'w-0'))
+                    setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
                 } else {
                     setFirstJS(prev => prev.replace('h-24', 'h-0'))
                 }
@@ -45,6 +51,9 @@ import { useState } from "react";
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setSixthJS(prev => prev.replace('w-44', 'w-0'))
+                    setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
                 } else {
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                 }
@@ -59,6 +68,9 @@ import { useState } from "react";
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setSixthJS(prev => prev.replace('w-44', 'w-0'))
+                    setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
                 } else {
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                 }
@@ -73,6 +85,9 @@ import { useState } from "react";
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setSixthJS(prev => prev.replace('w-44', 'w-0'))
+                    setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
                 } else {
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
                 }
@@ -87,8 +102,62 @@ import { useState } from "react";
                     setSecondJS(prev => prev.replace('h-24', 'h-0'))
                     setThirdJS(prev => prev.replace('h-20', 'h-0'))
                     setFourthJS(prev => prev.replace('h-20', 'h-0'))
+                    setSixthJS(prev => prev.replace('w-44', 'w-0'))
+                    setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
                 } else {
                     setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                }
+            }
+
+            const sixthJSClick = () => {
+                if (sixthJS.match('w-0')) {
+                    setTimeout(() => {
+                        setSixthJS(prev => prev.replace('w-0', 'w-44'))
+                    }, 300)
+                    setFirstJS(prev => prev.replace('h-24', 'h-0'))
+                    setSecondJS(prev => prev.replace('h-24', 'h-0'))
+                    setThirdJS(prev => prev.replace('h-20', 'h-0'))
+                    setFourthJS(prev => prev.replace('h-20', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
+                } else {
+                    setSixthJS(prev => prev.replace('w-44', 'w-0'))
+                }
+            }
+
+            const seventhUpperJSClick = () => {
+                if (seventhUpperJS.match('h-0')) {
+                    setTimeout(() => {
+                        setSeventhUpperJS(prev => prev.replace('h-0', 'h-32'))
+                    }, 300)
+                    setFirstJS(prev => prev.replace('h-24', 'h-0'))
+                    setSecondJS(prev => prev.replace('h-24', 'h-0'))
+                    setThirdJS(prev => prev.replace('h-20', 'h-0'))
+                    setFourthJS(prev => prev.replace('h-20', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setSixthJS(prev => prev.replace('w-44', 'w-0'))
+                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
+                } else {
+                    setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                }
+            }
+
+            const eightUpperJSClick = () => {
+                if (eightUpperJS.match('h-0')) {
+                    setTimeout(() => {
+                        setEightUpperJS(prev => prev.replace('h-0', 'h-24'))
+                    }, 300)
+                    setFirstJS(prev => prev.replace('h-24', 'h-0'))
+                    setSecondJS(prev => prev.replace('h-24', 'h-0'))
+                    setThirdJS(prev => prev.replace('h-20', 'h-0'))
+                    setFourthJS(prev => prev.replace('h-20', 'h-0'))
+                    setFifthJS(prev => prev.replace('h-24', 'h-0'))
+                    setSixthJS(prev => prev.replace('w-44', 'w-0'))
+                    setSeventhUpperJS(prev => prev.replace('h-32', 'h-0'))
+                } else {
+                    setEightUpperJS(prev => prev.replace('h-24', 'h-0'))
                 }
             }
 
@@ -173,20 +242,48 @@ import { useState } from "react";
 
                                                         <div className={fifthJSLine}>
 
-                                                            <div className={sixthJSDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
+                                                            <div 
+                                                            className={sixthJSDot + ' hover:scale-125 z-10 cursor-pointer'}
+                                                            onClick={() => sixthJSClick()}></div>
 
                                                             <div className={sixthJSDot}>
 
+                                                                <div className={sixthJS}>
+                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>REACT</p>
+                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>REDUX</p>
+                                                                </div>
+
                                                                 <div className={sixthJSUpperLine}>
 
-                                                                    <div className={seventhJSUpperDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
+                                                                    <div 
+                                                                    className={seventhJSUpperDot + ' hover:scale-125 z-10 cursor-pointer'}
+                                                                    onClick={() => seventhUpperJSClick()}></div>
 
                                                                     <div className={seventhJSUpperDot}>
+
+                                                                        <div className={seventhUpperJS}>
+                                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>CLI</p>
+                                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Life Cycle</p>
+                                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Functional/Class Components</p>
+                                                                            <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>Props</p>
+                                                                        </div>
 
                                                                         <div className={seventhJSLine}>
 
                                                                             <div 
-                                                                            className={eightJSDot + ' hover:scale-125 z-10 cursor-pointer'}></div>
+                                                                            className={eightJSDot + ' hover:scale-125 z-10 cursor-pointer'}
+                                                                            onClick={() => eightUpperJSClick()}></div>
+
+                                                                            <div className={eightJSDot}>
+
+                                                                                <div className={eightUpperJS}>
+                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>HOOKS</p>
+                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>REFS</p>
+                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>CONTEXT</p>
+                                                                                    <p className='duration-300 whitespace-nowrap uppercase py-2 px-4 text-md bg-black text-slate-200 text-center w-fit'>High Order Components</p>
+                                                                                </div>
+
+                                                                            </div>
 
                                                                         </div>
 
