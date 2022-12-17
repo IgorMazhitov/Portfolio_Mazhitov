@@ -15,7 +15,7 @@ import JsLine from "./JsLine";
 
             const dispatch = useDispatch()
             const [buttonState, setButtonState] = useState(false)
-            const { buttonStyle, buttonText, gitDot, gitStyle } = useSelector(state => state.tree)
+            const { buttonStyle, buttonText, gitDot, gitStyle, treePageStyle } = useSelector(state => state.tree)
 
             const [firstCSS, setFirstCSS] = useState('duration-300 absolute -top-2 -translate-y-full text-xl font-bold bg-black text-slate-200 overflow-hidden h-0')
             const [secondCSS, setSecondCSS] = useState('duration-300 absolute -bottom-4 -left-8 -translate-x-[20%] w-60 translate-y-full text-md font-bold text-slate-200 overflow-hidden h-0 flex flex-row flex-wrap justify-start items-start gap-1')
@@ -131,11 +131,11 @@ import JsLine from "./JsLine";
 
             return (
 
-                <>
+                <div className={treePageStyle}>
 
                     <Header />
 
-                    <div className="tree_container w-full absolute bottom-0 h-full overflow-hidden">
+                    <div>
 
                         <div className="absolute w-full h-full -z-10"> <img className="scale-[200%]" src={require("../../assets/anim_bg_dots.svg").default} alt='mySvgImage' /></div>
 
@@ -159,7 +159,7 @@ import JsLine from "./JsLine";
                         onClick={() => clickHandler()}>{buttonText}</button>
                     </div>
                 
-                </>
+                </div>
 
             )
 

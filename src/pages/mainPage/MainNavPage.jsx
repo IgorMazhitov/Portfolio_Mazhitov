@@ -41,7 +41,7 @@ const MainNavPage = (props) => {
 
       <div
         /* trigger for horizontal swap */
-        className={mainHor}
+        className={mainHor + ' main_page_checker'}
         onMouseEnter={() => mainHorHover("ON")}
         onMouseLeave={() => mainHorHover("OUT")}
         onClick={() => show("MAIN_HOR")}

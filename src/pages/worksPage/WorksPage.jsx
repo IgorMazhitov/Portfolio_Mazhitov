@@ -50,7 +50,7 @@ import { mainIcon } from "../../icons";
                         </div>
                     </div>
                     <div className="absolute top-52 left-32 w-32 h-60 bg-black opacity-70 text-yellow-400 text-3xl flex justify-center items-center font-bold"> 
-                        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-yellow-400 text-3xl font-bold flex justify-center items-center flex-col"> <p>:NextJS:</p> <p>:Game:</p> </p> 
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-yellow-400 text-3xl font-bold flex justify-center items-center flex-col"> <p>:NextJS:</p> <p>:Game:</p> </div> 
                         <div className="w-full h-full">
                             <a className="duration-500 bg-black w-full h-full flex justify-center items-center opacity-0 hover:opacity-100 hover:scale-105 text-yellow-400 text-4xl" href="https://github.com/IgorMazhitov/NextGame"> :LINK: </a>
                         </div>
@@ -62,7 +62,7 @@ import { mainIcon } from "../../icons";
                         </div>
                     </div>
                     <div className="absolute bottom-24 left-16 w-72 h-16 bg-yellow-400 opacity-70 text-black flex justify-center items-center text-3xl font-bold">
-                        <p className="absolute w-full h-full text-black flex flex-col justify-center items-center font-bold text-3xl"> <p>:Angular/Finance:</p>  </p> 
+                        <div className="absolute w-full h-full text-black flex flex-col justify-center items-center font-bold text-3xl"> <p>:Angular/Finance:</p>  </div> 
                         <div className="w-full h-full">
                             <a className="duration-500 w-full h-full flex justify-center items-center opacity-0 hover:opacity-100 hover:bg-yellow-400 hover:scale-105 text-black text-5xl" href="https://github.com/IgorMazhitov/AngularTask-Finished-"> :LINK: </a>
                         </div>
@@ -74,13 +74,13 @@ import { mainIcon } from "../../icons";
                         </div>
                     </div>
                     <div className="absolute top-0 left-72 w-64 h-24 bg-black opacity-70 text-yellow-400 flex justify-center items-center text-3xl font-bold">
-                        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-yellow-400 text-3xl font-bold flex justify-center items-center flex-col"> <p>:React/TS:</p> <p>:AviaSale:</p> </p> 
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-yellow-400 text-3xl font-bold flex justify-center items-center flex-col"> <p>:React/TS:</p> <p>:AviaSale:</p> </div> 
                         <div className="w-full h-full">
                             <a className="duration-500 bg-black w-full h-full flex justify-center items-center opacity-0 hover:opacity-100 hover:scale-105 text-yellow-400 text-4xl" href="https://github.com/IgorMazhitov/TestTaskAvia"> :LINK: </a>
                         </div>
                     </div>
                     <div className="absolute bottom-10 left-96 h-24 w-80 bg-black opacity-70 hover:opacity-100">
-                        <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-yellow-400 text-3xl font-bold flex justify-center items-center flex-col"> <p>:CodeWars:</p> <p>:GitHub:</p> </p> 
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-yellow-400 text-3xl font-bold flex justify-center items-center flex-col"> <p>:CodeWars:</p> <p>:GitHub:</p> </div> 
                         <div className="w-full h-full">
                             <a className="duration-500 bg-black w-full h-full flex justify-center items-center opacity-0 hover:opacity-100 hover:scale-105 text-yellow-400 text-5xl" href="http://github.com/IgorMazhitov/CodeWars"> :LINK: </a>
                         </div>
@@ -93,7 +93,7 @@ import { mainIcon } from "../../icons";
                         </div>
                     </div>
                     <div className="absolute bottom-[150px] right-64 h-64 w-64 bg-yellow-400 opacity-70 hover:opacity-100">
-                        <p className="absolute w-full h-full text-black text-3xl flex flex-col justify-center items-center font-bold text-3xl"> <p>:INSTA:</p>  </p> 
+                        <div className="absolute w-full h-full text-black text-3xl flex flex-col justify-center items-center font-bold"> <p>:INSTA:</p>  </div> 
                         <div className="w-full h-full">
                             <a className="duration-500 w-full h-full flex justify-center items-center opacity-0 hover:opacity-100 hover:bg-yellow-400 hover:scale-105 text-black text-5xl" href="https://www.instagram.com/mazhitov.igor/?igshid=YmMyMTA2M2Y%3D"> :LINK: </a>
                         </div>

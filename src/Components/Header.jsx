@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, useDispatch, useSelector } from "react-redux";
-import { mainIcon, worksIcon } from "../icons";
-import { MAIN_PAGE_EXIT, MAIN_PAGE_EXIT_2, TREE_PAGE_ACTIVE, WORKS_PAGE_ACTIVE } from "../Redux/types";
+import { mainIcon, roadmap, worksIcon } from "../icons";
+import { MAIN_PAGE_ACTIVE, MAIN_PAGE_ENTER, MAIN_PAGE_ENTER_2, MAIN_PAGE_EXIT, MAIN_PAGE_EXIT_2, TREE_PAGE_ACTIVE, TREE_PAGE_ENTER_MAIN, TREE_PAGE_ENTER_WORKS, TREE_PAGE_EXIT, TREE_PAGE_EXIT_WORKS, WORKS_PAGE_ACTIVE } from "../Redux/types";
 
 const Header = (props) => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const Header = (props) => {
   const { showHidehardSkills, showHideSoftSkills } = props;
 
   const pagesClickHandler = (page) => {
-    if (page === "WORKS") {
+    if (page === "WORKS" && !document.getElementById('start_point')) {
       if (
         reactInfo ||
         cssInfo ||
@@ -34,7 +34,7 @@ const Header = (props) => {
           }, 300)
         }, 900);
       } else if (
-        document.getElementsByClassName("SOFT_RIGHT")[0].style.height !== "0px"
+        document.getElementsByClassName("SOFT_RIGHT")[0].style.height !== "0px" && !document.getElementById('start_point')
       ) {
         showHideSoftSkills();
         setTimeout(() => {
@@ -69,10 +69,49 @@ const Header = (props) => {
 
         }, 300)
       }
-    } else if (page === "TREE") {
+    } else if (page === "TREE" && document.getElementsByClassName('main_page_checker')[0]) {
 
-        dispatch({type: TREE_PAGE_ACTIVE})
+        dispatch({type: MAIN_PAGE_EXIT})
 
+          
+        setTimeout(() => {
+          
+          dispatch({type: MAIN_PAGE_EXIT_2})
+          dispatch({type: TREE_PAGE_ACTIVE})
+          
+        }, 300)
+
+
+        setTimeout(() => {
+
+          dispatch({type: TREE_PAGE_ENTER_MAIN})
+
+        }, 300)
+
+    } else if (document.getElementById('start_point')) {
+      if (page === "MAIN") {
+        dispatch({type: TREE_PAGE_EXIT})
+
+        setTimeout(() => {
+          dispatch({type: MAIN_PAGE_ENTER})
+        }, 300)
+
+        setTimeout(() => {
+          dispatch({type: MAIN_PAGE_ACTIVE})
+        }, 450)
+
+        setTimeout(() => {
+          dispatch({type: MAIN_PAGE_ENTER_2})
+        }, 500)
+
+      } else if (page === "WORKS") {
+        dispatch({type: TREE_PAGE_EXIT_WORKS})
+
+        setTimeout(() => {
+          dispatch({type: WORKS_PAGE_ACTIVE})
+          dispatch({type: TREE_PAGE_ENTER_WORKS})
+        }, 300)
+      }
     }
   };
 
@@ -84,7 +123,7 @@ const Header = (props) => {
     >
       <div className=" font-bold text-4xl "> Portfolio. </div>
 
-      <div className=" flex flex-row justify-evenly items-center w-96">
+      <div className=" flex flex-row justify-evenly items-center w-[450px]">
         <div
           onClick={() => pagesClickHandler("MAIN")}
           className=" ml-1 flex flex-row items-center justify-center w-20 cursor-pointer bg-transparent transition-all hover:-translate-y-1 hover:border-b-2 hover:border-black"
@@ -95,8 +134,9 @@ const Header = (props) => {
 
         <div
           onClick={() => pagesClickHandler("TREE")}
-          className=" ml-1 flex flex-row items-center justify-center w-20 cursor-pointer bg-transparent transition-all hover:-translate-y-1 hover:border-b-2 hover:border-black"
+          className=" ml-1 flex flex-row items-center justify-start w-max cursor-pointer bg-transparent transition-all hover:-translate-y-1 hover:border-b-2 hover:border-black"
         >
+          {roadmap}
           <p className="ml-1 font-bold"> RoadMap </p>
         </div>
 

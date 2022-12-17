@@ -1,8 +1,9 @@
-import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9, CSS_CLOSE, HTML_ANIM_5, HTML_ANIM_6, HTML_ANIM_7, HTML_CLOSE, JS_ANIM_10, JS_ANIM_11, JS_ANIM_12, JS_ANIM_13, JS_ANIM_14, JS_ANIM_15, JS_ANIM_5, JS_ANIM_6, JS_ANIM_7, JS_ANIM_8, JS_ANIM_9, JS_CLOSE, TREE_ANIM_1, TREE_ANIM_2, TREE_ANIM_3, TREE_ANIM_4, TREE_HIDE_GIT, TREE_SHOW_GIT, TREE_START_CLOSE } from "./types";
+import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS_ANIM_9, CSS_CLOSE, HTML_ANIM_5, HTML_ANIM_6, HTML_ANIM_7, HTML_CLOSE, JS_ANIM_10, JS_ANIM_11, JS_ANIM_12, JS_ANIM_13, JS_ANIM_14, JS_ANIM_15, JS_ANIM_5, JS_ANIM_6, JS_ANIM_7, JS_ANIM_8, JS_ANIM_9, JS_CLOSE, TREE_ANIM_1, TREE_ANIM_2, TREE_ANIM_3, TREE_ANIM_4, TREE_HIDE_GIT, TREE_PAGE_ENTER_MAIN, TREE_PAGE_ENTER_WORKS, TREE_PAGE_EXIT, TREE_PAGE_EXIT_WORKS, TREE_SHOW_GIT, TREE_START_CLOSE } from "./types";
 
 
 
     const initialState = {
+        treePageStyle: 'duration-700 tree_container w-full absolute bottom-0 h-full overflow-hidden',
         // button style //
         buttonText: "open",
         buttonStyle: "disabled:opacity-50 uppercase text-2xl duration-300 absolute top-2/3 left-1/2 -translate-x-1/2 -translate-y-1/3 py-4 px-8 bg-black text-slate-200 font-bold",
@@ -322,6 +323,34 @@ import { BTN_END, BTN_START, CSS_ANIM_5, CSS_ANIM_6, CSS_ANIM_7, CSS_ANIM_8, CSS
                 return {
                     ...state,
                     gitStyle: state.gitStyle.replace('w-16', 'w-0').replace(' px-4 py-2', '')
+                }
+
+            case TREE_PAGE_EXIT:
+
+                return {
+                    ...state,
+                    treePageStyle: state.treePageStyle + ' -translate-x-full'
+                }
+
+            case TREE_PAGE_EXIT_WORKS:
+
+                return {
+                    ...state,
+                    treePageStyle: state.treePageStyle + ' translate-x-full'
+                }
+
+            case TREE_PAGE_ENTER_MAIN:
+
+                return {
+                    ...state,
+                    treePageStyle: state.treePageStyle.replace(' -translate-x-full', '')
+                }
+
+            case TREE_PAGE_ENTER_WORKS:
+
+                return {
+                    ...state,
+                    treePageStyle: state.treePageStyle.replace(' translate-x-full', '')
                 }
 
             default:
