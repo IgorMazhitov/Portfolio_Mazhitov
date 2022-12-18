@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { elReducer } from "./elReducer";
 import { hardSkillsReducer } from "./hardSkillsReducer";
+import { loadingPageReducer } from "./loadingPageReducer";
 import { pagesReducer } from "./pagesReducer";
 import { softSkillsReducer } from "./softSkillsReducer";
 import { treeReducer } from "./treeReducer";
@@ -12,4 +13,5 @@ export const rootReducer = combineReducers({
   soft: softSkillsReducer,
   pages: pagesReducer,
   tree: treeReducer,
+  loading: loadingPageReducer,
 });

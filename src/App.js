@@ -227,13 +227,13 @@ function App(props) {
 
       dispatch({type: LOADING_PAGE_HIDE})
 
-    }, 3900)
+    }, 4000)
 
     setTimeout(() => {
 
       dispatch({type: LOADING_PAGE_DIS})
 
-    }, 4300)
+    }, 4700)
 
   }, [])
 

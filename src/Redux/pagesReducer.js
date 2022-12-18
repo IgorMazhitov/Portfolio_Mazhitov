@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   loading: true,
-  loadingStyle: "w-full h-full transition-all duration-700 opacity-100 overflow-hidden",
+  loadingStyle: "w-screen h-screen transition-all duration-700 opacity-100 overflow-hidden",
   main: true,
   works: false,
   contacts: false,
@@ -69,7 +69,7 @@ export const pagesReducer = (state = initialState, action) => {
       return {
 
         ...state,
-        loadingStyle: state.loadingStyle.replace('opacity-100', 'opacity-0') + ' rounded-full absolute scale-[10%] -translate-y-full'
+        loadingStyle: state.loadingStyle.replace('opacity-100', 'opacity-0') + ' absolute scale-[10%] -translate-y-full'
 
       }
 

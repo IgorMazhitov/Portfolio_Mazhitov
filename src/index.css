@@ -123,4 +123,6 @@
     }
   }
 
-
+.card_flip {
+  transform-style: preserve-3d;
+}
