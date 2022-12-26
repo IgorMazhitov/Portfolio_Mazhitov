@@ -71,22 +71,64 @@ const Header = (props) => {
       }
     } else if (page === "TREE" && document.getElementsByClassName('main_page_checker')[0]) {
 
-        dispatch({type: MAIN_PAGE_EXIT})
-
+        if (
+          reactInfo ||
+          cssInfo ||
+          jsInfo ||
+          document.getElementsByClassName("HARD_LEFT")[0].style.height !== "0px"
+        ) {
+          showHidehardSkills();
+          setTimeout(() => {
+            dispatch({type: MAIN_PAGE_EXIT})
+        
+            setTimeout(() => {
+            
+              dispatch({type: MAIN_PAGE_EXIT_2})
+            
+            }, 300)
           
-        setTimeout(() => {
-          
-          dispatch({type: MAIN_PAGE_EXIT_2})
-          dispatch({type: TREE_PAGE_ACTIVE})
-          
-        }, 300)
+            setTimeout(() => {
 
+              dispatch({type: TREE_PAGE_ACTIVE})
 
-        setTimeout(() => {
+            }, 300)
 
-          dispatch({type: TREE_PAGE_ENTER_MAIN})
+            setTimeout(() => {
 
-        }, 300)
+              dispatch({type: TREE_PAGE_ENTER_MAIN})
+
+            }, 500)
+
+        }, 900);
+      } else if (
+        document.getElementsByClassName("SOFT_RIGHT")[0].style.height !== "0px" && !document.getElementById('start_point')
+      ) {
+          showHideSoftSkills();
+          setTimeout(() => {
+
+            dispatch({type: MAIN_PAGE_EXIT})
+
+            setTimeout(() => {
+            
+              dispatch({type: MAIN_PAGE_EXIT_2})
+            
+            }, 300)
+        
+            setTimeout(() => {
+
+              dispatch({type: TREE_PAGE_ACTIVE})
+
+            }, 300)
+
+            setTimeout(() => {
+
+              dispatch({type: TREE_PAGE_ENTER_MAIN})
+
+            }, 500)
+
+          }, 600);
+
+      }
 
     } else if (document.getElementById('start_point')) {
       if (page === "MAIN") {
